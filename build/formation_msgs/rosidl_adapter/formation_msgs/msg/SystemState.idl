@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/SystemState.msg
+// generated code does not contain a copyright notice
+
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "SystemState.msg" "\n"
+      "Current FSM state, broadcast so the UI (and any other interested node)" "\n"
+      "can reflect system status without querying task_manager directly." "\n"
+      "Expected values: IDLE, HOVERING, PLANNING, EXECUTING, HOLDING," "\n"
+      "                 REFINING, LANDING, ERROR" "\n"
+      "" "\n"
+      "Published by : task_manager_node        (topic: /system/state)" "\n"
+      "Subscribed by: canvas_server_node       (enables/disables UI controls)")
+    struct SystemState {
+      string state;
+    };
+  };
+};

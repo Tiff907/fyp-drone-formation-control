@@ -1,0 +1,466 @@
+[0.123s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.123s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x715c6c65ed70>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x715c6c65e800>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x715c6c65e800>>, mixin_verb=('build',))
+[0.312s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.313s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tiffany/fyp_ws'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extensions ['ignore', 'ignore_ament_install']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extension 'ignore'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extension 'ignore_ament_install'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extensions ['colcon_pkg']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extension 'colcon_pkg'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extensions ['colcon_meta']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extension 'colcon_meta'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extensions ['ros']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_control) by extension 'ros'
+[0.330s] DEBUG:colcon.colcon_core.package_identification:Package 'src/drone_control' with type 'ros.ament_python' and name 'drone_control'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extension 'ignore_ament_install'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extensions ['colcon_pkg']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extension 'colcon_pkg'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extensions ['colcon_meta']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extension 'colcon_meta'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extensions ['ros']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_gazebo) by extension 'ros'
+[0.331s] DEBUG:colcon.colcon_core.package_identification:Package 'src/formation_gazebo' with type 'ros.ament_cmake' and name 'formation_gazebo'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extension 'ignore'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extension 'ignore_ament_install'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extensions ['colcon_pkg']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extension 'colcon_pkg'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extensions ['colcon_meta']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extension 'colcon_meta'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extensions ['ros']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_msgs) by extension 'ros'
+[0.332s] DEBUG:colcon.colcon_core.package_identification:Package 'src/formation_msgs' with type 'ros.ament_cmake' and name 'formation_msgs'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extension 'ignore_ament_install'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extensions ['colcon_pkg']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extension 'colcon_pkg'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extensions ['colcon_meta']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extension 'colcon_meta'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extensions ['ros']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_planner) by extension 'ros'
+[0.333s] DEBUG:colcon.colcon_core.package_identification:Package 'src/formation_planner' with type 'ros.ament_python' and name 'formation_planner'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extensions ['ignore', 'ignore_ament_install']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extension 'ignore'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extension 'ignore_ament_install'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extensions ['colcon_pkg']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extension 'colcon_pkg'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extensions ['colcon_meta']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extension 'colcon_meta'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extensions ['ros']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/formation_ui) by extension 'ros'
+[0.334s] DEBUG:colcon.colcon_core.package_identification:Package 'src/formation_ui' with type 'ros.ament_python' and name 'formation_ui'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extension 'ignore'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extension 'ignore_ament_install'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extensions ['colcon_pkg']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extension 'colcon_pkg'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extensions ['colcon_meta']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extension 'colcon_meta'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extensions ['ros']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/llm_refinement) by extension 'ros'
+[0.336s] DEBUG:colcon.colcon_core.package_identification:Package 'src/llm_refinement' with type 'ros.ament_python' and name 'llm_refinement'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extension 'ignore'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extension 'ignore_ament_install'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extensions ['colcon_pkg']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extension 'colcon_pkg'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extensions ['colcon_meta']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extension 'colcon_meta'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extensions ['ros']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/task_manager) by extension 'ros'
+[0.337s] DEBUG:colcon.colcon_core.package_identification:Package 'src/task_manager' with type 'ros.ament_python' and name 'task_manager'
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.382s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.385s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/tiffany/fyp_ws/install
+[0.386s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 231 installed packages in /opt/ros/humble
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.421s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_args' from command line to 'None'
+[0.421s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_target' from command line to 'None'
+[0.421s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_clean_cache' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_clean_first' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'cmake_force_configure' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'ament_cmake_args' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'catkin_cmake_args' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_gazebo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.422s] DEBUG:colcon.colcon_core.verb:Building package 'formation_gazebo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/formation_gazebo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/formation_gazebo', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/formation_gazebo', 'symlink_install': False, 'test_result_base': None}
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_args' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_target' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.422s] Level 5:colcon.colcon_core.verb:set package 'formation_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.422s] DEBUG:colcon.colcon_core.verb:Building package 'formation_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/formation_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/formation_msgs', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/formation_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_target' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'drone_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.423s] DEBUG:colcon.colcon_core.verb:Building package 'drone_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/drone_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/drone_control', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/drone_control', 'symlink_install': False, 'test_result_base': None}
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_target' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.423s] Level 5:colcon.colcon_core.verb:set package 'formation_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.423s] DEBUG:colcon.colcon_core.verb:Building package 'formation_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/formation_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/formation_planner', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/formation_planner', 'symlink_install': False, 'test_result_base': None}
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_args' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_target' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_clean_cache' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_clean_first' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'cmake_force_configure' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'ament_cmake_args' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'catkin_cmake_args' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'formation_ui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.424s] DEBUG:colcon.colcon_core.verb:Building package 'formation_ui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/formation_ui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/formation_ui', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/formation_ui', 'symlink_install': False, 'test_result_base': None}
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_args' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_target' from command line to 'None'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_clean_cache' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_clean_first' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'cmake_force_configure' from command line to 'False'
+[0.424s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'ament_cmake_args' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'catkin_cmake_args' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'llm_refinement' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.425s] DEBUG:colcon.colcon_core.verb:Building package 'llm_refinement' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/llm_refinement', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/llm_refinement', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/llm_refinement', 'symlink_install': False, 'test_result_base': None}
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_args' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_target' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.425s] Level 5:colcon.colcon_core.verb:set package 'task_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.425s] DEBUG:colcon.colcon_core.verb:Building package 'task_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tiffany/fyp_ws/build/task_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tiffany/fyp_ws/install/task_manager', 'merge_install': False, 'path': '/home/tiffany/fyp_ws/src/task_manager', 'symlink_install': False, 'test_result_base': None}
+[0.425s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.426s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.427s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tiffany/fyp_ws/src/formation_msgs' with build type 'ament_cmake'
+[0.427s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tiffany/fyp_ws/src/formation_msgs'
+[0.430s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.430s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.430s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.434s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tiffany/fyp_ws/src/formation_gazebo' with build type 'ament_cmake'
+[0.434s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tiffany/fyp_ws/src/formation_gazebo'
+[0.434s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.434s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.445s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/build/formation_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_msgs -- -j16 -l16
+[0.449s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/build/formation_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_gazebo -- -j16 -l16
+[0.499s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/build/formation_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_gazebo -- -j16 -l16
+[0.514s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/build/formation_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_gazebo
+[0.527s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_gazebo)
+[0.528s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/build/formation_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_gazebo
+[0.531s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo' for CMake module files
+[0.532s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo' for CMake config files
+[0.532s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_gazebo', 'cmake_prefix_path')
+[0.532s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.ps1'
+[0.533s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.dsv'
+[0.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.sh'
+[0.535s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/bin'
+[0.535s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/lib/pkgconfig/formation_gazebo.pc'
+[0.535s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/lib/python3.10/site-packages'
+[0.535s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/bin'
+[0.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.ps1'
+[0.537s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.dsv'
+[0.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.sh'
+[0.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.bash'
+[0.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.zsh'
+[0.540s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_gazebo/share/colcon-core/packages/formation_gazebo)
+[0.541s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_gazebo)
+[0.541s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo' for CMake module files
+[0.542s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo' for CMake config files
+[0.542s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_gazebo', 'cmake_prefix_path')
+[0.542s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.ps1'
+[0.543s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.dsv'
+[0.543s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/hook/cmake_prefix_path.sh'
+[0.544s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/bin'
+[0.544s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/lib/pkgconfig/formation_gazebo.pc'
+[0.544s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/lib/python3.10/site-packages'
+[0.544s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_gazebo/bin'
+[0.545s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.ps1'
+[0.545s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.dsv'
+[0.546s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.sh'
+[0.546s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.bash'
+[0.547s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.zsh'
+[0.548s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_gazebo/share/colcon-core/packages/formation_gazebo)
+[0.896s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/build/formation_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_msgs -- -j16 -l16
+[0.898s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/build/formation_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_msgs
+[0.983s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_msgs)
+[0.983s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs' for CMake module files
+[0.984s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/build/formation_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tiffany/fyp_ws/install/task_manager:/home/tiffany/fyp_ws/install/llm_refinement:/home/tiffany/fyp_ws/install/formation_ui:/home/tiffany/fyp_ws/install/formation_planner:/home/tiffany/fyp_ws/install/drone_control:/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_msgs
+[0.985s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs' for CMake config files
+[0.985s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_msgs', 'cmake_prefix_path')
+[0.986s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.ps1'
+[0.986s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.dsv'
+[0.987s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.sh'
+[0.987s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib'
+[0.988s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_msgs', 'ld_library_path_lib')
+[0.988s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.ps1'
+[0.988s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.dsv'
+[0.989s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.sh'
+[0.989s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/bin'
+[0.989s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib/pkgconfig/formation_msgs.pc'
+[0.989s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib/python3.10/site-packages'
+[0.990s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/bin'
+[0.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.ps1'
+[0.991s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.dsv'
+[0.992s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.sh'
+[0.992s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.bash'
+[0.993s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.zsh'
+[0.993s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_msgs/share/colcon-core/packages/formation_msgs)
+[0.994s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_msgs)
+[0.994s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs' for CMake module files
+[0.995s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs' for CMake config files
+[0.995s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_msgs', 'cmake_prefix_path')
+[0.995s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.ps1'
+[0.996s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.dsv'
+[0.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/cmake_prefix_path.sh'
+[0.997s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib'
+[0.997s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_msgs', 'ld_library_path_lib')
+[0.997s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.ps1'
+[0.997s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.dsv'
+[0.998s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/hook/ld_library_path_lib.sh'
+[0.998s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/bin'
+[0.998s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib/pkgconfig/formation_msgs.pc'
+[0.998s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/lib/python3.10/site-packages'
+[0.999s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_msgs/bin'
+[0.999s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.ps1'
+[1.000s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.dsv'
+[1.000s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.sh'
+[1.001s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.bash'
+[1.001s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.zsh'
+[1.002s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_msgs/share/colcon-core/packages/formation_msgs)
+[1.002s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tiffany/fyp_ws/src/drone_control' with build type 'ament_python'
+[1.002s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_control', 'ament_prefix_path')
+[1.003s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/ament_prefix_path.ps1'
+[1.004s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/ament_prefix_path.dsv'
+[1.004s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/ament_prefix_path.sh'
+[1.005s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.005s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.009s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tiffany/fyp_ws/src/formation_planner' with build type 'ament_python'
+[1.009s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_planner', 'ament_prefix_path')
+[1.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/ament_prefix_path.ps1'
+[1.010s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/ament_prefix_path.dsv'
+[1.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/ament_prefix_path.sh'
+[1.011s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.011s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.014s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tiffany/fyp_ws/src/formation_ui' with build type 'ament_python'
+[1.014s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_ui', 'ament_prefix_path')
+[1.015s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/ament_prefix_path.ps1'
+[1.015s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/ament_prefix_path.dsv'
+[1.016s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/ament_prefix_path.sh'
+[1.016s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.016s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.020s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tiffany/fyp_ws/src/llm_refinement' with build type 'ament_python'
+[1.020s] Level 1:colcon.colcon_core.shell:create_environment_hook('llm_refinement', 'ament_prefix_path')
+[1.020s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/ament_prefix_path.ps1'
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/ament_prefix_path.dsv'
+[1.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/ament_prefix_path.sh'
+[1.022s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.022s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.026s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tiffany/fyp_ws/src/task_manager' with build type 'ament_python'
+[1.026s] Level 1:colcon.colcon_core.shell:create_environment_hook('task_manager', 'ament_prefix_path')
+[1.027s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/ament_prefix_path.ps1'
+[1.027s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/ament_prefix_path.dsv'
+[1.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/ament_prefix_path.sh'
+[1.028s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.029s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.323s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tiffany/fyp_ws/src/drone_control'
+[1.323s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.323s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.630s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tiffany/fyp_ws/src/formation_planner'
+[1.631s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.631s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.925s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tiffany/fyp_ws/src/formation_ui'
+[1.925s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.926s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.213s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tiffany/fyp_ws/src/llm_refinement'
+[2.213s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.213s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.498s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tiffany/fyp_ws/src/task_manager'
+[2.498s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.498s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.917s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: register, bdist_rpm, setopt, symlink_data, egg_info, clean, upload, build_py, nosetests, bdist_wheel, upload_docs, develop, rotate, install_scripts, build_clib, build_scripts, install_data, install_lib, bdist, install_headers, dist_info, build, bdist_dumb, install_egg_info, easy_install, test, build_ext, install, check, sdist, saveopts, bdist_egg, alias
+[2.919s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: register, bdist_rpm, setopt, symlink_data, egg_info, clean, upload, build_py, nosetests, bdist_wheel, upload_docs, develop, rotate, install_scripts, build_clib, build_scripts, install_data, install_lib, bdist, install_headers, dist_info, build, bdist_dumb, install_egg_info, easy_install, test, build_ext, install, check, sdist, saveopts, bdist_egg, alias
+[2.923s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: register, bdist_rpm, setopt, symlink_data, egg_info, clean, upload, build_py, nosetests, bdist_wheel, upload_docs, develop, rotate, install_scripts, build_clib, build_scripts, install_data, install_lib, bdist, install_headers, dist_info, build, bdist_dumb, install_egg_info, easy_install, test, build_ext, install, check, sdist, saveopts, bdist_egg, alias
+[2.926s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/src/task_manager': PYTHONPATH=/home/tiffany/fyp_ws/build/task_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/task_manager build --build-base /home/tiffany/fyp_ws/build/task_manager/build install --record /home/tiffany/fyp_ws/build/task_manager/install.log --install-scripts $base/lib/task_manager --single-version-externally-managed install_data
+[2.926s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: register, bdist_rpm, setopt, symlink_data, egg_info, clean, upload, build_py, nosetests, bdist_wheel, upload_docs, develop, rotate, install_scripts, build_clib, build_scripts, install_data, install_lib, bdist, install_headers, dist_info, build, bdist_dumb, install_egg_info, easy_install, test, build_ext, install, check, sdist, saveopts, bdist_egg, alias
+[2.930s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/src/formation_ui': PYTHONPATH=/home/tiffany/fyp_ws/build/formation_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_ui build --build-base /home/tiffany/fyp_ws/build/formation_ui/build install --record /home/tiffany/fyp_ws/build/formation_ui/install.log --install-scripts $base/lib/formation_ui --single-version-externally-managed install_data
+[2.930s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/src/formation_planner': PYTHONPATH=/home/tiffany/fyp_ws/build/formation_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_planner build --build-base /home/tiffany/fyp_ws/build/formation_planner/build install --record /home/tiffany/fyp_ws/build/formation_planner/install.log --install-scripts $base/lib/formation_planner --single-version-externally-managed install_data
+[2.931s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/src/drone_control': PYTHONPATH=/home/tiffany/fyp_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/tiffany/fyp_ws/build/drone_control/build install --record /home/tiffany/fyp_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data
+[2.932s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: register, bdist_rpm, setopt, symlink_data, egg_info, clean, upload, build_py, nosetests, bdist_wheel, upload_docs, develop, rotate, install_scripts, build_clib, build_scripts, install_data, install_lib, bdist, install_headers, dist_info, build, bdist_dumb, install_egg_info, easy_install, test, build_ext, install, check, sdist, saveopts, bdist_egg, alias
+[2.936s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tiffany/fyp_ws/src/llm_refinement': PYTHONPATH=/home/tiffany/fyp_ws/build/llm_refinement/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/llm_refinement build --build-base /home/tiffany/fyp_ws/build/llm_refinement/build install --record /home/tiffany/fyp_ws/build/llm_refinement/install.log --install-scripts $base/lib/llm_refinement --single-version-externally-managed install_data
+[3.253s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager' for CMake module files
+[3.253s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/src/task_manager' returned '0': PYTHONPATH=/home/tiffany/fyp_ws/build/task_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/task_manager build --build-base /home/tiffany/fyp_ws/build/task_manager/build install --record /home/tiffany/fyp_ws/build/task_manager/install.log --install-scripts $base/lib/task_manager --single-version-externally-managed install_data
+[3.254s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager' for CMake config files
+[3.254s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager/lib'
+[3.255s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager/bin'
+[3.255s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager/lib/pkgconfig/task_manager.pc'
+[3.255s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages'
+[3.255s] Level 1:colcon.colcon_core.shell:create_environment_hook('task_manager', 'pythonpath')
+[3.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/pythonpath.ps1'
+[3.256s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/pythonpath.dsv'
+[3.256s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/hook/pythonpath.sh'
+[3.257s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/task_manager/bin'
+[3.257s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(task_manager)
+[3.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/package.ps1'
+[3.258s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/package.dsv'
+[3.259s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/package.sh'
+[3.260s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/package.bash'
+[3.260s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/task_manager/share/task_manager/package.zsh'
+[3.260s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/task_manager/share/colcon-core/packages/task_manager)
+[3.279s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui' for CMake module files
+[3.280s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/src/formation_ui' returned '0': PYTHONPATH=/home/tiffany/fyp_ws/build/formation_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_ui build --build-base /home/tiffany/fyp_ws/build/formation_ui/build install --record /home/tiffany/fyp_ws/build/formation_ui/install.log --install-scripts $base/lib/formation_ui --single-version-externally-managed install_data
+[3.281s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui' for CMake config files
+[3.281s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui/lib'
+[3.281s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui/bin'
+[3.281s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui/lib/pkgconfig/formation_ui.pc'
+[3.282s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages'
+[3.282s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_ui', 'pythonpath')
+[3.282s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/pythonpath.ps1'
+[3.282s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/pythonpath.dsv'
+[3.283s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/hook/pythonpath.sh'
+[3.284s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_ui/bin'
+[3.284s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_ui)
+[3.284s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/package.ps1'
+[3.285s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/package.dsv'
+[3.285s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/package.sh'
+[3.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/package.bash'
+[3.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_ui/share/formation_ui/package.zsh'
+[3.286s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_ui/share/colcon-core/packages/formation_ui)
+[3.287s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control' for CMake module files
+[3.288s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control' for CMake config files
+[3.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/src/drone_control' returned '0': PYTHONPATH=/home/tiffany/fyp_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/tiffany/fyp_ws/build/drone_control/build install --record /home/tiffany/fyp_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data
+[3.289s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control/lib'
+[3.289s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control/bin'
+[3.289s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control/lib/pkgconfig/drone_control.pc'
+[3.289s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages'
+[3.290s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_control', 'pythonpath')
+[3.290s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/pythonpath.ps1'
+[3.290s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/pythonpath.dsv'
+[3.291s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/hook/pythonpath.sh'
+[3.291s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/drone_control/bin'
+[3.291s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drone_control)
+[3.292s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/package.ps1'
+[3.292s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/package.dsv'
+[3.293s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/package.sh'
+[3.293s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/package.bash'
+[3.294s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/drone_control/share/drone_control/package.zsh'
+[3.294s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/drone_control/share/colcon-core/packages/drone_control)
+[3.296s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner' for CMake module files
+[3.297s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/src/formation_planner' returned '0': PYTHONPATH=/home/tiffany/fyp_ws/build/formation_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_planner build --build-base /home/tiffany/fyp_ws/build/formation_planner/build install --record /home/tiffany/fyp_ws/build/formation_planner/install.log --install-scripts $base/lib/formation_planner --single-version-externally-managed install_data
+[3.297s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner' for CMake config files
+[3.298s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner/lib'
+[3.298s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner/bin'
+[3.298s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner/lib/pkgconfig/formation_planner.pc'
+[3.298s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages'
+[3.298s] Level 1:colcon.colcon_core.shell:create_environment_hook('formation_planner', 'pythonpath')
+[3.298s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/pythonpath.ps1'
+[3.299s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/pythonpath.dsv'
+[3.299s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/hook/pythonpath.sh'
+[3.300s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/formation_planner/bin'
+[3.300s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(formation_planner)
+[3.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/package.ps1'
+[3.301s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/package.dsv'
+[3.301s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/package.sh'
+[3.302s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/package.bash'
+[3.302s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/formation_planner/share/formation_planner/package.zsh'
+[3.302s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/formation_planner/share/colcon-core/packages/formation_planner)
+[3.303s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement' for CMake module files
+[3.304s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement' for CMake config files
+[3.304s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tiffany/fyp_ws/src/llm_refinement' returned '0': PYTHONPATH=/home/tiffany/fyp_ws/build/llm_refinement/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/llm_refinement build --build-base /home/tiffany/fyp_ws/build/llm_refinement/build install --record /home/tiffany/fyp_ws/build/llm_refinement/install.log --install-scripts $base/lib/llm_refinement --single-version-externally-managed install_data
+[3.305s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement/lib'
+[3.305s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement/bin'
+[3.305s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement/lib/pkgconfig/llm_refinement.pc'
+[3.305s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages'
+[3.305s] Level 1:colcon.colcon_core.shell:create_environment_hook('llm_refinement', 'pythonpath')
+[3.305s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/pythonpath.ps1'
+[3.306s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/pythonpath.dsv'
+[3.306s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/hook/pythonpath.sh'
+[3.307s] Level 1:colcon.colcon_core.environment:checking '/home/tiffany/fyp_ws/install/llm_refinement/bin'
+[3.307s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(llm_refinement)
+[3.307s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/package.ps1'
+[3.308s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/package.dsv'
+[3.308s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/package.sh'
+[3.309s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/package.bash'
+[3.309s] INFO:colcon.colcon_core.shell:Creating package script '/home/tiffany/fyp_ws/install/llm_refinement/share/llm_refinement/package.zsh'
+[3.310s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tiffany/fyp_ws/install/llm_refinement/share/colcon-core/packages/llm_refinement)
+[3.310s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.311s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.311s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.311s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.317s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.317s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.317s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.331s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.331s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tiffany/fyp_ws/install/local_setup.ps1'
+[3.332s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tiffany/fyp_ws/install/_local_setup_util_ps1.py'
+[3.334s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tiffany/fyp_ws/install/setup.ps1'
+[3.335s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tiffany/fyp_ws/install/local_setup.sh'
+[3.336s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tiffany/fyp_ws/install/_local_setup_util_sh.py'
+[3.337s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tiffany/fyp_ws/install/setup.sh'
+[3.338s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tiffany/fyp_ws/install/local_setup.bash'
+[3.338s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tiffany/fyp_ws/install/setup.bash'
+[3.340s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tiffany/fyp_ws/install/local_setup.zsh'
+[3.340s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tiffany/fyp_ws/install/setup.zsh'

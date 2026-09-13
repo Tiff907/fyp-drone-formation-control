@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/DrawnShape.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/ColorRGBA.idl"
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "DrawnShape.msg" "\n"
+      "Raw stroke data captured from the canvas, before sampling." "\n"
+      "" "\n"
+      "Published by : canvas_server_node       (topic: /formation/drawn_shape)" "\n"
+      "Subscribed by: task_manager_node        -> forwarded into formation_planner pipeline" "\n"
+      "               shape_sampling_node      (on task_manager dispatch)")
+    struct DrawnShape {
+      sequence<geometry_msgs::msg::Point> raw_points;
+
+      sequence<std_msgs::msg::ColorRGBA> stroke_colors;
+    };
+  };
+};

@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/RefinementCmd.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "RefinementCmd.msg" "\n"
+      "Natural language refinement instruction plus the point set it applies to." "\n"
+      "" "\n"
+      "Published by : task_manager_node        (topic: /refinement/command)" "\n"
+      "Subscribed by: llm_interface_node")
+    struct RefinementCmd {
+      string instruction_text;
+
+      sequence<geometry_msgs::msg::Point> current_points;
+    };
+  };
+};

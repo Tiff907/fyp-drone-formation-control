@@ -1,0 +1,27 @@
+[1.561s] Invoking command in '/home/tiffany/fyp_ws/src/drone_control': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/tiffany/fyp_ws/build/drone_control/build install --record /home/tiffany/fyp_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data
+[1.854s] running egg_info
+[1.855s] writing ../../build/drone_control/drone_control.egg-info/PKG-INFO
+[1.860s] writing dependency_links to ../../build/drone_control/drone_control.egg-info/dependency_links.txt
+[1.860s] writing entry points to ../../build/drone_control/drone_control.egg-info/entry_points.txt
+[1.860s] writing requirements to ../../build/drone_control/drone_control.egg-info/requires.txt
+[1.860s] writing top-level names to ../../build/drone_control/drone_control.egg-info/top_level.txt
+[1.863s] reading manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+[1.864s] writing manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+[1.864s] running build
+[1.864s] running build_py
+[1.865s] copying drone_control/sim_bridge_node.py -> /home/tiffany/fyp_ws/build/drone_control/build/lib/drone_control
+[1.866s] running install
+[1.866s] running install_lib
+[1.868s] copying /home/tiffany/fyp_ws/build/drone_control/build/lib/drone_control/sim_bridge_node.py -> /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control
+[1.869s] byte-compiling /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control/sim_bridge_node.py to sim_bridge_node.cpython-310.pyc
+[1.871s] running install_data
+[1.871s] running install_egg_info
+[1.873s] removing '/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control-0.0.0-py3.10.egg-info' (and everything under it)
+[1.874s] Copying ../../build/drone_control/drone_control.egg-info to /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control-0.0.0-py3.10.egg-info
+[1.875s] running install_scripts
+[1.899s] Installing drone_controller_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control
+[1.899s] Installing fylo_bridge_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control
+[1.899s] Installing pose_publisher_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control
+[1.899s] Installing sim_bridge_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control
+[1.900s] writing list of installed files to '/home/tiffany/fyp_ws/build/drone_control/install.log'
+[1.946s] Invoked command in '/home/tiffany/fyp_ws/src/drone_control' returned '0': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/tiffany/fyp_ws/build/drone_control/build install --record /home/tiffany/fyp_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data

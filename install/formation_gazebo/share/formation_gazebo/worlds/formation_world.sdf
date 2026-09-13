@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="formation_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <!-- Provides the /world/formation_world/set_pose and light_config
+         services used to teleport drones and update LED colour
+         kinematically, without physics-driven forces. -->
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <direction>-0.3 0.3 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>5 4</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>5 4</size></plane></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Boundary wireframe: visual-only reference for the
+         5m(x) x 4m(y) x 3m(z) ENU flight volume -->
+    <model name="boundary_marker">
+      <static>true</static>
+      <link name="link">
+        <visual name="v"><pose>0 0 1.5 0 0 0</pose>
+          <geometry><box><size>5 4 3</size></box></geometry>
+          <material><ambient>1 1 0 0.1</ambient><diffuse>1 1 0 0.1</diffuse></material>
+          <transparency>0.9</transparency>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

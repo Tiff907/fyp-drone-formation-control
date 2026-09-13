@@ -1,0 +1,22 @@
+[1.970s] Invoking command in '/home/tiffany/fyp_ws/src/llm_refinement': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/llm_refinement/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/llm_refinement build --build-base /home/tiffany/fyp_ws/build/llm_refinement/build install --record /home/tiffany/fyp_ws/build/llm_refinement/install.log --install-scripts $base/lib/llm_refinement --single-version-externally-managed install_data
+[2.230s] running egg_info
+[2.231s] writing ../../build/llm_refinement/llm_refinement.egg-info/PKG-INFO
+[2.236s] writing dependency_links to ../../build/llm_refinement/llm_refinement.egg-info/dependency_links.txt
+[2.236s] writing entry points to ../../build/llm_refinement/llm_refinement.egg-info/entry_points.txt
+[2.236s] writing requirements to ../../build/llm_refinement/llm_refinement.egg-info/requires.txt
+[2.236s] writing top-level names to ../../build/llm_refinement/llm_refinement.egg-info/top_level.txt
+[2.239s] reading manifest file '../../build/llm_refinement/llm_refinement.egg-info/SOURCES.txt'
+[2.241s] writing manifest file '../../build/llm_refinement/llm_refinement.egg-info/SOURCES.txt'
+[2.241s] running build
+[2.241s] running build_py
+[2.241s] running install
+[2.242s] running install_lib
+[2.244s] running install_data
+[2.245s] running install_egg_info
+[2.247s] removing '/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages/llm_refinement-0.0.0-py3.10.egg-info' (and everything under it)
+[2.247s] Copying ../../build/llm_refinement/llm_refinement.egg-info to /home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages/llm_refinement-0.0.0-py3.10.egg-info
+[2.248s] running install_scripts
+[2.270s] Installing coords_adjust_node script to /home/tiffany/fyp_ws/install/llm_refinement/lib/llm_refinement
+[2.270s] Installing llm_interface_node script to /home/tiffany/fyp_ws/install/llm_refinement/lib/llm_refinement
+[2.271s] writing list of installed files to '/home/tiffany/fyp_ws/build/llm_refinement/install.log'
+[2.314s] Invoked command in '/home/tiffany/fyp_ws/src/llm_refinement' returned '0': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/llm_refinement/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/llm_refinement build --build-base /home/tiffany/fyp_ws/build/llm_refinement/build install --record /home/tiffany/fyp_ws/build/llm_refinement/install.log --install-scripts $base/lib/llm_refinement --single-version-externally-managed install_data

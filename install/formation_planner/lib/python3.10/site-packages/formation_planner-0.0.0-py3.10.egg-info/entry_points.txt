@@ -1,0 +1,7 @@
+[console_scripts]
+assignment_node = formation_planner.assignment_node:main
+coords_mapping_node = formation_planner.coords_mapping_node:main
+drone_validator_node = formation_planner.drone_validator_node:main
+mapf_node = formation_planner.mapf_node:main
+shape_sampling_node = formation_planner.shape_sampling_node:main
+

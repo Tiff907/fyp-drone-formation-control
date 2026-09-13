@@ -1,0 +1,53 @@
+[1.850s] Invoking command in '/home/tiffany/fyp_ws/src/formation_planner': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/formation_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_planner build --build-base /home/tiffany/fyp_ws/build/formation_planner/build install --record /home/tiffany/fyp_ws/build/formation_planner/install.log --install-scripts $base/lib/formation_planner --single-version-externally-managed install_data
+[2.099s] running egg_info
+[2.100s] creating ../../build/formation_planner/formation_planner.egg-info
+[2.101s] writing ../../build/formation_planner/formation_planner.egg-info/PKG-INFO
+[2.101s] writing dependency_links to ../../build/formation_planner/formation_planner.egg-info/dependency_links.txt
+[2.101s] writing entry points to ../../build/formation_planner/formation_planner.egg-info/entry_points.txt
+[2.101s] writing requirements to ../../build/formation_planner/formation_planner.egg-info/requires.txt
+[2.101s] writing top-level names to ../../build/formation_planner/formation_planner.egg-info/top_level.txt
+[2.102s] writing manifest file '../../build/formation_planner/formation_planner.egg-info/SOURCES.txt'
+[2.103s] reading manifest file '../../build/formation_planner/formation_planner.egg-info/SOURCES.txt'
+[2.104s] writing manifest file '../../build/formation_planner/formation_planner.egg-info/SOURCES.txt'
+[2.105s] running build
+[2.105s] running build_py
+[2.105s] creating /home/tiffany/fyp_ws/build/formation_planner/build
+[2.105s] creating /home/tiffany/fyp_ws/build/formation_planner/build/lib
+[2.105s] creating /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.105s] copying formation_planner/coords_mapping_node.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.105s] copying formation_planner/__init__.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.105s] copying formation_planner/assignment_node.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.106s] copying formation_planner/shape_sampling_node.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.106s] copying formation_planner/mapf_node.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.106s] copying formation_planner/drone_validator_node.py -> /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner
+[2.106s] running install
+[2.106s] running install_lib
+[2.109s] creating /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.109s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/coords_mapping_node.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.110s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/__init__.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.110s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/assignment_node.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.110s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/shape_sampling_node.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.110s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/mapf_node.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.110s] copying /home/tiffany/fyp_ws/build/formation_planner/build/lib/formation_planner/drone_validator_node.py -> /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner
+[2.111s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/coords_mapping_node.py to coords_mapping_node.cpython-310.pyc
+[2.111s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/__init__.py to __init__.cpython-310.pyc
+[2.111s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/assignment_node.py to assignment_node.cpython-310.pyc
+[2.111s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/shape_sampling_node.py to shape_sampling_node.cpython-310.pyc
+[2.112s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/mapf_node.py to mapf_node.cpython-310.pyc
+[2.112s] byte-compiling /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner/drone_validator_node.py to drone_validator_node.cpython-310.pyc
+[2.113s] running install_data
+[2.113s] creating /home/tiffany/fyp_ws/install/formation_planner/share/ament_index
+[2.113s] creating /home/tiffany/fyp_ws/install/formation_planner/share/ament_index/resource_index
+[2.113s] creating /home/tiffany/fyp_ws/install/formation_planner/share/ament_index/resource_index/packages
+[2.113s] copying resource/formation_planner -> /home/tiffany/fyp_ws/install/formation_planner/share/ament_index/resource_index/packages
+[2.113s] copying package.xml -> /home/tiffany/fyp_ws/install/formation_planner/share/formation_planner
+[2.113s] running install_egg_info
+[2.114s] Copying ../../build/formation_planner/formation_planner.egg-info to /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner-0.0.0-py3.10.egg-info
+[2.114s] running install_scripts
+[2.135s] Installing assignment_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner
+[2.135s] Installing coords_mapping_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner
+[2.135s] Installing drone_validator_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner
+[2.135s] Installing mapf_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner
+[2.136s] Installing shape_sampling_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner
+[2.136s] writing list of installed files to '/home/tiffany/fyp_ws/build/formation_planner/install.log'
+[2.192s] Invoked command in '/home/tiffany/fyp_ws/src/formation_planner' returned '0': AMENT_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/tiffany/fyp_ws/install/formation_msgs LD_LIBRARY_PATH=/home/tiffany/fyp_ws/install/formation_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/tiffany/fyp_ws/build/formation_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/formation_planner build --build-base /home/tiffany/fyp_ws/build/formation_planner/build install --record /home/tiffany/fyp_ws/build/formation_planner/install.log --install-scripts $base/lib/formation_planner --single-version-externally-managed install_data

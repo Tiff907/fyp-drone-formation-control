@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/DroneSetpoint.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/ColorRGBA.idl"
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "DroneSetpoint.msg" "\n"
+      "Current target position for a single drone at this control tick," "\n"
+      "interpolated from DronePath by drone_controller_node." "\n"
+      "" "\n"
+      "Published by : drone_controller_node    (topic: /drone/setpoint)" "\n"
+      "Subscribed by: sim_bridge_node OR fylo_bridge_node (whichever is active)")
+    struct DroneSetpoint {
+      int32 drone_id;
+
+      geometry_msgs::msg::Point target_position;
+
+      std_msgs::msg::ColorRGBA led_color;
+    };
+  };
+};

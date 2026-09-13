@@ -1,0 +1,16 @@
+{
+  "package_name": "formation_msgs",
+  "non_idl_tuples": [
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/DrawnShape.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/FormationGoal.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/DronePath.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/DroneState.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/RefinementCmd.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/RefinementCandidate.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/GeneratedTransform.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/PlanStatus.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/SystemState.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/UserCommand.msg",
+    "/home/tiffany/fyp_ws/src/formation_msgs:msg/DroneSetpoint.msg"
+  ]
+}

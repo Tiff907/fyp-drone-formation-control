@@ -1,0 +1,5 @@
+anthropic
+setuptools
+
+[test]
+pytest

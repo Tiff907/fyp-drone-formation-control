@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/PlanStatus.msg
+// generated code does not contain a copyright notice
+
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "PlanStatus.msg" "\n"
+      "Pass/fail + diagnostic report from any formation_planner stage back to" "\n"
+      "task_manager (e.g. shape rejected, safety check failed and retrying," "\n"
+      "drone count decremented due to hardware fault)." "\n"
+      "" "\n"
+      "Published by : drone_validator_node     (topic: /formation/plan_status)" "\n"
+      "               assignment_node" "\n"
+      "               mapf_node" "\n"
+      "Subscribed by: task_manager_node")
+    struct PlanStatus {
+      boolean success;
+
+      string status_message;
+
+      int32 usable_drone_count;
+    };
+  };
+};

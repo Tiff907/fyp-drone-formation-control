@@ -1,0 +1,516 @@
+-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/tiffany/fyp_ws/build/formation_msgs
+[  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[  2%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  2%] Built target ament_cmake_python_copy_formation_msgs
+running egg_info
+writing formation_msgs.egg-info/PKG-INFO
+writing dependency_links to formation_msgs.egg-info/dependency_links.txt
+writing top-level names to formation_msgs.egg-info/top_level.txt
+reading manifest file 'formation_msgs.egg-info/SOURCES.txt'
+writing manifest file 'formation_msgs.egg-info/SOURCES.txt'
+[  2%] Built target ament_cmake_python_build_formation_msgs_egg
+[  2%] Built target formation_msgs__rs
+[  2%] Built target formation_msgs__cpp
+[  3%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[  4%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[  5%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_generator_c[0m
+[  6%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drawn_shape__functions.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/refinement_candidate__functions.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_path__functions.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_state__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/refinement_cmd__functions.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/formation_goal__functions.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/generated_transform__functions.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/plan_status__functions.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/system_state__functions.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_setpoint__functions.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/user_command__functions.c.o[0m
+[ 16%] [32m[1mLinking C shared library libformation_msgs__rosidl_generator_c.so[0m
+[ 16%] Built target formation_msgs__rosidl_generator_c
+[ 18%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 18%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 19%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_cpp[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/formation_goal__type_support.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_candidate__type_support.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_path__type_support.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_cmd__type_support.cpp.o[0m
+[ 24%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drawn_shape__type_support.cpp.o[0m
+[ 24%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_state__type_support.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/generated_transform__type_support.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/user_command__type_support.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_setpoint__type_support.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/plan_status__type_support.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/system_state__type_support.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_cpp[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_c[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drawn_shape__type_support.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drawn_shape__type_support.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/formation_goal__type_support.cpp.o[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/formation_goal__type_support.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_state__type_support.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_path__type_support.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_path__type_support.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_state__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/refinement_cmd__type_support.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/refinement_cmd__type_support.cpp.o[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/refinement_candidate__type_support.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/refinement_candidate__type_support.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/generated_transform__type_support.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/generated_transform__type_support.cpp.o[0m
+[ 42%] [32m[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_cpp.so[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drawn_shape__type_support.cpp.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/plan_status__type_support.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/formation_goal__type_support.cpp.o[0m
+[ 46%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_path__type_support.cpp.o[0m
+[ 46%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_state__type_support.cpp.o[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/plan_status__type_support.cpp.o[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/system_state__type_support.cpp.o[0m
+[ 48%] Built target formation_msgs__rosidl_typesupport_cpp
+[ 48%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/user_command__type_support.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_c[0m
+[ 49%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/refinement_cmd__type_support.cpp.o[0m
+[ 49%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drawn_shape__type_support.c.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_setpoint__type_support.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_c[0m
+[ 51%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/formation_goal__type_support.c.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drawn_shape__type_support_c.cpp.o[0m
+[ 52%] [32m[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_c.so[0m
+[ 53%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_path__type_support.c.o[0m
+[ 53%] Built target formation_msgs__rosidl_typesupport_c
+[ 54%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/formation_goal__type_support_c.cpp.o[0m
+[ 55%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_state__type_support.c.o[0m
+[ 56%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/refinement_cmd__type_support.c.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/refinement_candidate__type_support.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/system_state__type_support.cpp.o[0m
+[ 59%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/refinement_candidate__type_support.c.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/user_command__type_support.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/generated_transform__type_support.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_setpoint__type_support.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_path__type_support_c.cpp.o[0m
+[ 64%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/generated_transform__type_support.c.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/plan_status__type_support.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/system_state__type_support.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_state__type_support_c.cpp.o[0m
+[ 68%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/plan_status__type_support.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/system_state__type_support.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/user_command__type_support.c.o[0m
+[ 70%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_setpoint__type_support.c.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/user_command__type_support.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/refinement_cmd__type_support_c.cpp.o[0m
+[ 73%] [32m[1mLinking C shared library libformation_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/refinement_candidate__type_support_c.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/generated_transform__type_support_c.cpp.o[0m
+[ 75%] Built target formation_msgs__rosidl_typesupport_introspection_c
+[ 76%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/plan_status__type_support_c.cpp.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_setpoint__type_support.cpp.o[0m
+[ 78%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/system_state__type_support_c.cpp.o[0m
+[ 78%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/user_command__type_support_c.cpp.o[0m
+[ 79%] [32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_setpoint__type_support_c.cpp.o[0m
+[ 80%] [32m[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 80%] Built target formation_msgs__rosidl_typesupport_introspection_cpp
+[ 81%] [32m[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 82%] [32m[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 82%] Built target formation_msgs__rosidl_typesupport_fastrtps_cpp
+[ 82%] Built target formation_msgs__rosidl_typesupport_fastrtps_c
+[ 82%] Built target formation_msgs
+[ 83%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 83%] Built target formation_msgs__py
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_generator_py[0m
+[ 85%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_formation_goal_s.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drawn_shape_s.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_path_s.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_state_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_refinement_candidate_s.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_refinement_cmd_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_plan_status_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_generated_transform_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_setpoint_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_system_state_s.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_user_command_s.c.o[0m
+[ 94%] [32m[1mLinking C shared library rosidl_generator_py/formation_msgs/libformation_msgs__rosidl_generator_py.so[0m
+[ 94%] Built target formation_msgs__rosidl_generator_py
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[35m[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_c__pyext[0m
+[ 96%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 96%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[ 97%] [32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 98%] [32m[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[100%] Built target formation_msgs__rosidl_typesupport_c__pyext
+[100%] Built target formation_msgs__rosidl_typesupport_introspection_c__pyext
+[100%] Built target formation_msgs__rosidl_typesupport_fastrtps_c__pyext
+-- Install configuration: ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/rosidl_interfaces/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/generated_transform.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/system_state.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drawn_shape.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_path.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_setpoint.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/formation_goal.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/plan_status.h
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__functions.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__struct.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__functions.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_cmd.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/user_command.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_state.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_candidate.h
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/library_path.sh
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/library_path.dsv
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_c.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_introspection_c.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/user_command.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_setpoint.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/plan_status.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_path.hpp
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/formation_goal.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_state.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/generated_transform.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_candidate.hpp
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__struct.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__builder.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__traits.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/system_state.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drawn_shape.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_cmd.hpp
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/dds_fastrtps
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.cpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_cpp.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/pythonpath.sh
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/pythonpath.dsv
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/__init__.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/libformation_msgs__rosidl_generator_py.so
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/__init__.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform.py
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path_s.c
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_c.c
+Listing '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/__init__.py'...
+Listing '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/__init__.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state.py'...
+Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command.py'...
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_py.so
+-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_py.so" to ""
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/rust_packages/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/build.rs
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/Cargo.toml
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/lib.rs
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg.rs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg/rmw.rs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DrawnShape.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/FormationGoal.idl
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DronePath.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneState.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCmd.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCandidate.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/GeneratedTransform.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/PlanStatus.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/SystemState.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/UserCommand.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneSetpoint.idl
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DrawnShape.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/FormationGoal.msg
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DronePath.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneState.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCmd.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCandidate.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/GeneratedTransform.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/PlanStatus.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/SystemState.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/UserCommand.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneSetpoint.msg
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/package_run_dependencies/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/parent_prefix_path/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/ament_prefix_path.sh
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/path.sh
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/path.dsv
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.bash
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.sh
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.zsh
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.dsv
+-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.dsv
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/packages/formation_msgs
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_pyExport-noconfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgsConfig.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgsConfig-version.cmake
+-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.xml

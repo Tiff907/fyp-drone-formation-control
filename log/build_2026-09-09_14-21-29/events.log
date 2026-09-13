@@ -1,0 +1,859 @@
+[0.000000] (-) TimerEvent: {}
+[0.000745] (formation_gazebo) JobQueued: {'identifier': 'formation_gazebo', 'dependencies': OrderedDict()}
+[0.000972] (formation_msgs) JobQueued: {'identifier': 'formation_msgs', 'dependencies': OrderedDict()}
+[0.000998] (drone_control) JobQueued: {'identifier': 'drone_control', 'dependencies': OrderedDict([('formation_msgs', '/home/tiffany/fyp_ws/install/formation_msgs')])}
+[0.001024] (formation_planner) JobQueued: {'identifier': 'formation_planner', 'dependencies': OrderedDict([('formation_msgs', '/home/tiffany/fyp_ws/install/formation_msgs')])}
+[0.001045] (formation_ui) JobQueued: {'identifier': 'formation_ui', 'dependencies': OrderedDict([('formation_msgs', '/home/tiffany/fyp_ws/install/formation_msgs')])}
+[0.001065] (llm_refinement) JobQueued: {'identifier': 'llm_refinement', 'dependencies': OrderedDict([('formation_msgs', '/home/tiffany/fyp_ws/install/formation_msgs')])}
+[0.001085] (task_manager) JobQueued: {'identifier': 'task_manager', 'dependencies': OrderedDict([('formation_msgs', '/home/tiffany/fyp_ws/install/formation_msgs')])}
+[0.001106] (formation_msgs) JobStarted: {'identifier': 'formation_msgs'}
+[0.006944] (formation_gazebo) JobStarted: {'identifier': 'formation_gazebo'}
+[0.013940] (formation_msgs) JobProgress: {'identifier': 'formation_msgs', 'progress': 'cmake'}
+[0.014746] (formation_msgs) JobProgress: {'identifier': 'formation_msgs', 'progress': 'build'}
+[0.015739] (formation_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/tiffany/fyp_ws/build/formation_msgs', '--', '-j16', '-l16'], 'cwd': '/home/tiffany/fyp_ws/build/formation_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'tiffany'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tiffany'), ('OLDPWD', '/home/tiffany'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('SYSTEMD_EXEC_PID', '2164'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'tiffany'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tiffany'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.5SBQV3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', ':/home/tiffany/fyp_ws/src/formation_gazebo/models'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tiffany/fyp_ws/build/formation_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.026274] (formation_gazebo) JobProgress: {'identifier': 'formation_gazebo', 'progress': 'cmake'}
+[0.027167] (formation_gazebo) JobProgress: {'identifier': 'formation_gazebo', 'progress': 'build'}
+[0.027712] (formation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/tiffany/fyp_ws/build/formation_gazebo', '--', '-j16', '-l16'], 'cwd': '/home/tiffany/fyp_ws/build/formation_gazebo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'tiffany'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tiffany'), ('OLDPWD', '/home/tiffany'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('SYSTEMD_EXEC_PID', '2164'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'tiffany'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tiffany'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.5SBQV3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', ':/home/tiffany/fyp_ws/src/formation_gazebo/models'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tiffany/fyp_ws/build/formation_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.064060] (formation_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.092977] (formation_gazebo) CommandEnded: {'returncode': 0}
+[0.093711] (formation_gazebo) JobProgress: {'identifier': 'formation_gazebo', 'progress': 'install'}
+[0.099705] (-) TimerEvent: {}
+[0.112746] (formation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/tiffany/fyp_ws/build/formation_gazebo'], 'cwd': '/home/tiffany/fyp_ws/build/formation_gazebo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'tiffany'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tiffany'), ('OLDPWD', '/home/tiffany'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('SYSTEMD_EXEC_PID', '2164'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'tiffany'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tiffany'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.5SBQV3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', ':/home/tiffany/fyp_ws/src/formation_gazebo/models'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tiffany/fyp_ws/build/formation_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.124989] (formation_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.125411] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/models\n'}
+[0.125566] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/models/drone\n'}
+[0.125798] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/models/drone/model.config\n'}
+[0.125987] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/models/drone/model.sdf\n'}
+[0.126100] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/worlds\n'}
+[0.126211] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/worlds/formation_world.sdf\n'}
+[0.126310] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/launch\n'}
+[0.126410] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/launch/formation_sim.launch.py\n'}
+[0.126585] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/lib/formation_gazebo/spawn_drones.sh\n'}
+[0.126700] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/ament_index/resource_index/package_run_dependencies/formation_gazebo\n'}
+[0.126807] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/ament_index/resource_index/parent_prefix_path/formation_gazebo\n'}
+[0.126908] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/environment/ament_prefix_path.sh\n'}
+[0.127007] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/environment/ament_prefix_path.dsv\n'}
+[0.127104] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/environment/path.sh\n'}
+[0.127201] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/environment/path.dsv\n'}
+[0.127297] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/local_setup.bash\n'}
+[0.127393] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/local_setup.sh\n'}
+[0.127490] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/local_setup.zsh\n'}
+[0.127594] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/local_setup.dsv\n'}
+[0.127700] (formation_gazebo) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.dsv\n'}
+[0.127883] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/ament_index/resource_index/packages/formation_gazebo\n'}
+[0.128005] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/cmake/formation_gazeboConfig.cmake\n'}
+[0.128089] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/cmake/formation_gazeboConfig-version.cmake\n'}
+[0.128164] (formation_gazebo) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_gazebo/share/formation_gazebo/package.xml\n'}
+[0.130258] (formation_gazebo) CommandEnded: {'returncode': 0}
+[0.157351] (formation_gazebo) JobEnded: {'identifier': 'formation_gazebo', 'rc': 0}
+[0.202714] (-) TimerEvent: {}
+[0.261651] (formation_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.265394] (formation_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.270446] (formation_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.303537] (-) TimerEvent: {}
+[0.334902] (formation_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.386009] (formation_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.403669] (-) TimerEvent: {}
+[0.504015] (-) TimerEvent: {}
+[0.606699] (-) TimerEvent: {}
+[0.707021] (-) TimerEvent: {}
+[0.807359] (-) TimerEvent: {}
+[0.909740] (-) TimerEvent: {}
+[1.010160] (-) TimerEvent: {}
+[1.110625] (-) TimerEvent: {}
+[1.143430] (formation_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.210708] (-) TimerEvent: {}
+[1.311020] (-) TimerEvent: {}
+[1.411356] (-) TimerEvent: {}
+[1.511715] (-) TimerEvent: {}
+[1.565018] (formation_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.611826] (-) TimerEvent: {}
+[1.712156] (-) TimerEvent: {}
+[1.812751] (-) TimerEvent: {}
+[1.913418] (-) TimerEvent: {}
+[2.014016] (-) TimerEvent: {}
+[2.116713] (-) TimerEvent: {}
+[2.217073] (-) TimerEvent: {}
+[2.289518] (formation_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.317188] (-) TimerEvent: {}
+[2.329296] (formation_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[2.367377] (formation_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.367661] (formation_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[2.367824] (formation_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[2.417329] (-) TimerEvent: {}
+[2.517726] (-) TimerEvent: {}
+[2.557955] (formation_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.586930] (formation_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.590052] (formation_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.601704] (formation_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.617848] (-) TimerEvent: {}
+[2.694307] (formation_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[2.717314] (formation_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/tiffany/fyp_ws/build/formation_msgs\n'}
+[2.717942] (-) TimerEvent: {}
+[2.766555] (formation_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.785820] (formation_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[2.787580] (formation_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.812458] (formation_msgs) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_formation_msgs\n'}
+[2.818049] (-) TimerEvent: {}
+[2.921853] (-) TimerEvent: {}
+[3.022230] (-) TimerEvent: {}
+[3.122653] (-) TimerEvent: {}
+[3.223104] (-) TimerEvent: {}
+[3.284779] (formation_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[3.285528] (formation_msgs) StdoutLine: {'line': b'writing formation_msgs.egg-info/PKG-INFO\n'}
+[3.286294] (formation_msgs) StdoutLine: {'line': b'writing dependency_links to formation_msgs.egg-info/dependency_links.txt\n'}
+[3.289686] (formation_msgs) StdoutLine: {'line': b'writing top-level names to formation_msgs.egg-info/top_level.txt\n'}
+[3.291408] (formation_msgs) StdoutLine: {'line': b"reading manifest file 'formation_msgs.egg-info/SOURCES.txt'\n"}
+[3.292871] (formation_msgs) StdoutLine: {'line': b"writing manifest file 'formation_msgs.egg-info/SOURCES.txt'\n"}
+[3.323200] (-) TimerEvent: {}
+[3.367325] (formation_msgs) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_build_formation_msgs_egg\n'}
+[3.423372] (-) TimerEvent: {}
+[3.528710] (-) TimerEvent: {}
+[3.629086] (-) TimerEvent: {}
+[3.730592] (-) TimerEvent: {}
+[3.812597] (formation_msgs) StdoutLine: {'line': b'[  2%] Built target formation_msgs__rs\n'}
+[3.832707] (-) TimerEvent: {}
+[3.933098] (-) TimerEvent: {}
+[4.033437] (-) TimerEvent: {}
+[4.133820] (-) TimerEvent: {}
+[4.234137] (-) TimerEvent: {}
+[4.343055] (-) TimerEvent: {}
+[4.438858] (formation_msgs) StdoutLine: {'line': b'[  2%] Built target formation_msgs__cpp\n'}
+[4.443154] (-) TimerEvent: {}
+[4.460944] (formation_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[4.470203] (formation_msgs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[4.471094] (formation_msgs) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[4.543287] (-) TimerEvent: {}
+[4.560233] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_generator_c\x1b[0m\n'}
+[4.594949] (formation_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drawn_shape__functions.c.o\x1b[0m\n'}
+[4.595357] (formation_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/refinement_candidate__functions.c.o\x1b[0m\n'}
+[4.596344] (formation_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_path__functions.c.o\x1b[0m\n'}
+[4.599413] (formation_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_state__functions.c.o\x1b[0m\n'}
+[4.600741] (formation_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/refinement_cmd__functions.c.o\x1b[0m\n'}
+[4.601107] (formation_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/formation_goal__functions.c.o\x1b[0m\n'}
+[4.601290] (formation_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/generated_transform__functions.c.o\x1b[0m\n'}
+[4.603893] (formation_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/plan_status__functions.c.o\x1b[0m\n'}
+[4.612157] (formation_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/system_state__functions.c.o\x1b[0m\n'}
+[4.612667] (formation_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/drone_setpoint__functions.c.o\x1b[0m\n'}
+[4.616808] (formation_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_c.dir/rosidl_generator_c/formation_msgs/msg/detail/user_command__functions.c.o\x1b[0m\n'}
+[4.643409] (-) TimerEvent: {}
+[4.743977] (-) TimerEvent: {}
+[4.782723] (formation_msgs) StdoutLine: {'line': b'[ 16%] \x1b[32m\x1b[1mLinking C shared library libformation_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[4.844138] (-) TimerEvent: {}
+[4.881127] (formation_msgs) StdoutLine: {'line': b'[ 16%] Built target formation_msgs__rosidl_generator_c\n'}
+[4.899329] (formation_msgs) StdoutLine: {'line': b'[ 18%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[4.899683] (formation_msgs) StdoutLine: {'line': b'[ 18%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[4.902937] (formation_msgs) StdoutLine: {'line': b'[ 19%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[4.944246] (-) TimerEvent: {}
+[5.045736] (-) TimerEvent: {}
+[5.146118] (-) TimerEvent: {}
+[5.247352] (-) TimerEvent: {}
+[5.347811] (-) TimerEvent: {}
+[5.448132] (-) TimerEvent: {}
+[5.548601] (-) TimerEvent: {}
+[5.648996] (-) TimerEvent: {}
+[5.696875] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_cpp\x1b[0m\n'}
+[5.747826] (formation_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/formation_goal__type_support.cpp.o\x1b[0m\n'}
+[5.749088] (-) TimerEvent: {}
+[5.752796] (formation_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_candidate__type_support.cpp.o\x1b[0m\n'}
+[5.753353] (formation_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_path__type_support.cpp.o\x1b[0m\n'}
+[5.754535] (formation_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_cmd__type_support.cpp.o\x1b[0m\n'}
+[5.758570] (formation_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drawn_shape__type_support.cpp.o\x1b[0m\n'}
+[5.760323] (formation_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_state__type_support.cpp.o\x1b[0m\n'}
+[5.765418] (formation_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/generated_transform__type_support.cpp.o\x1b[0m\n'}
+[5.768840] (formation_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/user_command__type_support.cpp.o\x1b[0m\n'}
+[5.769299] (formation_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_setpoint__type_support.cpp.o\x1b[0m\n'}
+[5.769781] (formation_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/plan_status__type_support.cpp.o\x1b[0m\n'}
+[5.772727] (formation_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/system_state__type_support.cpp.o\x1b[0m\n'}
+[5.849267] (-) TimerEvent: {}
+[5.953078] (-) TimerEvent: {}
+[6.053481] (-) TimerEvent: {}
+[6.153939] (-) TimerEvent: {}
+[6.254380] (-) TimerEvent: {}
+[6.356185] (-) TimerEvent: {}
+[6.426275] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[6.456324] (-) TimerEvent: {}
+[6.508573] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_c\x1b[0m\n'}
+[6.509871] (formation_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drawn_shape__type_support.cpp.o\x1b[0m\n'}
+[6.558740] (-) TimerEvent: {}
+[6.564239] (formation_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drawn_shape__type_support.cpp.o\x1b[0m\n'}
+[6.659150] (-) TimerEvent: {}
+[6.690439] (formation_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/formation_goal__type_support.cpp.o\x1b[0m\n'}
+[6.705935] (formation_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/formation_goal__type_support.cpp.o\x1b[0m\n'}
+[6.716189] (formation_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.716578] (formation_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_path__type_support.cpp.o\x1b[0m\n'}
+[6.746314] (formation_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_path__type_support.cpp.o\x1b[0m\n'}
+[6.747181] (formation_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.754332] (formation_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/refinement_cmd__type_support.cpp.o\x1b[0m\n'}
+[6.759837] (formation_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/refinement_cmd__type_support.cpp.o\x1b[0m\n'}
+[6.760098] (-) TimerEvent: {}
+[6.766853] (formation_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/refinement_candidate__type_support.cpp.o\x1b[0m\n'}
+[6.777794] (formation_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/refinement_candidate__type_support.cpp.o\x1b[0m\n'}
+[6.786614] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[6.787505] (formation_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/generated_transform__type_support.cpp.o\x1b[0m\n'}
+[6.800123] (formation_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/generated_transform__type_support.cpp.o\x1b[0m\n'}
+[6.822741] (formation_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[6.847063] (formation_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drawn_shape__type_support.cpp.o\x1b[0m\n'}
+[6.859725] (formation_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/plan_status__type_support.cpp.o\x1b[0m\n'}
+[6.860200] (-) TimerEvent: {}
+[6.879880] (formation_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/formation_goal__type_support.cpp.o\x1b[0m\n'}
+[6.880193] (formation_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_path__type_support.cpp.o\x1b[0m\n'}
+[6.880383] (formation_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_state__type_support.cpp.o\x1b[0m\n'}
+[6.889717] (formation_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/plan_status__type_support.cpp.o\x1b[0m\n'}
+[6.960354] (-) TimerEvent: {}
+[6.974270] (formation_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/system_state__type_support.cpp.o\x1b[0m\n'}
+[7.032964] (formation_msgs) StdoutLine: {'line': b'[ 48%] Built target formation_msgs__rosidl_typesupport_cpp\n'}
+[7.048764] (formation_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/user_command__type_support.cpp.o\x1b[0m\n'}
+[7.060479] (-) TimerEvent: {}
+[7.062801] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[7.074317] (formation_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/refinement_cmd__type_support.cpp.o\x1b[0m\n'}
+[7.112999] (formation_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drawn_shape__type_support.c.o\x1b[0m\n'}
+[7.161745] (-) TimerEvent: {}
+[7.193780] (formation_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/formation_msgs/msg/drone_setpoint__type_support.cpp.o\x1b[0m\n'}
+[7.261873] (-) TimerEvent: {}
+[7.262768] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[7.301759] (formation_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/formation_goal__type_support.c.o\x1b[0m\n'}
+[7.343825] (formation_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drawn_shape__type_support_c.cpp.o\x1b[0m\n'}
+[7.344898] (formation_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32m\x1b[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[7.361997] (-) TimerEvent: {}
+[7.462447] (-) TimerEvent: {}
+[7.515237] (formation_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_path__type_support.c.o\x1b[0m\n'}
+[7.565774] (-) TimerEvent: {}
+[7.602772] (formation_msgs) StdoutLine: {'line': b'[ 53%] Built target formation_msgs__rosidl_typesupport_c\n'}
+[7.639876] (formation_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/formation_goal__type_support_c.cpp.o\x1b[0m\n'}
+[7.665891] (-) TimerEvent: {}
+[7.743569] (formation_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_state__type_support.c.o\x1b[0m\n'}
+[7.766017] (-) TimerEvent: {}
+[7.799778] (formation_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/refinement_cmd__type_support.c.o\x1b[0m\n'}
+[7.866740] (-) TimerEvent: {}
+[7.940106] (formation_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/refinement_candidate__type_support.cpp.o\x1b[0m\n'}
+[7.966873] (-) TimerEvent: {}
+[7.978448] (formation_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/system_state__type_support.cpp.o\x1b[0m\n'}
+[8.003045] (formation_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/refinement_candidate__type_support.c.o\x1b[0m\n'}
+[8.007647] (formation_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/user_command__type_support.cpp.o\x1b[0m\n'}
+[8.064177] (formation_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/generated_transform__type_support.cpp.o\x1b[0m\n'}
+[8.066979] (-) TimerEvent: {}
+[8.157002] (formation_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/formation_msgs/msg/detail/drone_setpoint__type_support.cpp.o\x1b[0m\n'}
+[8.167186] (-) TimerEvent: {}
+[8.176856] (formation_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_path__type_support_c.cpp.o\x1b[0m\n'}
+[8.185778] (formation_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/generated_transform__type_support.c.o\x1b[0m\n'}
+[8.213606] (formation_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/plan_status__type_support.cpp.o\x1b[0m\n'}
+[8.225297] (formation_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/system_state__type_support.cpp.o\x1b[0m\n'}
+[8.269244] (formation_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_state__type_support_c.cpp.o\x1b[0m\n'}
+[8.269541] (-) TimerEvent: {}
+[8.303259] (formation_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/plan_status__type_support.c.o\x1b[0m\n'}
+[8.348218] (formation_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/system_state__type_support.c.o\x1b[0m\n'}
+[8.372753] (-) TimerEvent: {}
+[8.408765] (formation_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/user_command__type_support.c.o\x1b[0m\n'}
+[8.464535] (formation_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/formation_msgs/msg/detail/drone_setpoint__type_support.c.o\x1b[0m\n'}
+[8.472898] (-) TimerEvent: {}
+[8.476996] (formation_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/user_command__type_support.cpp.o\x1b[0m\n'}
+[8.523708] (formation_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/refinement_cmd__type_support_c.cpp.o\x1b[0m\n'}
+[8.573169] (-) TimerEvent: {}
+[8.612241] (formation_msgs) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking C shared library libformation_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[8.618743] (formation_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/refinement_candidate__type_support_c.cpp.o\x1b[0m\n'}
+[8.642748] (formation_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/generated_transform__type_support_c.cpp.o\x1b[0m\n'}
+[8.673302] (-) TimerEvent: {}
+[8.762715] (formation_msgs) StdoutLine: {'line': b'[ 75%] Built target formation_msgs__rosidl_typesupport_introspection_c\n'}
+[8.773423] (-) TimerEvent: {}
+[8.808858] (formation_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/plan_status__type_support_c.cpp.o\x1b[0m\n'}
+[8.815853] (formation_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/formation_msgs/msg/detail/dds_fastrtps/drone_setpoint__type_support.cpp.o\x1b[0m\n'}
+[8.845628] (formation_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/system_state__type_support_c.cpp.o\x1b[0m\n'}
+[8.873568] (-) TimerEvent: {}
+[8.975895] (-) TimerEvent: {}
+[9.076556] (-) TimerEvent: {}
+[9.119852] (formation_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/user_command__type_support_c.cpp.o\x1b[0m\n'}
+[9.179753] (-) TimerEvent: {}
+[9.207257] (formation_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/formation_msgs/msg/detail/drone_setpoint__type_support_c.cpp.o\x1b[0m\n'}
+[9.279892] (-) TimerEvent: {}
+[9.284528] (formation_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[9.380044] (-) TimerEvent: {}
+[9.480576] (-) TimerEvent: {}
+[9.529764] (formation_msgs) StdoutLine: {'line': b'[ 80%] Built target formation_msgs__rosidl_typesupport_introspection_cpp\n'}
+[9.580723] (-) TimerEvent: {}
+[9.681188] (-) TimerEvent: {}
+[9.781715] (-) TimerEvent: {}
+[9.882154] (-) TimerEvent: {}
+[9.882685] (formation_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[9.922866] (formation_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX shared library libformation_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[9.983012] (-) TimerEvent: {}
+[10.087783] (formation_msgs) StdoutLine: {'line': b'[ 82%] Built target formation_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[10.088052] (-) TimerEvent: {}
+[10.103784] (formation_msgs) StdoutLine: {'line': b'[ 82%] Built target formation_msgs__rosidl_typesupport_fastrtps_c\n'}
+[10.143880] (formation_msgs) StdoutLine: {'line': b'[ 82%] Built target formation_msgs\n'}
+[10.182965] (formation_msgs) StdoutLine: {'line': b'[ 83%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[10.188189] (-) TimerEvent: {}
+[10.288596] (-) TimerEvent: {}
+[10.388990] (-) TimerEvent: {}
+[10.489539] (-) TimerEvent: {}
+[10.589930] (-) TimerEvent: {}
+[10.690319] (-) TimerEvent: {}
+[10.790722] (-) TimerEvent: {}
+[10.896270] (-) TimerEvent: {}
+[10.996621] (-) TimerEvent: {}
+[11.097702] (-) TimerEvent: {}
+[11.198125] (-) TimerEvent: {}
+[11.298678] (-) TimerEvent: {}
+[11.399907] (-) TimerEvent: {}
+[11.500242] (-) TimerEvent: {}
+[11.600585] (-) TimerEvent: {}
+[11.700939] (-) TimerEvent: {}
+[11.801299] (-) TimerEvent: {}
+[11.901705] (-) TimerEvent: {}
+[12.002119] (-) TimerEvent: {}
+[12.102530] (-) TimerEvent: {}
+[12.204679] (-) TimerEvent: {}
+[12.305747] (-) TimerEvent: {}
+[12.325334] (formation_msgs) StdoutLine: {'line': b'[ 83%] Built target formation_msgs__py\n'}
+[12.405940] (-) TimerEvent: {}
+[12.434613] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_generator_py\x1b[0m\n'}
+[12.468842] (formation_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_formation_goal_s.c.o\x1b[0m\n'}
+[12.469129] (formation_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drawn_shape_s.c.o\x1b[0m\n'}
+[12.469297] (formation_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_path_s.c.o\x1b[0m\n'}
+[12.471535] (formation_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_state_s.c.o\x1b[0m\n'}
+[12.475349] (formation_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_refinement_candidate_s.c.o\x1b[0m\n'}
+[12.478185] (formation_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_refinement_cmd_s.c.o\x1b[0m\n'}
+[12.480531] (formation_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_plan_status_s.c.o\x1b[0m\n'}
+[12.480898] (formation_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_generated_transform_s.c.o\x1b[0m\n'}
+[12.488166] (formation_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_drone_setpoint_s.c.o\x1b[0m\n'}
+[12.488510] (formation_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_system_state_s.c.o\x1b[0m\n'}
+[12.488849] (formation_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_generator_py.dir/rosidl_generator_py/formation_msgs/msg/_user_command_s.c.o\x1b[0m\n'}
+[12.506042] (-) TimerEvent: {}
+[12.607339] (-) TimerEvent: {}
+[12.707733] (-) TimerEvent: {}
+[12.748328] (formation_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/formation_msgs/libformation_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[12.807847] (-) TimerEvent: {}
+[12.829957] (formation_msgs) StdoutLine: {'line': b'[ 94%] Built target formation_msgs__rosidl_generator_py\n'}
+[12.848871] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[12.849182] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[12.849469] (formation_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target formation_msgs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[12.872023] (formation_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[12.872343] (formation_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[12.875203] (formation_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/formation_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[12.910715] (-) TimerEvent: {}
+[13.011081] (-) TimerEvent: {}
+[13.089104] (formation_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[13.091888] (formation_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[13.092288] (formation_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[13.111184] (-) TimerEvent: {}
+[13.164282] (formation_msgs) StdoutLine: {'line': b'[100%] Built target formation_msgs__rosidl_typesupport_c__pyext\n'}
+[13.164995] (formation_msgs) StdoutLine: {'line': b'[100%] Built target formation_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[13.165272] (formation_msgs) StdoutLine: {'line': b'[100%] Built target formation_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[13.189234] (formation_msgs) CommandEnded: {'returncode': 0}
+[13.190191] (formation_msgs) JobProgress: {'identifier': 'formation_msgs', 'progress': 'install'}
+[13.190482] (formation_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/tiffany/fyp_ws/build/formation_msgs'], 'cwd': '/home/tiffany/fyp_ws/build/formation_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'tiffany'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tiffany'), ('OLDPWD', '/home/tiffany'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('SYSTEMD_EXEC_PID', '2164'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'tiffany'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tiffany'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.5SBQV3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', ':/home/tiffany/fyp_ws/src/formation_gazebo/models'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tiffany/fyp_ws/build/formation_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[13.204556] (formation_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[13.204896] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/rosidl_interfaces/formation_msgs\n'}
+[13.205066] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.205197] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.205312] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/generated_transform.h\n'}
+[13.206100] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/system_state.h\n'}
+[13.206302] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drawn_shape.h\n'}
+[13.206416] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_path.h\n'}
+[13.206520] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_setpoint.h\n'}
+[13.206622] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/formation_goal.h\n'}
+[13.206745] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/plan_status.h\n'}
+[13.207050] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[13.207153] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.207230] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__functions.h\n'}
+[13.207301] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__functions.h\n'}
+[13.207474] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.h\n'}
+[13.207895] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__functions.c\n'}
+[13.208039] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.h\n'}
+[13.208161] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__functions.c\n'}
+[13.208271] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__struct.h\n'}
+[13.208413] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.h\n'}
+[13.209071] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__functions.h\n'}
+[13.209206] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__struct.h\n'}
+[13.209330] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__struct.h\n'}
+[13.209434] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__struct.h\n'}
+[13.209651] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__struct.h\n'}
+[13.209937] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__struct.h\n'}
+[13.210191] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__functions.h\n'}
+[13.210662] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__functions.c\n'}
+[13.210950] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__struct.h\n'}
+[13.211191] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__functions.c\n'}
+[13.211281] (-) TimerEvent: {}
+[13.211428] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.h\n'}
+[13.211601] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__functions.h\n'}
+[13.211839] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__functions.c\n'}
+[13.212072] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__struct.h\n'}
+[13.212266] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__functions.h\n'}
+[13.212477] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__struct.h\n'}
+[13.212727] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.h\n'}
+[13.212929] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__struct.h\n'}
+[13.213127] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__functions.h\n'}
+[13.213331] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__functions.h\n'}
+[13.213521] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__functions.c\n'}
+[13.213751] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__functions.c\n'}
+[13.213979] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.h\n'}
+[13.214206] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__functions.h\n'}
+[13.214445] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.h\n'}
+[13.214688] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__functions.c\n'}
+[13.214937] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__functions.h\n'}
+[13.215212] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.h\n'}
+[13.215431] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__functions.c\n'}
+[13.215678] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__functions.c\n'}
+[13.215924] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__functions.c\n'}
+[13.216163] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.h\n'}
+[13.216388] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__struct.h\n'}
+[13.216620] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__functions.h\n'}
+[13.216865] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.h\n'}
+[13.217089] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.h\n'}
+[13.217337] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_cmd.h\n'}
+[13.217545] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/user_command.h\n'}
+[13.217764] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_state.h\n'}
+[13.217978] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_candidate.h\n'}
+[13.218279] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/library_path.sh\n'}
+[13.218390] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/library_path.dsv\n'}
+[13.218863] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_c.so\n'}
+[13.219614] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_c.so" to ""\n'}
+[13.219756] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.219874] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.220006] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[13.220075] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.220138] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_fastrtps_c.h\n'}
+[13.220227] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_fastrtps_c.h\n'}
+[13.220454] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_fastrtps_c.h\n'}
+[13.220686] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_fastrtps_c.h\n'}
+[13.220918] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_fastrtps_c.h\n'}
+[13.221130] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_fastrtps_c.h\n'}
+[13.221355] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_c.h\n'}
+[13.221574] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_fastrtps_c.h\n'}
+[13.221807] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_fastrtps_c.h\n'}
+[13.225252] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_fastrtps_c.h\n'}
+[13.225525] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_fastrtps_c.h\n'}
+[13.225703] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[13.225791] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[13.225906] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.225982] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.226080] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[13.226175] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.226261] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.c\n'}
+[13.226353] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_introspection_c.h\n'}
+[13.226424] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_introspection_c.h\n'}
+[13.226495] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_introspection_c.h\n'}
+[13.227264] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_introspection_c.h\n'}
+[13.227401] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.c\n'}
+[13.227480] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_introspection_c.h\n'}
+[13.227550] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.c\n'}
+[13.227621] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_introspection_c.h\n'}
+[13.227718] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.c\n'}
+[13.227794] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_c.h\n'}
+[13.227905] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.c\n'}
+[13.227971] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.c\n'}
+[13.228041] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_introspection_c.h\n'}
+[13.228145] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.c\n'}
+[13.228237] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.c\n'}
+[13.228431] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.c\n'}
+[13.228646] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_introspection_c.h\n'}
+[13.228852] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.c\n'}
+[13.229062] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_introspection_c.h\n'}
+[13.229246] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_introspection_c.h\n'}
+[13.229440] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.c\n'}
+[13.229946] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_c.so\n'}
+[13.230617] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[13.230845] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_c.so\n'}
+[13.231360] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_c.so" to ""\n'}
+[13.234733] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.234858] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.234954] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/user_command.hpp\n'}
+[13.235045] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_setpoint.hpp\n'}
+[13.235144] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/plan_status.hpp\n'}
+[13.235235] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_path.hpp\n'}
+[13.235343] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[13.235438] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/formation_goal.hpp\n'}
+[13.235529] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drone_state.hpp\n'}
+[13.235619] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/generated_transform.hpp\n'}
+[13.235732] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_candidate.hpp\n'}
+[13.235828] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.235925] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__traits.hpp\n'}
+[13.236019] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__struct.hpp\n'}
+[13.236110] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__builder.hpp\n'}
+[13.236202] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__struct.hpp\n'}
+[13.236349] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__struct.hpp\n'}
+[13.236542] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__traits.hpp\n'}
+[13.236669] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__builder.hpp\n'}
+[13.236791] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.hpp\n'}
+[13.236895] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__struct.hpp\n'}
+[13.236997] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__traits.hpp\n'}
+[13.237169] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__builder.hpp\n'}
+[13.237343] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__traits.hpp\n'}
+[13.237446] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.hpp\n'}
+[13.238805] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__traits.hpp\n'}
+[13.238892] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__struct.hpp\n'}
+[13.238973] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__builder.hpp\n'}
+[13.239101] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__struct.hpp\n'}
+[13.239179] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.hpp\n'}
+[13.239256] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__builder.hpp\n'}
+[13.239766] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.hpp\n'}
+[13.239918] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__struct.hpp\n'}
+[13.240021] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.hpp\n'}
+[13.240118] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__traits.hpp\n'}
+[13.243702] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__struct.hpp\n'}
+[13.244194] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__struct.hpp\n'}
+[13.244294] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__traits.hpp\n'}
+[13.244401] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.hpp\n'}
+[13.244527] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.hpp\n'}
+[13.244670] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__traits.hpp\n'}
+[13.245612] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__builder.hpp\n'}
+[13.245767] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.hpp\n'}
+[13.245880] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__struct.hpp\n'}
+[13.245989] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.hpp\n'}
+[13.246093] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__builder.hpp\n'}
+[13.246192] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__builder.hpp\n'}
+[13.246291] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__traits.hpp\n'}
+[13.246388] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__builder.hpp\n'}
+[13.246532] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__builder.hpp\n'}
+[13.246636] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__struct.hpp\n'}
+[13.246771] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.hpp\n'}
+[13.246874] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__builder.hpp\n'}
+[13.246977] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.hpp\n'}
+[13.247074] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__traits.hpp\n'}
+[13.247175] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__traits.hpp\n'}
+[13.247827] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/system_state.hpp\n'}
+[13.248071] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/drawn_shape.hpp\n'}
+[13.248185] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/refinement_cmd.hpp\n'}
+[13.248292] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.248393] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.248493] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.248619] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/dds_fastrtps\n'}
+[13.248738] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.248846] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.248991] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249074] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249150] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249230] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249308] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249438] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249529] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249629] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.249887] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.250787] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[13.250988] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[13.251699] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[13.251897] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs\n'}
+[13.252051] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg\n'}
+[13.252161] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail\n'}
+[13.252301] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__type_support.cpp\n'}
+[13.252552] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.252742] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__type_support.cpp\n'}
+[13.252964] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.253233] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.253460] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.253704] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_cmd__type_support.cpp\n'}
+[13.253939] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drawn_shape__type_support.cpp\n'}
+[13.254167] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/plan_status__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.254384] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/user_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.254607] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__type_support.cpp\n'}
+[13.254862] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__type_support.cpp\n'}
+[13.255076] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_state__type_support.cpp\n'}
+[13.255298] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__type_support.cpp\n'}
+[13.255538] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.255782] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__type_support.cpp\n'}
+[13.256017] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/formation_goal__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.256239] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/generated_transform__type_support.cpp\n'}
+[13.256464] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/refinement_candidate__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.256737] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_setpoint__type_support.cpp\n'}
+[13.256969] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/system_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.257187] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/include/formation_msgs/formation_msgs/msg/detail/drone_path__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.257695] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[13.258590] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[13.258839] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_cpp.so\n'}
+[13.259408] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[13.259553] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/pythonpath.sh\n'}
+[13.259663] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/pythonpath.dsv\n'}
+[13.259859] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info\n'}
+[13.259998] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[13.260137] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[13.260335] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[13.260533] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[13.260787] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs\n'}
+[13.260898] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/__init__.py\n'}
+[13.261029] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.261300] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/libformation_msgs__rosidl_generator_py.so\n'}
+[13.261625] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.261913] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[13.262182] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[13.262438] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg\n'}
+[13.262534] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/__init__.py\n'}
+[13.262765] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path.py\n'}
+[13.263760] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate.py\n'}
+[13.263953] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal.py\n'}
+[13.264073] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint.py\n'}
+[13.264246] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status.py\n'}
+[13.264359] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform_s.c\n'}
+[13.264506] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state_s.c\n'}
+[13.264696] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate_s.c\n'}
+[13.264956] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape.py\n'}
+[13.265805] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint_s.c\n'}
+[13.265953] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal_s.c\n'}
+[13.266103] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command_s.c\n'}
+[13.266256] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state.py\n'}
+[13.266369] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape_s.c\n'}
+[13.266507] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command.py\n'}
+[13.266768] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd.py\n'}
+[13.267013] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status_s.c\n'}
+[13.267242] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd_s.c\n'}
+[13.267874] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state.py\n'}
+[13.267977] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform.py\n'}
+[13.268076] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state_s.c\n'}
+[13.268262] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path_s.c\n'}
+[13.268476] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.268756] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/_formation_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[13.313718] (-) TimerEvent: {}
+[13.335767] (formation_msgs) StdoutLine: {'line': b"Listing '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs'...\n"}
+[13.336040] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/__init__.py'...\n"}
+[13.336195] (formation_msgs) StdoutLine: {'line': b"Listing '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg'...\n"}
+[13.336366] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/__init__.py'...\n"}
+[13.336495] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drawn_shape.py'...\n"}
+[13.336615] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_path.py'...\n"}
+[13.336753] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_setpoint.py'...\n"}
+[13.336865] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_drone_state.py'...\n"}
+[13.336980] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_formation_goal.py'...\n"}
+[13.337106] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_generated_transform.py'...\n"}
+[13.337218] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_plan_status.py'...\n"}
+[13.337331] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_candidate.py'...\n"}
+[13.337443] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_refinement_cmd.py'...\n"}
+[13.337566] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_system_state.py'...\n"}
+[13.337700] (formation_msgs) StdoutLine: {'line': b"Compiling '/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/msg/_user_command.py'...\n"}
+[13.346289] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.347351] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[13.347729] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.348107] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[13.348419] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[13.349028] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages/formation_msgs/formation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[13.349289] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_py.so\n'}
+[13.349999] (formation_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/tiffany/fyp_ws/install/formation_msgs/lib/libformation_msgs__rosidl_generator_py.so" to ""\n'}
+[13.350175] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/rust_packages/formation_msgs\n'}
+[13.350326] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust\n'}
+[13.350434] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/build.rs\n'}
+[13.350549] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/Cargo.toml\n'}
+[13.350701] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src\n'}
+[13.350818] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/lib.rs\n'}
+[13.354718] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg.rs\n'}
+[13.357978] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg\n'}
+[13.358211] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/rust/src/msg/rmw.rs\n'}
+[13.358355] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DrawnShape.idl\n'}
+[13.358487] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/FormationGoal.idl\n'}
+[13.358598] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DronePath.idl\n'}
+[13.358760] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneState.idl\n'}
+[13.358874] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCmd.idl\n'}
+[13.358979] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCandidate.idl\n'}
+[13.359090] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/GeneratedTransform.idl\n'}
+[13.359201] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/PlanStatus.idl\n'}
+[13.359307] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/SystemState.idl\n'}
+[13.359386] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/UserCommand.idl\n'}
+[13.359458] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneSetpoint.idl\n'}
+[13.359528] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DrawnShape.msg\n'}
+[13.359597] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/FormationGoal.msg\n'}
+[13.359695] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DronePath.msg\n'}
+[13.359781] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneState.msg\n'}
+[13.359858] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCmd.msg\n'}
+[13.359931] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/RefinementCandidate.msg\n'}
+[13.360006] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/GeneratedTransform.msg\n'}
+[13.360081] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/PlanStatus.msg\n'}
+[13.360153] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/SystemState.msg\n'}
+[13.360227] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/UserCommand.msg\n'}
+[13.360299] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/msg/DroneSetpoint.msg\n'}
+[13.360372] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/package_run_dependencies/formation_msgs\n'}
+[13.360447] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/parent_prefix_path/formation_msgs\n'}
+[13.360557] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/ament_prefix_path.sh\n'}
+[13.360636] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/ament_prefix_path.dsv\n'}
+[13.360803] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/path.sh\n'}
+[13.360877] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/environment/path.dsv\n'}
+[13.360952] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.bash\n'}
+[13.361024] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.sh\n'}
+[13.361092] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.zsh\n'}
+[13.361166] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/local_setup.dsv\n'}
+[13.361234] (formation_msgs) StdoutLine: {'line': b'-- Installing: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.dsv\n'}
+[13.361300] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/ament_index/resource_index/packages/formation_msgs\n'}
+[13.361366] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cExport.cmake\n'}
+[13.361431] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[13.361497] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[13.361563] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[13.361628] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[13.361725] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[13.361810] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cExport.cmake\n'}
+[13.361879] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[13.361945] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_cppExport.cmake\n'}
+[13.362010] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[13.362077] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[13.362147] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[13.362243] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[13.362317] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[13.362415] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[13.362522] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_pyExport.cmake\n'}
+[13.362603] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/export_formation_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[13.362693] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[13.362768] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[13.362835] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[13.362901] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[13.362991] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[13.363097] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[13.363199] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[13.363296] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgsConfig.cmake\n'}
+[13.363402] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/cmake/formation_msgsConfig-version.cmake\n'}
+[13.363496] (formation_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tiffany/fyp_ws/install/formation_msgs/share/formation_msgs/package.xml\n'}
+[13.367379] (formation_msgs) CommandEnded: {'returncode': 0}
+[13.391192] (formation_msgs) JobEnded: {'identifier': 'formation_msgs', 'rc': 0}
+[13.395515] (drone_control) JobStarted: {'identifier': 'drone_control'}
+[13.402685] (formation_planner) JobStarted: {'identifier': 'formation_planner'}
+[13.407028] (formation_ui) JobStarted: {'identifier': 'formation_ui'}
+[13.414596] (-) TimerEvent: {}
+[13.418244] (llm_refinement) JobStarted: {'identifier': 'llm_refinement'}
+[13.423140] (task_manager) JobStarted: {'identifier': 'task_manager'}
+[13.514699] (-) TimerEvent: {}
+[13.617625] (-) TimerEvent: {}
+[13.718073] (-) TimerEvent: {}
+[13.818827] (-) TimerEvent: {}
+[13.919279] (-) TimerEvent: {}
+[14.019649] (-) TimerEvent: {}
+[14.120029] (-) TimerEvent: {}
+[14.220401] (-) TimerEvent: {}
+[14.320904] (-) TimerEvent: {}
+[14.421804] (-) TimerEvent: {}
+[14.522144] (-) TimerEvent: {}
+[14.622496] (-) TimerEvent: {}
+[14.724065] (-) TimerEvent: {}
+[14.824520] (-) TimerEvent: {}
+[14.926435] (-) TimerEvent: {}
+[15.027009] (-) TimerEvent: {}
+[15.127418] (-) TimerEvent: {}
+[15.228380] (-) TimerEvent: {}
+[15.328816] (-) TimerEvent: {}
+[15.429263] (-) TimerEvent: {}
+[15.530717] (-) TimerEvent: {}
+[15.631183] (-) TimerEvent: {}
+[15.734849] (-) TimerEvent: {}
+[15.835266] (-) TimerEvent: {}
+[15.935708] (-) TimerEvent: {}
+[16.040022] (-) TimerEvent: {}
+[16.094172] (drone_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/drone_control', 'build', '--build-base', '/home/tiffany/fyp_ws/build/drone_control/build', 'install', '--record', '/home/tiffany/fyp_ws/build/drone_control/install.log', '--install-scripts', '$base/lib/drone_control', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tiffany/fyp_ws/src/drone_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tiffany', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tiffany/fyp_ws/install/formation_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/tiffany', 'OLDPWD': '/home/tiffany', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2164', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'tiffany', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tiffany', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5SBQV3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.234', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': ':/home/tiffany/fyp_ws/src/formation_gazebo/models', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tiffany/fyp_ws/build/drone_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tiffany/fyp_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs'}, 'shell': False}
+[16.102034] (formation_planner) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/formation_planner', 'build', '--build-base', '/home/tiffany/fyp_ws/build/formation_planner/build', 'install', '--record', '/home/tiffany/fyp_ws/build/formation_planner/install.log', '--install-scripts', '$base/lib/formation_planner', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tiffany/fyp_ws/src/formation_planner', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tiffany', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tiffany/fyp_ws/install/formation_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/tiffany', 'OLDPWD': '/home/tiffany', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2164', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'tiffany', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tiffany', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5SBQV3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.234', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': ':/home/tiffany/fyp_ws/src/formation_gazebo/models', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tiffany/fyp_ws/build/formation_planner', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tiffany/fyp_ws/build/formation_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs'}, 'shell': False}
+[16.127728] (task_manager) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/task_manager', 'build', '--build-base', '/home/tiffany/fyp_ws/build/task_manager/build', 'install', '--record', '/home/tiffany/fyp_ws/build/task_manager/install.log', '--install-scripts', '$base/lib/task_manager', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tiffany/fyp_ws/src/task_manager', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tiffany', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tiffany/fyp_ws/install/formation_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/tiffany', 'OLDPWD': '/home/tiffany', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2164', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'tiffany', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tiffany', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5SBQV3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.234', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': ':/home/tiffany/fyp_ws/src/formation_gazebo/models', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tiffany/fyp_ws/build/task_manager', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tiffany/fyp_ws/build/task_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs'}, 'shell': False}
+[16.138618] (formation_ui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/formation_ui', 'build', '--build-base', '/home/tiffany/fyp_ws/build/formation_ui/build', 'install', '--record', '/home/tiffany/fyp_ws/build/formation_ui/install.log', '--install-scripts', '$base/lib/formation_ui', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tiffany/fyp_ws/src/formation_ui', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tiffany', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tiffany/fyp_ws/install/formation_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/tiffany', 'OLDPWD': '/home/tiffany', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2164', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'tiffany', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tiffany', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5SBQV3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.234', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': ':/home/tiffany/fyp_ws/src/formation_gazebo/models', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tiffany/fyp_ws/build/formation_ui', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tiffany/fyp_ws/build/formation_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs'}, 'shell': False}
+[16.141527] (-) TimerEvent: {}
+[16.141776] (llm_refinement) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/llm_refinement', 'build', '--build-base', '/home/tiffany/fyp_ws/build/llm_refinement/build', 'install', '--record', '/home/tiffany/fyp_ws/build/llm_refinement/install.log', '--install-scripts', '$base/lib/llm_refinement', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tiffany/fyp_ws/src/llm_refinement', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tiffany', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tiffany/fyp_ws/install/formation_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/tiffany', 'OLDPWD': '/home/tiffany', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2164', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'tiffany', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tiffany', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/tiffany/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tiffany-HP:@/tmp/.ICE-unix/1923,unix/tiffany-HP:/tmp/.ICE-unix/1923', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/9438c1e8_03c8_455e_b516_6d48cb001a47', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5SBQV3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.234', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': ':/home/tiffany/fyp_ws/src/formation_gazebo/models', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tiffany/fyp_ws/build/llm_refinement', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tiffany/fyp_ws/build/llm_refinement/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages:/home/tiffany/fyp_ws/install/formation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tiffany/fyp_ws/install/formation_msgs'}, 'shell': False}
+[16.244704] (-) TimerEvent: {}
+[16.345073] (-) TimerEvent: {}
+[16.446720] (-) TimerEvent: {}
+[16.492134] (drone_control) StdoutLine: {'line': b'running egg_info\n'}
+[16.492522] (drone_control) StdoutLine: {'line': b'writing ../../build/drone_control/drone_control.egg-info/PKG-INFO\n'}
+[16.493213] (drone_control) StdoutLine: {'line': b'writing dependency_links to ../../build/drone_control/drone_control.egg-info/dependency_links.txt\n'}
+[16.493406] (drone_control) StdoutLine: {'line': b'writing entry points to ../../build/drone_control/drone_control.egg-info/entry_points.txt\n'}
+[16.493585] (drone_control) StdoutLine: {'line': b'writing requirements to ../../build/drone_control/drone_control.egg-info/requires.txt\n'}
+[16.494130] (drone_control) StdoutLine: {'line': b'writing top-level names to ../../build/drone_control/drone_control.egg-info/top_level.txt\n'}
+[16.498146] (drone_control) StdoutLine: {'line': b"reading manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'\n"}
+[16.499080] (drone_control) StdoutLine: {'line': b"writing manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'\n"}
+[16.499258] (drone_control) StdoutLine: {'line': b'running build\n'}
+[16.499382] (drone_control) StdoutLine: {'line': b'running build_py\n'}
+[16.500316] (drone_control) StdoutLine: {'line': b'copying drone_control/drone_controller_node.py -> /home/tiffany/fyp_ws/build/drone_control/build/lib/drone_control\n'}
+[16.501086] (drone_control) StdoutLine: {'line': b'running install\n'}
+[16.501238] (drone_control) StdoutLine: {'line': b'running install_lib\n'}
+[16.504042] (drone_control) StdoutLine: {'line': b'copying /home/tiffany/fyp_ws/build/drone_control/build/lib/drone_control/drone_controller_node.py -> /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control\n'}
+[16.504932] (drone_control) StdoutLine: {'line': b'byte-compiling /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control/drone_controller_node.py to drone_controller_node.cpython-310.pyc\n'}
+[16.507173] (drone_control) StdoutLine: {'line': b'running install_data\n'}
+[16.507473] (drone_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[16.510977] (drone_control) StdoutLine: {'line': b"removing '/home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[16.511526] (drone_control) StdoutLine: {'line': b'Copying ../../build/drone_control/drone_control.egg-info to /home/tiffany/fyp_ws/install/drone_control/lib/python3.10/site-packages/drone_control-0.0.0-py3.10.egg-info\n'}
+[16.513292] (drone_control) StdoutLine: {'line': b'running install_scripts\n'}
+[16.528895] (formation_planner) StdoutLine: {'line': b'running egg_info\n'}
+[16.529869] (formation_planner) StdoutLine: {'line': b'writing ../../build/formation_planner/formation_planner.egg-info/PKG-INFO\n'}
+[16.530235] (formation_planner) StdoutLine: {'line': b'writing dependency_links to ../../build/formation_planner/formation_planner.egg-info/dependency_links.txt\n'}
+[16.530517] (formation_planner) StdoutLine: {'line': b'writing entry points to ../../build/formation_planner/formation_planner.egg-info/entry_points.txt\n'}
+[16.530771] (formation_planner) StdoutLine: {'line': b'writing requirements to ../../build/formation_planner/formation_planner.egg-info/requires.txt\n'}
+[16.530929] (formation_planner) StdoutLine: {'line': b'writing top-level names to ../../build/formation_planner/formation_planner.egg-info/top_level.txt\n'}
+[16.533623] (formation_planner) StdoutLine: {'line': b"reading manifest file '../../build/formation_planner/formation_planner.egg-info/SOURCES.txt'\n"}
+[16.534835] (formation_planner) StdoutLine: {'line': b"writing manifest file '../../build/formation_planner/formation_planner.egg-info/SOURCES.txt'\n"}
+[16.535080] (formation_planner) StdoutLine: {'line': b'running build\n'}
+[16.535196] (formation_planner) StdoutLine: {'line': b'running build_py\n'}
+[16.535747] (formation_planner) StdoutLine: {'line': b'running install\n'}
+[16.536171] (formation_planner) StdoutLine: {'line': b'running install_lib\n'}
+[16.538564] (formation_planner) StdoutLine: {'line': b'running install_data\n'}
+[16.538923] (formation_planner) StdoutLine: {'line': b'running install_egg_info\n'}
+[16.542840] (formation_planner) StdoutLine: {'line': b"removing '/home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[16.543619] (formation_planner) StdoutLine: {'line': b'Copying ../../build/formation_planner/formation_planner.egg-info to /home/tiffany/fyp_ws/install/formation_planner/lib/python3.10/site-packages/formation_planner-0.0.0-py3.10.egg-info\n'}
+[16.544904] (formation_ui) StdoutLine: {'line': b'running egg_info\n'}
+[16.545795] (drone_control) StdoutLine: {'line': b'Installing drone_controller_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control\n'}
+[16.546088] (drone_control) StdoutLine: {'line': b'Installing fylo_bridge_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control\n'}
+[16.546265] (drone_control) StdoutLine: {'line': b'Installing pose_publisher_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control\n'}
+[16.546422] (drone_control) StdoutLine: {'line': b'Installing sim_bridge_node script to /home/tiffany/fyp_ws/install/drone_control/lib/drone_control\n'}
+[16.546579] (formation_planner) StdoutLine: {'line': b'running install_scripts\n'}
+[16.547321] (-) TimerEvent: {}
+[16.547558] (drone_control) StdoutLine: {'line': b"writing list of installed files to '/home/tiffany/fyp_ws/build/drone_control/install.log'\n"}
+[16.547723] (formation_ui) StdoutLine: {'line': b'writing ../../build/formation_ui/formation_ui.egg-info/PKG-INFO\n'}
+[16.547878] (formation_ui) StdoutLine: {'line': b'writing dependency_links to ../../build/formation_ui/formation_ui.egg-info/dependency_links.txt\n'}
+[16.548012] (formation_ui) StdoutLine: {'line': b'writing entry points to ../../build/formation_ui/formation_ui.egg-info/entry_points.txt\n'}
+[16.548149] (formation_ui) StdoutLine: {'line': b'writing requirements to ../../build/formation_ui/formation_ui.egg-info/requires.txt\n'}
+[16.548270] (formation_ui) StdoutLine: {'line': b'writing top-level names to ../../build/formation_ui/formation_ui.egg-info/top_level.txt\n'}
+[16.562204] (formation_ui) StdoutLine: {'line': b"reading manifest file '../../build/formation_ui/formation_ui.egg-info/SOURCES.txt'\n"}
+[16.562503] (formation_ui) StdoutLine: {'line': b"writing manifest file '../../build/formation_ui/formation_ui.egg-info/SOURCES.txt'\n"}
+[16.562686] (formation_ui) StdoutLine: {'line': b'running build\n'}
+[16.562848] (formation_ui) StdoutLine: {'line': b'running build_py\n'}
+[16.562987] (formation_ui) StdoutLine: {'line': b'running install\n'}
+[16.563128] (formation_ui) StdoutLine: {'line': b'running install_lib\n'}
+[16.563256] (formation_ui) StdoutLine: {'line': b'running install_data\n'}
+[16.563393] (formation_ui) StdoutLine: {'line': b'running install_egg_info\n'}
+[16.563525] (task_manager) StdoutLine: {'line': b'running egg_info\n'}
+[16.563730] (task_manager) StdoutLine: {'line': b'writing ../../build/task_manager/task_manager.egg-info/PKG-INFO\n'}
+[16.563895] (task_manager) StdoutLine: {'line': b'writing dependency_links to ../../build/task_manager/task_manager.egg-info/dependency_links.txt\n'}
+[16.564212] (task_manager) StdoutLine: {'line': b'writing entry points to ../../build/task_manager/task_manager.egg-info/entry_points.txt\n'}
+[16.564384] (task_manager) StdoutLine: {'line': b'writing requirements to ../../build/task_manager/task_manager.egg-info/requires.txt\n'}
+[16.564544] (task_manager) StdoutLine: {'line': b'writing top-level names to ../../build/task_manager/task_manager.egg-info/top_level.txt\n'}
+[16.564807] (task_manager) StdoutLine: {'line': b"reading manifest file '../../build/task_manager/task_manager.egg-info/SOURCES.txt'\n"}
+[16.565029] (formation_ui) StdoutLine: {'line': b"removing '/home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages/formation_ui-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[16.565181] (formation_ui) StdoutLine: {'line': b'Copying ../../build/formation_ui/formation_ui.egg-info to /home/tiffany/fyp_ws/install/formation_ui/lib/python3.10/site-packages/formation_ui-0.0.0-py3.10.egg-info\n'}
+[16.565309] (llm_refinement) StdoutLine: {'line': b'running egg_info\n'}
+[16.565518] (llm_refinement) StdoutLine: {'line': b'writing ../../build/llm_refinement/llm_refinement.egg-info/PKG-INFO\n'}
+[16.565669] (llm_refinement) StdoutLine: {'line': b'writing dependency_links to ../../build/llm_refinement/llm_refinement.egg-info/dependency_links.txt\n'}
+[16.565837] (llm_refinement) StdoutLine: {'line': b'writing entry points to ../../build/llm_refinement/llm_refinement.egg-info/entry_points.txt\n'}
+[16.565984] (llm_refinement) StdoutLine: {'line': b'writing requirements to ../../build/llm_refinement/llm_refinement.egg-info/requires.txt\n'}
+[16.566125] (llm_refinement) StdoutLine: {'line': b'writing top-level names to ../../build/llm_refinement/llm_refinement.egg-info/top_level.txt\n'}
+[16.566309] (task_manager) StdoutLine: {'line': b"writing manifest file '../../build/task_manager/task_manager.egg-info/SOURCES.txt'\n"}
+[16.566466] (task_manager) StdoutLine: {'line': b'running build\n'}
+[16.566587] (task_manager) StdoutLine: {'line': b'running build_py\n'}
+[16.566720] (task_manager) StdoutLine: {'line': b'running install\n'}
+[16.566826] (task_manager) StdoutLine: {'line': b'running install_lib\n'}
+[16.566904] (formation_ui) StdoutLine: {'line': b'running install_scripts\n'}
+[16.572116] (task_manager) StdoutLine: {'line': b'running install_data\n'}
+[16.572428] (task_manager) StdoutLine: {'line': b'running install_egg_info\n'}
+[16.572588] (llm_refinement) StdoutLine: {'line': b"reading manifest file '../../build/llm_refinement/llm_refinement.egg-info/SOURCES.txt'\n"}
+[16.572743] (llm_refinement) StdoutLine: {'line': b"writing manifest file '../../build/llm_refinement/llm_refinement.egg-info/SOURCES.txt'\n"}
+[16.572861] (llm_refinement) StdoutLine: {'line': b'running build\n'}
+[16.572966] (llm_refinement) StdoutLine: {'line': b'running build_py\n'}
+[16.573386] (task_manager) StdoutLine: {'line': b"removing '/home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages/task_manager-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[16.573945] (llm_refinement) StdoutLine: {'line': b'running install\n'}
+[16.574073] (llm_refinement) StdoutLine: {'line': b'running install_lib\n'}
+[16.574215] (task_manager) StdoutLine: {'line': b'Copying ../../build/task_manager/task_manager.egg-info to /home/tiffany/fyp_ws/install/task_manager/lib/python3.10/site-packages/task_manager-0.0.0-py3.10.egg-info\n'}
+[16.575262] (llm_refinement) StdoutLine: {'line': b'running install_data\n'}
+[16.575507] (llm_refinement) StdoutLine: {'line': b'running install_egg_info\n'}
+[16.577263] (task_manager) StdoutLine: {'line': b'running install_scripts\n'}
+[16.580717] (llm_refinement) StdoutLine: {'line': b"removing '/home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages/llm_refinement-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[16.581015] (llm_refinement) StdoutLine: {'line': b'Copying ../../build/llm_refinement/llm_refinement.egg-info to /home/tiffany/fyp_ws/install/llm_refinement/lib/python3.10/site-packages/llm_refinement-0.0.0-py3.10.egg-info\n'}
+[16.582188] (llm_refinement) StdoutLine: {'line': b'running install_scripts\n'}
+[16.583865] (formation_planner) StdoutLine: {'line': b'Installing assignment_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner\n'}
+[16.584146] (formation_planner) StdoutLine: {'line': b'Installing coords_mapping_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner\n'}
+[16.584355] (formation_planner) StdoutLine: {'line': b'Installing drone_validator_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner\n'}
+[16.584539] (formation_planner) StdoutLine: {'line': b'Installing mapf_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner\n'}
+[16.584773] (formation_planner) StdoutLine: {'line': b'Installing shape_sampling_node script to /home/tiffany/fyp_ws/install/formation_planner/lib/formation_planner\n'}
+[16.585347] (formation_planner) StdoutLine: {'line': b"writing list of installed files to '/home/tiffany/fyp_ws/build/formation_planner/install.log'\n"}
+[16.596373] (drone_control) CommandEnded: {'returncode': 0}
+[16.601462] (formation_ui) StdoutLine: {'line': b'Installing canvas_server_node script to /home/tiffany/fyp_ws/install/formation_ui/lib/formation_ui\n'}
+[16.602169] (formation_ui) StdoutLine: {'line': b"writing list of installed files to '/home/tiffany/fyp_ws/build/formation_ui/install.log'\n"}
+[16.608044] (drone_control) JobEnded: {'identifier': 'drone_control', 'rc': 0}
+[16.615715] (task_manager) StdoutLine: {'line': b'Installing task_manager_node script to /home/tiffany/fyp_ws/install/task_manager/lib/task_manager\n'}
+[16.615998] (task_manager) StdoutLine: {'line': b"writing list of installed files to '/home/tiffany/fyp_ws/build/task_manager/install.log'\n"}
+[16.622108] (llm_refinement) StdoutLine: {'line': b'Installing coords_adjust_node script to /home/tiffany/fyp_ws/install/llm_refinement/lib/llm_refinement\n'}
+[16.622378] (llm_refinement) StdoutLine: {'line': b'Installing llm_interface_node script to /home/tiffany/fyp_ws/install/llm_refinement/lib/llm_refinement\n'}
+[16.622610] (llm_refinement) StdoutLine: {'line': b"writing list of installed files to '/home/tiffany/fyp_ws/build/llm_refinement/install.log'\n"}
+[16.647500] (-) TimerEvent: {}
+[16.660042] (formation_planner) CommandEnded: {'returncode': 0}
+[16.677256] (formation_planner) JobEnded: {'identifier': 'formation_planner', 'rc': 0}
+[16.682680] (formation_ui) CommandEnded: {'returncode': 0}
+[16.691551] (formation_ui) JobEnded: {'identifier': 'formation_ui', 'rc': 0}
+[16.692941] (task_manager) CommandEnded: {'returncode': 0}
+[16.703103] (task_manager) JobEnded: {'identifier': 'task_manager', 'rc': 0}
+[16.708290] (llm_refinement) CommandEnded: {'returncode': 0}
+[16.718275] (llm_refinement) JobEnded: {'identifier': 'llm_refinement', 'rc': 0}
+[16.719764] (-) EventReactorShutdown: {}

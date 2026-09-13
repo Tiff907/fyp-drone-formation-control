@@ -1,0 +1,6 @@
+scipy
+setuptools
+visvalingamwyatt
+
+[test]
+pytest

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/FormationGoal.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/ColorRGBA.idl"
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "FormationGoal.msg" "\n"
+      "Final target points after sampling + coordinate mapping + assignment." "\n"
+      "" "\n"
+      "Published by : assignment_node          (topic: /formation/goal)" "\n"
+      "Subscribed by: mapf_node" "\n"
+      "               task_manager_node        (status/logging)")
+    struct FormationGoal {
+      sequence<geometry_msgs::msg::Point> target_points;
+
+      sequence<int32> assigned_drone_ids;
+
+      sequence<std_msgs::msg::ColorRGBA> point_colors;
+
+      uint32 formation_id;
+
+      builtin_interfaces::msg::Time timestamp;
+    };
+  };
+};

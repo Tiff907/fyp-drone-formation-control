@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from formation_msgs/msg/RefinementCandidate.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/ColorRGBA.idl"
+
+module formation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "RefinementCandidate.msg" "\n"
+      "Proposed shape returned by the LLM refinement pipeline, pending user" "\n"
+      "ACCEPT / REJECT / REDRAW INSTEAD review." "\n"
+      "" "\n"
+      "Published by : coords_adjust_node       (topic: /refinement/candidate)" "\n"
+      "Subscribed by: task_manager_node" "\n"
+      "               canvas_server_node       (renders dashed overlay to user)")
+    struct RefinementCandidate {
+      sequence<geometry_msgs::msg::Point> candidate_points;
+
+      sequence<std_msgs::msg::ColorRGBA> candidate_colors;
+
+      string plan_description;
+    };
+  };
+};

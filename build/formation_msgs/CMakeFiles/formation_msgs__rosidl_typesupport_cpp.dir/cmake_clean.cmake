@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drawn_shape__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drawn_shape__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_path__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_path__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_setpoint__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_setpoint__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_state__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/drone_state__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/formation_goal__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/formation_goal__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/generated_transform__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/generated_transform__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/plan_status__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/plan_status__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_candidate__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_candidate__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_cmd__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/refinement_cmd__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/system_state__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/system_state__type_support.cpp.o.d"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/user_command__type_support.cpp.o"
+  "CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/formation_msgs/msg/user_command__type_support.cpp.o.d"
+  "libformation_msgs__rosidl_typesupport_cpp.pdb"
+  "libformation_msgs__rosidl_typesupport_cpp.so"
+  "rosidl_typesupport_cpp/formation_msgs/msg/drawn_shape__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/drone_path__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/drone_setpoint__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/drone_state__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/formation_goal__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/generated_transform__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/plan_status__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/refinement_candidate__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/refinement_cmd__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/system_state__type_support.cpp"
+  "rosidl_typesupport_cpp/formation_msgs/msg/user_command__type_support.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/formation_msgs__rosidl_typesupport_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

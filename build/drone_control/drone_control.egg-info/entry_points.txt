@@ -1,0 +1,6 @@
+[console_scripts]
+drone_controller_node = drone_control.drone_controller_node:main
+fylo_bridge_node = drone_control.fylo_bridge_node:main
+pose_publisher_node = drone_control.pose_publisher_node:main
+sim_bridge_node = drone_control.sim_bridge_node:main
+
