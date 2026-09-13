@@ -1,3 +1,0 @@
-[console_scripts]
-task_manager_node = task_manager.task_manager_node:main
-

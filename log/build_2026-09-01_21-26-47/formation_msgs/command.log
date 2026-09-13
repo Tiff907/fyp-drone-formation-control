@@ -1,6 +1,0 @@
-Invoking command in '/home/tiffany/fyp_ws/build/formation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/tiffany/fyp_ws/src/formation_msgs -DCMAKE_INSTALL_PREFIX=/home/tiffany/fyp_ws/install/formation_msgs
-Invoked command in '/home/tiffany/fyp_ws/build/formation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/tiffany/fyp_ws/src/formation_msgs -DCMAKE_INSTALL_PREFIX=/home/tiffany/fyp_ws/install/formation_msgs
-Invoking command in '/home/tiffany/fyp_ws/build/formation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_msgs -- -j16 -l16
-Invoked command in '/home/tiffany/fyp_ws/build/formation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_msgs -- -j16 -l16
-Invoking command in '/home/tiffany/fyp_ws/build/formation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_msgs
-Invoked command in '/home/tiffany/fyp_ws/build/formation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_msgs

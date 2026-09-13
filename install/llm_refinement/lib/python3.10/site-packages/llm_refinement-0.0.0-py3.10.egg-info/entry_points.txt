@@ -1,4 +1,0 @@
-[console_scripts]
-coords_adjust_node = llm_refinement.coords_adjust_node:main
-llm_interface_node = llm_refinement.llm_interface_node:main
-

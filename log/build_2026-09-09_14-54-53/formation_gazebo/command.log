@@ -1,4 +1,0 @@
-Invoking command in '/home/tiffany/fyp_ws/build/formation_gazebo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_gazebo -- -j16 -l16
-Invoked command in '/home/tiffany/fyp_ws/build/formation_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tiffany/fyp_ws/build/formation_gazebo -- -j16 -l16
-Invoking command in '/home/tiffany/fyp_ws/build/formation_gazebo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_gazebo
-Invoked command in '/home/tiffany/fyp_ws/build/formation_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tiffany/fyp_ws/build/formation_gazebo

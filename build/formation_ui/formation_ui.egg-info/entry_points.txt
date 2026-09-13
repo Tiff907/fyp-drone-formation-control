@@ -1,3 +1,0 @@
-[console_scripts]
-canvas_server_node = formation_ui.canvas_server_node:main
-
