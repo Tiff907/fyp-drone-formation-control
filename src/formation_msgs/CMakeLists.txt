@@ -24,6 +24,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SystemState.msg"
   "msg/UserCommand.msg"
   "msg/DroneSetpoint.msg"
+  "msg/SampleRequest.msg"
+  "msg/SampledPoints.msg"
   DEPENDENCIES geometry_msgs std_msgs builtin_interfaces
 )
 

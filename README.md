@@ -11,7 +11,7 @@ The system is validated first in Gazebo simulation, with physical deployment on 
 ## Key Design Decisions
 
 - **Control architecture:** centralised — a single ground station handles shape sampling, assignment, and path planning; onboard autopilots execute low-level motor commands only. Formation architecture is a virtual structure with a position-based control law.
-- **Shape sampling:** Visvalingam-Whyatt line simplification, reducing a drawn stroke to an exact target point count `N`, with the minimum viable point count `N_min` found via elbow-detection over the algorithm's removed-area sequence.
+- **Shape sampling:** Visvalingam-Whyatt line simplification, reducing a drawn stroke to an exact target point count `N`, with the minimum viable point count `N_min` found via Kneedle elbow-detection over the algorithm's removed-area sequence.
 - **Assignment:** rectangular linear assignment (Hungarian algorithm) via SciPy's `linear_sum_assignment`, since the drone fleet size `M` may exceed the target count `N`.
 - **Path planning:** Conflict-Based Search (CBS), adapted for 3D motion, a Makespan objective, and a hard 30 cm inter-agent safety radius (including continuous swap-conflict detection), rather than ORCA or multi-agent RL.
 - **Refinement:** an LLM (Claude Sonnet) generates executable code to transform the point set from a natural language instruction, rather than orchestrating a fixed skill library.
@@ -43,8 +43,8 @@ The system is validated first in Gazebo simulation, with physical deployment on 
 - [x] ROS2 workspace set up (6 packages, all building successfully)
 - [x] Gazebo simulation environment: world, kinematic drone model with LED indicator, multi-drone spawning, launch file
 - [x] `drone_control`: `drone_controller_node`, `pose_publisher_node`, `sim_bridge_node` implemented and validated (multi-drone pose + LED colour control confirmed working in simulation)
-- [ ] `formation_planner`: `shape_sampling_node` (in progress)
-- [ ] `formation_planner`: `drone_validator_node` (retry loop)
+- [x] `formation_planner`: `shape_sampling_node` — Visvalingam-Whyatt reduction with Kneedle-based N_min detection, colour carried through every stage; tested standalone against varied shapes
+- [x] `formation_planner`: `drone_validator_node` — hard N_min rejection, safety-radius/boundary retry loop; tested standalone and integration-tested with `shape_sampling_node` end-to-end
 - [ ] `formation_planner`: `assignment_node`
 - [ ] `formation_planner`: `mapf_node` — currently a stub (straight-line paths only); real CBS implementation pending
 - [ ] `formation_ui`: touchscreen canvas front-end

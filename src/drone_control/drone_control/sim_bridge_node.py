@@ -4,12 +4,15 @@ sim_bridge_node.py
 Bridges DroneSetpoint commands to Gazebo Fortress via set_pose_vector
 and visual_config. Kinematic only -- no physics, no flight dynamics.
 
-Gazebo calls run on a dedicated background thread, decoupled from the
-ROS2 executor: subprocess-based `ign service` calls are slow (process
-spawn + service discovery, often 100s of ms), and running them
-directly inside a ROS timer callback blocks the single-threaded
-executor, starving the /drone/setpoint subscription and causing
-setpoints to trickle in instead of being read as a consistent batch.
+At startup, queries scene/info once to (a) build the drone_id ->
+(visual_id, parent_id) lookup used for LED colour updates, and (b)
+extract each drone's actual spawned position, publishing it as an
+initial DroneSetpoint so pose_publisher_node (and drone_validator_node
+downstream) see the real fleet immediately -- without either of those
+generic nodes needing to know about Gazebo or hardcode spawn layout.
+
+Bypassed entirely in hardware deployment (fylo_bridge_node takes its
+place instead, seeding initial positions from real localization).
 """
 
 import re
@@ -19,6 +22,8 @@ import time
 
 import rclpy
 from rclpy.node import Node
+from geometry_msgs.msg import Point
+from std_msgs.msg import ColorRGBA
 
 from formation_msgs.msg import DroneSetpoint
 
@@ -36,7 +41,7 @@ def entity_name(drone_id: int) -> str:
 
 class SimBridgeNode(Node):
 
-    UPDATE_RATE_HZ = 20.0  # target rate; actual rate limited by subprocess latency
+    UPDATE_RATE_HZ = 20.0
 
     def __init__(self):
         super().__init__('sim_bridge_node')
@@ -46,7 +51,12 @@ class SimBridgeNode(Node):
         self._last_color = {}      # drone_id -> (r, g, b)
         self._visual_ids = {}      # drone_id -> (visual_id, parent_id)
 
-        self._build_visual_lookup()
+        self._setpoint_pub = self.create_publisher(DroneSetpoint, '/drone/setpoint', 10)
+
+        scene_text = self._query_scene_info()
+        if scene_text:
+            self._build_visual_lookup(scene_text)
+            self._publish_initial_positions(scene_text)
 
         self.create_subscription(DroneSetpoint, '/drone/setpoint', self._on_setpoint, 10)
 
@@ -56,7 +66,7 @@ class SimBridgeNode(Node):
 
         self.get_logger().info('sim_bridge_node started')
 
-    def _build_visual_lookup(self):
+    def _query_scene_info(self):
         try:
             result = subprocess.run(
                 [
@@ -68,12 +78,13 @@ class SimBridgeNode(Node):
                 ],
                 check=True, capture_output=True, text=True,
             )
+            return result.stdout
         except (subprocess.CalledProcessError, FileNotFoundError) as e:
             self.get_logger().error(f'Failed to query scene/info: {e}')
-            return
+            return None
 
-        text = result.stdout
-        model_blocks = re.split(r'\nmodel \{', text)[1:]
+    def _build_visual_lookup(self, scene_text: str):
+        model_blocks = re.split(r'\nmodel \{', scene_text)[1:]
         for block in model_blocks:
             name_match = re.search(r'name:\s*"drone_(\d+)"', block)
             if not name_match:
@@ -88,16 +99,50 @@ class SimBridgeNode(Node):
 
         self.get_logger().info(f'Resolved body_visual IDs for {len(self._visual_ids)} drones')
 
+    def _publish_initial_positions(self, scene_text: str):
+        """Extracts each drone_N model's own spawn pose (not a child
+        visual's pose) and publishes it as a starting DroneSetpoint,
+        so pose_publisher_node knows about the full fleet immediately,
+        with real Gazebo-sourced positions rather than a duplicated
+        hardcoded layout."""
+        model_blocks = re.split(r'\nmodel \{', scene_text)[1:]
+        published_count = 0
+
+        for block in model_blocks:
+            name_match = re.search(r'name:\s*"drone_(\d+)"', block)
+            if not name_match:
+                continue
+            drone_id = int(name_match.group(1))
+
+            # The model's own top-level pose block appears before any
+            # nested link/visual pose blocks -- take the first
+            # position{...} in the block.
+            pose_match = re.search(
+                r'pose\s*\{\s*position\s*\{([^}]*)\}',
+                block,
+            )
+            if not pose_match:
+                continue
+
+            pos_text = pose_match.group(1)
+            x = float(re.search(r'x:\s*([-\d.eE]+)', pos_text).group(1)) if 'x:' in pos_text else 0.0
+            y = float(re.search(r'y:\s*([-\d.eE]+)', pos_text).group(1)) if 'y:' in pos_text else 0.0
+            z = float(re.search(r'z:\s*([-\d.eE]+)', pos_text).group(1)) if 'z:' in pos_text else 0.0
+
+            setpoint = DroneSetpoint()
+            setpoint.drone_id = drone_id
+            setpoint.target_position = Point(x=x, y=y, z=z)
+            setpoint.led_color = ColorRGBA(r=1.0, g=1.0, b=1.0, a=1.0)
+            self._setpoint_pub.publish(setpoint)
+            published_count += 1
+
+        self.get_logger().info(f'Published initial spawn positions for {published_count} drones')
+
     def _on_setpoint(self, msg: DroneSetpoint):
-        # Fast, non-blocking: just store under lock. Never touches Gazebo directly.
         with self._lock:
             self._latest[msg.drone_id] = msg
 
     def _worker_loop(self):
-        """Runs independently of the ROS executor. Reads a consistent
-        snapshot of all known setpoints each iteration and sends one
-        batched pose update, so drones always move together even if
-        each Gazebo call takes longer than one nominal tick."""
         period = 1.0 / self.UPDATE_RATE_HZ
         while not self._stop_event.is_set():
             start = time.monotonic()
