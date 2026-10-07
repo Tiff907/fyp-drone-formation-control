@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Formation Control Canvas</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  :root {
+    --orange: #ffb184;
+    --orange-dark: #c96e32;
+    --cream: #fff5dc;
+    --green: #b9ff62;
+    --green-dark: #0a7552;
+    --red: #ff8d91;
+    --red-dark: #9d211d;
+    --blue: #a9dcff;
+    --blue-dark: #2114a5;
+    --yellow: #fff36f;
+    --purple: #7047d8;
+    --shadow: rgba(42, 32, 65, 0.24);
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+    background: #ffffff;
+    color: #222;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+
+  #app {
+    width: min(1180px, 100vw);
+    margin: 0 auto;
+    padding: 28px 28px 40px;
+  }
+
+  /* ---------- Top / bottom orange decoration ---------- */
+
+  .section-decoration {
+    width: 470px;
+    max-width: 55%;
+    height: 34px;
+    margin: 0 auto 28px;
+    background: var(--orange);
+    border-bottom: 9px solid var(--orange-dark);
+  }
+
+  .section-decoration.bottom {
+    margin-top: 26px;
+    margin-bottom: 18px;
+  }
+
+  /* ---------- Main workspace ---------- */
+
+  .workspace {
+    display: grid;
+    grid-template-columns: 145px minmax(500px, 1fr) 175px;
+    gap: 22px;
+    align-items: start;
+  }
+
+  /* ---------- Colour palette ---------- */
+
+  .palette {
+    width: 145px;
+    padding: 28px 18px;
+    background: #fff;
+    box-shadow: 0 6px 18px var(--shadow);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px 15px;
+  }
+
+  .color-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    justify-self: center;
+    position: relative;
+    box-shadow: none;
+    touch-action: manipulation;
+  }
+
+  .color-btn.selected::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 4px solid #1710a5;
+    border-radius: 50%;
+  }
+
+  .rainbow-btn {
+    background: conic-gradient(
+      #ff3030 0deg,
+      #ff9b32 55deg,
+      #ffe34d 95deg,
+      #68d64f 145deg,
+      #00bd72 190deg,
+      #18a8e8 235deg,
+      #4330c8 280deg,
+      #bd58d9 325deg,
+      #ff3030 360deg
+    );
+  }
+
+  .rainbow-btn::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .rainbow-btn::after {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border-radius: 50%;
+    background: var(--manual-color, #ff0000);
+  }
+
+  .color-btn:active {
+    transform: scale(0.94);
+  }
+
+  #manualColorPicker {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ---------- Drawing canvas ---------- */
+
+  .canvas-wrap {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.55 / 1;
+    background:
+      radial-gradient(circle, #111 1.6px, transparent 1.8px) 0 0 / 47px 47px,
+      #fafafa;
+    border: 0;
+    cursor: crosshair;
+    touch-action: none;
+  }
+
+  /* ---------- Right-side controls ---------- */
+
+  .side-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .big-btn {
+    min-height: 88px;
+    border: 0;
+    border-radius: 28px;
+    font-family: inherit;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+      7px 7px 0 rgba(72, 55, 105, 0.23),
+      3px 4px 0 rgba(72, 55, 105, 0.25);
+    touch-action: manipulation;
+  }
+
+  .big-btn:active {
+    transform: translate(3px, 4px);
+    box-shadow: 4px 4px 0 rgba(72, 55, 105, 0.2);
+  }
+
+  .big-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  #startBtn {
+    background: var(--green);
+    color: var(--green-dark);
+  }
+
+  #endBtn {
+    background: var(--red);
+    color: var(--red-dark);
+  }
+
+  #submitBtn {
+    background: var(--blue);
+    color: var(--blue-dark);
+  }
+
+  /* ---------- Pen / eraser ---------- */
+
+  .drawing-tools {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 24px;
+  }
+
+  .tool-btn {
+    width: 62px;
+    height: 62px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    touch-action: manipulation;
+  }
+
+  .tool-btn svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .tool-btn.active {
+    filter: drop-shadow(0 0 2px #777);
+  }
+
+  .tool-btn.active svg {
+    transform: scale(1.08);
+  }
+
+  #penBtn {
+    --pen-color: #000000;
+  }
+
+  .clear-btn {
+    width: 62px;
+    height: 62px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 37px;
+    line-height: 1;
+    color: #111;
+  }
+
+  /* ---------- Refinement panel ---------- */
+
+  #refinementRow {
+    display: none;
+    position: relative;
+    margin: 12px auto 0;
+    width: min(760px, 90%);
+    padding: 20px 28px 22px;
+    background:
+      linear-gradient(#fff4d8 1px, transparent 1px),
+      linear-gradient(90deg, #fff4d8 1px, transparent 1px),
+      #fff8e8;
+    background-size: 31px 31px;
+    border: 3px solid #8f572d;
+    border-radius: 24px;
+    box-shadow: 7px 8px 0 #b66a36;
+  }
+
+  .clip {
+    position: absolute;
+    right: 24px;
+    top: -25px;
+    width: 29px;
+    height: 59px;
+    border: 4px solid #9b5c25;
+    border-radius: 15px;
+    background: transparent;
+  }
+
+  .clip::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    width: 11px;
+    height: 42px;
+    border: 3px solid #9b5c25;
+    border-radius: 10px;
+  }
+
+  #refinementText {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #555;
+    background: #fff;
+    padding: 0 16px;
+    font: 700 16px inherit;
+    outline: none;
+  }
+
+  #refinementText::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+
+  .refinement-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 13px;
+    flex-wrap: wrap;
+  }
+
+  .refine-btn {
+    min-height: 50px;
+    border: 0;
+    border-radius: 25px;
+    padding: 0 28px;
+    font: 900 17px inherit;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 rgba(72,55,105,0.22);
+  }
+
+  #llmSubmitBtn {
+    background: var(--yellow);
+    color: #a46d25;
+    width: 100%;
+  }
+
+  #acceptBtn {
+    background: #9eff45;
+    color: #08744e;
+  }
+
+  #rejectBtn {
+    background: #ff888b;
+    color: #a01616;
+  }
+
+  #redrawBtn {
+    background: #ffad68;
+    color: #b4490b;
+  }
+
+  /* ---------- Status ---------- */
+
+  #status {
+    text-align: center;
+    margin-top: 12px;
+    min-height: 20px;
+    font-size: 13px;
+    color: #777;
+  }
+
+  /* ---------- Candidate state ---------- */
+
+  #candidateOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: none;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 900px) {
+    #app {
+      padding: 16px;
+    }
+
+    .workspace {
+      grid-template-columns: 90px minmax(0, 1fr) 120px;
+      gap: 12px;
+    }
+
+    .palette {
+      width: 90px;
+      padding: 17px 9px;
+      gap: 12px 7px;
+    }
+
+    .color-btn {
+      width: 34px;
+      height: 34px;
+    }
+
+    .big-btn {
+      min-height: 65px;
+      border-radius: 22px;
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    #app {
+      padding: 10px;
+    }
+
+    .section-decoration {
+      width: 250px;
+      height: 25px;
+      margin-bottom: 18px;
+    }
+
+    .workspace {
+      grid-template-columns: 60px minmax(0, 1fr) 88px;
+      gap: 8px;
+    }
+
+    .palette {
+      width: 60px;
+      padding: 12px 5px;
+      gap: 10px 3px;
+      box-shadow: 0 3px 10px var(--shadow);
+    }
+
+    .color-btn {
+      width: 24px;
+      height: 24px;
+    }
+
+    .color-btn.selected::after {
+      inset: -3px;
+      border-width: 2px;
+    }
+
+    .big-btn {
+      min-height: 55px;
+      border-radius: 17px;
+      font-size: 13px;
+      box-shadow: 4px 4px 0 rgba(72,55,105,0.23);
+    }
+
+    .drawing-tools {
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .tool-btn,
+    .clear-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .tool-btn svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .clear-btn {
+      font-size: 26px;
+    }
+
+    #refinementRow {
+      width: 100%;
+      padding: 14px;
+    }
+
+    #refinementText {
+      height: 48px;
+      font-size: 13px;
+    }
+
+    .refine-btn {
+      min-height: 43px;
+      padding: 0 16px;
+      font-size: 13px;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div id="app">
+
+  <div class="section-decoration"></div>
+  
+  <div id="errorBanner" style="display:none; background:#ff8d91; color:#9d211d; border:3px solid #9d211d; border-radius:16px; padding:14px 20px; margin-bottom:16px; font-weight:700; display:flex; justify-content:space-between; align-items:center; gap:16px;">
+    <span id="errorMessage"></span>
+    <button id="errorAckBtn" style="background:#9d211d; color:white; border:0; border-radius:20px; padding:8px 20px; font-weight:900; cursor:pointer;">OK</button>
+  </div>
+
+  <div class="workspace">
+  
+    <!-- Colour palette -->
+    <div>
+      <div class="palette" id="palette"></div>
+
+      <div class="drawing-tools">
+        <button class="tool-btn active" id="penBtn" title="Pen" aria-label="Pen">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M10 51 L19 32 L45 6 C48 3 53 3 56 6 L59 9 C62 12 62 17 59 20 L33 46 Z"
+                  fill="var(--pen-color, #000000)" stroke="#b27727" stroke-width="3"/>
+            <path d="M45 6 L58 19" stroke="#b27727" stroke-width="3"/>
+            <path d="M10 51 L7 59 L19 55 Z" fill="#f4c64b" stroke="#b27727" stroke-width="3"/>
+            <path d="M17 36 L31 50" stroke="#fff1a5" stroke-width="4"/>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="eraserBtn" title="Eraser" aria-label="Eraser">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M10 43 L35 15 C38 12 43 12 46 15 L55 24 C58 27 58 32 55 35 L36 54 L18 54 C15 54 12 51 10 48 C8 46 8 45 10 43 Z"
+                  fill="#f7f7f7" stroke="#222" stroke-width="4"/>
+            <path d="M28 23 L48 43" stroke="#777" stroke-width="3"/>
+            <path d="M36 54 L55 35" stroke="#222" stroke-width="4"/>
+          </svg>
+        </button>
+
+        <button class="clear-btn" id="clearBtn" title="Clear canvas" aria-label="Clear canvas">⌫</button>
+      </div>
+    </div>
+
+    <!-- Drawing area -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="900" height="580"></canvas>
+      <canvas id="candidateOverlay" width="900" height="580"></canvas>
+    </div>
+
+    <!-- Main controls -->
+    <div class="side-controls">
+      <button class="big-btn" id="startBtn">START</button>
+      <button class="big-btn" id="endBtn">END</button>
+      <button class="big-btn" id="submitBtn" disabled>SUBMIT</button>
+    </div>
+
+  </div>
+
+  <!-- Refinement / LLM panel -->
+  <div id="refinementRow">
+    <div class="clip"></div>
+
+    <input
+      type="text"
+      id="refinementText"
+      placeholder="Refinement: Type your prompt here..."
+      autocomplete="off"
+      spellcheck="false"
+    >
+
+    <div class="refinement-actions">
+      <button class="refine-btn" id="llmSubmitBtn">LLM SUBMIT</button>
+      <button class="refine-btn" id="acceptBtn" style="display:none">ACCEPT</button>
+      <button class="refine-btn" id="rejectBtn" style="display:none">REJECT</button>
+      <button class="refine-btn" id="redrawBtn" style="display:none">REDRAW INSTEAD</button>
+    </div>
+  </div>
+
+  <div id="status"></div>
+
+  <div class="section-decoration bottom"></div>
+</div>
+
+<script>
+/*
+ * Formation Control Canvas
+ *
+ * Coordinate convention:
+ *   canvas x -> world x, range [-2.5, 2.5] m
+ *   canvas y -> world z, range [0, 3] m
+ *   canvas top = higher z
+ */
+
+const WORLD_X_RANGE = [-2.5, 2.5];
+const WORLD_Z_RANGE = [0, 3];
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+const candidateOverlay = document.getElementById('candidateOverlay');
+const candidateCtx = candidateOverlay.getContext('2d');
+
+let drawing = false;
+let tool = 'pen';
+let currentColor = '#000000';
+
+let strokePoints = [];
+let strokeColors = [];
+let allStrokes = [];
+
+let candidatePoints = [];
+
+const COLORS = [
+  '#ff3030', // red
+  '#ff8b45', // orange
+  '#78d957', // light green
+  '#00bb67', // green
+  '#2410b8', // blue
+  '#b34cda', // purple
+  '#000000', // black
+  '#ffffff', // white
+  '#ffdf55'  // yellow
+];
+
+/* ---------- Palette ---------- */
+
+const palette = document.getElementById('palette');
+
+/*
+ * The first palette item is a rainbow/manual-colour option.
+ * Clicking it opens the device's native colour picker.
+ */
+const rainbowBtn = document.createElement('button');
+rainbowBtn.className = 'color-btn rainbow-btn selected';
+rainbowBtn.title = 'Choose a custom pen colour';
+rainbowBtn.setAttribute('aria-label', 'Choose a custom pen colour');
+rainbowBtn.style.setProperty('--manual-color', currentColor);
+
+const manualColorPicker = document.createElement('input');
+manualColorPicker.type = 'color';
+manualColorPicker.id = 'manualColorPicker';
+manualColorPicker.value = currentColor;
+
+rainbowBtn.addEventListener('click', () => {
+  manualColorPicker.click();
+});
+
+manualColorPicker.addEventListener('input', (e) => {
+  currentColor = e.target.value.toUpperCase();
+  updatePenIconColor();
+
+  rainbowBtn.style.setProperty('--manual-color', currentColor);
+
+  document.querySelectorAll('.color-btn').forEach(b =>
+    b.classList.remove('selected')
+  );
+  rainbowBtn.classList.add('selected');
+
+  setTool('pen');
+});
+
+palette.appendChild(rainbowBtn);
+palette.appendChild(manualColorPicker);
+
+/* Preset colours */
+COLORS.forEach((color, index) => {
+  const btn = document.createElement('button');
+  btn.className = 'color-btn';
+  btn.style.background = color;
+  btn.dataset.color = color;
+  btn.title = `Preset colour ${index + 1}`;
+  btn.setAttribute('aria-label', `Preset colour ${index + 1}`);
+
+  btn.addEventListener('click', () => {
+    /*
+     * IMPORTANT:
+     * currentColor is updated to exactly the colour selected
+     * in the palette. Every new stroke therefore uses this colour.
+     */
+    currentColor = color;
+    updatePenIconColor();
+
+    document.querySelectorAll('.color-btn').forEach(b =>
+      b.classList.remove('selected')
+    );
+
+    btn.classList.add('selected');
+    setTool('pen');
+  });
+
+  palette.appendChild(btn);
+});
+
+/* ---------- Coordinate conversion ---------- */
+
+function pixelToWorld(px, py) {
+  const x = WORLD_X_RANGE[0] +
+    (px / canvas.width) *
+    (WORLD_X_RANGE[1] - WORLD_X_RANGE[0]);
+
+  const z = WORLD_Z_RANGE[1] -
+    (py / canvas.height) *
+    (WORLD_Z_RANGE[1] - WORLD_Z_RANGE[0]);
+
+  return [x, z];
+}
+
+function worldToPixel(x, z) {
+  const px =
+    ((x - WORLD_X_RANGE[0]) /
+    (WORLD_X_RANGE[1] - WORLD_X_RANGE[0])) *
+    canvas.width;
+
+  const py =
+    ((WORLD_Z_RANGE[1] - z) /
+    (WORLD_Z_RANGE[1] - WORLD_Z_RANGE[0])) *
+    canvas.height;
+
+  return [px, py];
+}
+
+function getCanvasCoordinates(e) {
+  const rect = canvas.getBoundingClientRect();
+
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+
+  const px = (e.clientX - rect.left) * scaleX;
+  const py = (e.clientY - rect.top) * scaleY;
+
+  return pixelToWorld(px, py);
+}
+
+/* ---------- Drawing ---------- */
+
+function drawStrokePath(points, colors) {
+  if (!points.length) return;
+
+  if (points.length === 1) {
+    const [px, py] = worldToPixel(points[0][0], points[0][1]);
+    ctx.fillStyle = colors[0] || currentColor;
+    ctx.beginPath();
+    ctx.arc(px, py, 3, 0, 2 * Math.PI);
+    ctx.fill();
+    return;
+  }
+
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  for (let i = 1; i < points.length; i++) {
+    const p0 = worldToPixel(points[i - 1][0], points[i - 1][1]);
+    const p1 = worldToPixel(points[i][0], points[i][1]);
+
+    ctx.strokeStyle = colors[i] || colors[i - 1] || currentColor;
+    ctx.beginPath();
+    ctx.moveTo(p0[0], p0[1]);
+    ctx.lineTo(p1[0], p1[1]);
+    ctx.stroke();
+  }
+}
+
+function redrawCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (const stroke of allStrokes) {
+    drawStrokePath(stroke.points, stroke.colors);
+  }
+
+  if (drawing && strokePoints.length) {
+    drawStrokePath(strokePoints, strokeColors);
+  }
+
+  redrawCandidate();
+}
+
+/* ---------- Candidate shape ---------- */
+
+function redrawCandidate() {
+  candidateCtx.clearRect(
+    0, 0,
+    candidateOverlay.width,
+    candidateOverlay.height
+  );
+
+  if (!candidatePoints.length) return;
+
+  candidateCtx.save();
+
+  candidateCtx.lineWidth = 4;
+  candidateCtx.lineCap = 'round';
+  candidateCtx.lineJoin = 'round';
+  candidateCtx.setLineDash([12, 8]);
+  candidateCtx.strokeStyle = '#ffd83f';
+
+  candidateCtx.beginPath();
+
+  candidatePoints.forEach((point, i) => {
+    const [px, py] = worldToPixel(point.x, point.y);
+
+    if (i === 0) {
+      candidateCtx.moveTo(px, py);
+    } else {
+      candidateCtx.lineTo(px, py);
+    }
+  });
+
+  /*
+   * Close the candidate shape when there are enough points.
+   * This gives the refinement preview the same visual language
+   * as the reference design.
+   */
+  if (candidatePoints.length > 2) {
+    candidateCtx.closePath();
+  }
+
+  candidateCtx.stroke();
+  candidateCtx.restore();
+}
+
+function showRefinementCandidate(msg) {
+  candidatePoints = Array.isArray(msg.candidate_points)
+    ? msg.candidate_points
+    : [];
+
+  candidateOverlay.style.display = 'block';
+
+  document.getElementById('acceptBtn').style.display = 'inline-block';
+  document.getElementById('rejectBtn').style.display = 'inline-block';
+  document.getElementById('redrawBtn').style.display = 'inline-block';
+
+  redrawCandidate();
+}
+
+/* ---------- Pointer input ---------- */
+
+canvas.addEventListener('pointerdown', (e) => {
+  canvas.setPointerCapture(e.pointerId);
+
+  const [x, z] = getCanvasCoordinates(e);
+
+  if (tool === 'pen') {
+    drawing = true;
+    strokePoints = [[x, z]];
+    strokeColors = [currentColor];
+    redrawCanvas();
+  } else if (tool === 'eraser') {
+    eraseAt(x, z);
+  }
+});
+
+canvas.addEventListener('pointermove', (e) => {
+  if (!drawing || tool !== 'pen') return;
+
+  const [x, z] = getCanvasCoordinates(e);
+
+  strokePoints.push([x, z]);
+  strokeColors.push(currentColor);
+
+  redrawCanvas();
+});
+
+function endDrawing() {
+  if (drawing && strokePoints.length) {
+    allStrokes.push({
+      points: [...strokePoints],
+      colors: [...strokeColors]
+    });
+  }
+
+  drawing = false;
+  strokePoints = [];
+  strokeColors = [];
+
+  redrawCanvas();
+}
+
+canvas.addEventListener('pointerup', endDrawing);
+canvas.addEventListener('pointercancel', endDrawing);
+
+function eraseAt(x, z) {
+  /*
+   * Remove an entire stroke if the eraser touches any point
+   * in that stroke. This preserves the existing behaviour of
+   * the original application.
+   */
+  allStrokes = allStrokes.filter(stroke =>
+    !stroke.points.some(([px, pz]) =>
+      Math.hypot(px - x, pz - z) < 0.15
+    )
+  );
+
+  redrawCanvas();
+}
+
+/* ---------- Tools ---------- */
+
+function updatePenIconColor() {
+  document.getElementById('penBtn').style.setProperty(
+    '--pen-color',
+    currentColor || '#000000'
+  );
+}
+
+function setTool(nextTool) {
+  tool = nextTool;
+  updatePenIconColor();
+
+  document.getElementById('penBtn').classList.toggle(
+    'active',
+    tool === 'pen'
+  );
+
+  document.getElementById('eraserBtn').classList.toggle(
+    'active',
+    tool === 'eraser'
+  );
+
+  canvas.style.cursor =
+    tool === 'eraser' ? 'not-allowed' : 'crosshair';
+}
+
+document.getElementById('penBtn').onclick = () => setTool('pen');
+document.getElementById('eraserBtn').onclick = () => setTool('eraser');
+
+document.getElementById('clearBtn').onclick = () => {
+  allStrokes = [];
+  strokePoints = [];
+  strokeColors = [];
+  candidatePoints = [];
+  candidateOverlay.style.display = 'none';
+  redrawCanvas();
+};
+
+/* ---------- WebSocket ---------- */
+
+let ws = null;
+
+function connect() {
+  const host = window.location.hostname || 'localhost';
+
+  ws = new WebSocket(`ws://${host}:8765`);
+
+  ws.onopen = () => {
+    setStatus('');
+  };
+
+  ws.onclose = () => {
+    setStatus('Disconnected -- retrying...');
+    setTimeout(connect, 2000);
+  };
+
+  ws.onerror = () => {
+    setStatus('Connection error');
+  };
+
+  ws.onmessage = (event) => {
+    const msg = JSON.parse(event.data);
+
+    if (msg.type === 'system_state') {
+      handleSystemState(msg.state);
+    } else if (msg.type === 'refinement_candidate') {
+      showRefinementCandidate(msg);
+    }
+  };
+}
+
+connect();
+
+function setStatus(text) {
+  document.getElementById('status').textContent = text;
+}
+
+function sendCommand(command) {
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    setStatus('Not connected');
+    return;
+  }
+
+  ws.send(JSON.stringify({
+    type: 'user_command',
+    command
+  }));
+}
+
+function sendDrawnShape() {
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    setStatus('Not connected');
+    return;
+  }
+
+  const raw_points = [];
+  const stroke_colors = [];
+
+  for (const stroke of allStrokes) {
+    for (let i = 0; i < stroke.points.length; i++) {
+      raw_points.push({
+        x: stroke.points[i][0],
+        y: stroke.points[i][1]
+      });
+
+      stroke_colors.push(
+        hexToRgba(stroke.colors[i] || currentColor)
+      );
+    }
+  }
+
+  ws.send(JSON.stringify({
+    type: 'drawn_shape',
+    raw_points,
+    stroke_colors
+  }));
+}
+
+function hexToRgba(hex) {
+  let clean = hex.replace('#', '');
+  if (clean.length === 3) clean = clean.split('').map(c => c + c).join('');
+
+  return {
+    r: parseInt(clean.slice(0, 2), 16) / 255,
+    g: parseInt(clean.slice(2, 4), 16) / 255,
+    b: parseInt(clean.slice(4, 6), 16) / 255,
+    a: 1.0
+  };
+}
+
+/* ---------- Main buttons ---------- */
+
+document.getElementById('startBtn').onclick = () => {
+  sendCommand('START');
+};
+
+document.getElementById('endBtn').onclick = () => {
+  sendCommand('END');
+};
+
+document.getElementById('submitBtn').onclick = () => {
+  sendDrawnShape();
+  sendCommand('SUBMIT');
+};
+
+document.getElementById('llmSubmitBtn').onclick = () => {
+  const text = document.getElementById('refinementText').value.trim();
+
+  if (!text) {
+    setStatus('Please enter a refinement instruction.');
+    return;
+  }
+
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    setStatus('Not connected');
+    return;
+  }
+
+  ws.send(JSON.stringify({
+    type: 'refinement_command',
+    instruction_text: text
+  }));
+
+  sendCommand('LLM_SUBMIT');
+};
+
+document.getElementById('acceptBtn').onclick = () => {
+  sendCommand('ACCEPT');
+
+  candidatePoints = [];
+  candidateOverlay.style.display = 'none';
+};
+
+document.getElementById('rejectBtn').onclick = () => {
+  sendCommand('REJECT');
+
+  candidatePoints = [];
+  candidateOverlay.style.display = 'none';
+};
+
+document.getElementById('redrawBtn').onclick = () => {
+  allStrokes = [];
+  strokePoints = [];
+  strokeColors = [];
+  candidatePoints = [];
+
+  candidateOverlay.style.display = 'none';
+  redrawCanvas();
+
+  sendCommand('REDRAW_INSTEAD');
+
+  document.getElementById('acceptBtn').style.display = 'none';
+  document.getElementById('rejectBtn').style.display = 'none';
+  document.getElementById('redrawBtn').style.display = 'none';
+
+  document.getElementById('refinementText').value = '';
+};
+
+/* ---------- State handling ---------- */
+
+function handleSystemState(state) {
+  const submitBtn = document.getElementById('submitBtn');
+  const refinementRow = document.getElementById('refinementRow');
+  const errorBanner = document.getElementById('errorBanner');
+
+  const isError = state.startsWith('ERROR:');
+
+  if (isError) {
+    const reason = state.slice('ERROR:'.length);
+    document.getElementById('errorMessage').textContent = reason || 'An error occurred.';
+    errorBanner.style.display = 'flex';
+  } else {
+    errorBanner.style.display = 'none';
+  }
+
+  submitBtn.disabled = !(state === 'HOVERING' || state === 'HOLDING');
+
+  refinementRow.style.display =
+    (state === 'HOLDING' || state === 'REFINING') ? 'block' : 'none';
+
+  if (state !== 'REFINING') {
+    document.getElementById('acceptBtn').style.display = 'none';
+    document.getElementById('rejectBtn').style.display = 'none';
+    document.getElementById('redrawBtn').style.display = 'none';
+
+    candidatePoints = [];
+    candidateOverlay.style.display = 'none';
+    redrawCandidate();
+  }
+}
+
+document.getElementById('errorAckBtn').onclick = () => {
+  sendCommand('ACKNOWLEDGE');
+  document.getElementById('errorBanner').style.display = 'none';
+};
+
+/* Initial render */
+updatePenIconColor();
+redrawCanvas();
+</script>
+
+</body>
+</html>

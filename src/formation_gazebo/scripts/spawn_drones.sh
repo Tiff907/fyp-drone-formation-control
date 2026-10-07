@@ -2,9 +2,9 @@
 # spawn_drones.sh — spawns 20 namespaced drones into formation_world
 
 MODEL_PATH="$HOME/fyp_ws/src/formation_gazebo/models/drone/model.sdf"
-Z=0.05
+Z=0.01
 
-X_POSITIONS=(-1.8 -1.4 -1 -0.6 -0.2 0.2 0.6 1 1.4 1.8)
+X_POSITIONS=(-1.8 -1.4 -1.0 -0.6 -0.2 0.2 0.6 1.0 1.4 1.8)
 Y_POSITIONS=(1.5 0.5)
 
 i=0

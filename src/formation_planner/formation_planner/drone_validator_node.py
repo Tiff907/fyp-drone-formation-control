@@ -35,8 +35,7 @@ SAFETY_RADIUS = 0.30  # metres, matches the CBS conflict-check radius
 # Physical boundary, ENU, matching the Gazebo world (5m x 4m x 3m),
 # centred at the origin.
 BOUNDARY_X = (-2.5, 2.5)
-BOUNDARY_Y = (-2.0, 2.0)
-BOUNDARY_Z = (0.0, 3.0)  # unused at this stage -- points are still 2D canvas coords
+BOUNDARY_Y = (0.0, 3.0) # will be mapped into z-axis
 
 
 def points_pass_safety_check(points):
@@ -130,7 +129,7 @@ class DroneValidatorNode(Node):
             self.get_logger().info(f'Safety check passed at N={msg.target_n_used}')
             self._retrying = False
             self._validated_pub.publish(msg)
-            self._publish_status(True, f'Validated at N={msg.target_n_used}')
+            #self._publish_status(True, f'Validated at N={msg.target_n_used}')
             return
 
         self.get_logger().warn(f'Safety check failed at N={msg.target_n_used}: {reason}')

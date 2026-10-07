@@ -53,11 +53,35 @@ class SimBridgeNode(Node):
 
         self._setpoint_pub = self.create_publisher(DroneSetpoint, '/drone/setpoint', 10)
 
-        scene_text = self._query_scene_info()
+        expected_drones = 20
+        max_retries = 30
+        scene_text = None
+
+        for attempt in range(max_retries):
+            scene_text = self._query_scene_info()
+            if scene_text:
+                # Count how many unique drones are currently visible in the scene
+                model_blocks = re.split(r'\nmodel \{', scene_text)[1:]
+                found_ids = set()
+                for block in model_blocks:
+                    name_match = re.search(r'name:\s*"drone_(\d+)"', block)
+                    if name_match:
+                        found_ids.add(int(name_match.group(1)))
+
+                if len(found_ids) >= expected_drones:
+                    self.get_logger().info(f'Successfully discovered all {len(found_ids)} drones in Gazebo.')
+                    break
+                else:
+                    self.get_logger().warn(
+                        f'Found only {len(found_ids)}/{expected_drones} drones in scene/info. Retrying... ({attempt + 1}/{max_retries})'
+                    )
+            time.sleep(1.0)
+        else:
+            self.get_logger().error('Reached maximum retries waiting for all drones to spawn. Proceeding with partial list.')
+
         if scene_text:
             self._build_visual_lookup(scene_text)
             self._publish_initial_positions(scene_text)
-
         self.create_subscription(DroneSetpoint, '/drone/setpoint', self._on_setpoint, 10)
 
         self._stop_event = threading.Event()
@@ -84,12 +108,14 @@ class SimBridgeNode(Node):
             return None
 
     def _build_visual_lookup(self, scene_text: str):
-        model_blocks = re.split(r'\nmodel \{', scene_text)[1:]
-        for block in model_blocks:
-            name_match = re.search(r'name:\s*"drone_(\d+)"', block)
-            if not name_match:
+        for drone_id in range(0, 100):
+            # Use raw string concatenation to avoid brace/backslash conflicts
+            pattern = r'name:\s*"drone_' + str(drone_id) + r'"(.*?)(?=\nmodel \{|\Z)'
+            match = re.search(pattern, scene_text, re.DOTALL)
+            if not match:
                 continue
-            drone_id = int(name_match.group(1))
+            block = match.group(1)
+            
             visual_match = re.search(
                 r'name:\s*"body_visual"\s*\n\s*id:\s*(\d+)\s*\n\s*parent_id:\s*(\d+)',
                 block,
@@ -100,23 +126,15 @@ class SimBridgeNode(Node):
         self.get_logger().info(f'Resolved body_visual IDs for {len(self._visual_ids)} drones')
 
     def _publish_initial_positions(self, scene_text: str):
-        """Extracts each drone_N model's own spawn pose (not a child
-        visual's pose) and publishes it as a starting DroneSetpoint,
-        so pose_publisher_node knows about the full fleet immediately,
-        with real Gazebo-sourced positions rather than a duplicated
-        hardcoded layout."""
-        model_blocks = re.split(r'\nmodel \{', scene_text)[1:]
         published_count = 0
 
-        for block in model_blocks:
-            name_match = re.search(r'name:\s*"drone_(\d+)"', block)
-            if not name_match:
+        for drone_id in range(0, 100):
+            pattern = r'name:\s*"drone_' + str(drone_id) + r'"(.*?)(?=\nmodel \{|\Z)'
+            match = re.search(pattern, scene_text, re.DOTALL)
+            if not match:
                 continue
-            drone_id = int(name_match.group(1))
+            block = match.group(1)
 
-            # The model's own top-level pose block appears before any
-            # nested link/visual pose blocks -- take the first
-            # position{...} in the block.
             pose_match = re.search(
                 r'pose\s*\{\s*position\s*\{([^}]*)\}',
                 block,
@@ -137,7 +155,6 @@ class SimBridgeNode(Node):
             published_count += 1
 
         self.get_logger().info(f'Published initial spawn positions for {published_count} drones')
-
     def _on_setpoint(self, msg: DroneSetpoint):
         with self._lock:
             self._latest[msg.drone_id] = msg
@@ -153,12 +170,21 @@ class SimBridgeNode(Node):
             if snapshot:
                 self._send_pose_vector(snapshot)
 
+                # Check pairwise distance; any drone closer than 0.3m
+                # to another gets forced red, overriding its assigned
+                # formation colour, for as long as the violation lasts.
+                violating = self._find_violating_drones(snapshot)
+
                 color_changes = []
                 with self._lock:
                     for drone_id, msg in snapshot.items():
-                        color = (msg.led_color.r, msg.led_color.g, msg.led_color.b)
+                        if drone_id in violating:
+                            color = (1.0, 0.0, 0.0)  # red
+                        else:
+                            color = (msg.led_color.r, msg.led_color.g, msg.led_color.b)
+
                         if self._last_color.get(drone_id) != color:
-                            color_changes.append((drone_id, msg.led_color))
+                            color_changes.append((drone_id, ColorRGBA(r=color[0], g=color[1], b=color[2], a=1.0)))
                             self._last_color[drone_id] = color
 
                 for drone_id, color in color_changes:
@@ -166,6 +192,24 @@ class SimBridgeNode(Node):
 
             elapsed = time.monotonic() - start
             time.sleep(max(0.0, period - elapsed))
+
+    def _find_violating_drones(self, snapshot: dict) -> set:
+        """Returns the set of drone_ids currently closer than 0.30m to
+        at least one other drone, based on their current setpoints."""
+        SAFETY_RADIUS = 0.30
+        violating = set()
+        ids = list(snapshot.keys())
+
+        for i in range(len(ids)):
+            for j in range(i + 1, len(ids)):
+                a, b = ids[i], ids[j]
+                pa, pb = snapshot[a].target_position, snapshot[b].target_position
+                d = ((pa.x - pb.x) ** 2 + (pa.y - pb.y) ** 2 + (pa.z - pb.z) ** 2) ** 0.5
+                if d < SAFETY_RADIUS:
+                    violating.add(a)
+                    violating.add(b)
+
+        return violating
 
     def _send_pose_vector(self, setpoints: dict):
         pose_strs = []

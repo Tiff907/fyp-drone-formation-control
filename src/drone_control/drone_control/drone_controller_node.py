@@ -53,7 +53,7 @@ class DroneControllerNode(Node):
         self._reached = {}           # drone_id -> bool
 
         self.create_subscription(FormationGoal, '/formation/goal', self._on_goal, 10)
-        self.create_subscription(DronePath, '/formation/drone_path', self._on_path, 10)
+        self.create_subscription(DronePath, '/formation/drone_path', self._on_path, 50)
 
         self._setpoint_pub = self.create_publisher(DroneSetpoint, '/drone/setpoint', 10)
         self._state_pub = self.create_publisher(DroneState, '/drone/controller_state', 10)
@@ -68,8 +68,13 @@ class DroneControllerNode(Node):
 
     def _on_path(self, msg: DronePath):
         self._paths[msg.drone_id] = msg
-        self._path_start_time[msg.drone_id] = msg.formation_start_time  # shared absolute time, not receipt time
+        self._path_start_time[msg.drone_id] = msg.formation_start_time  
+        
+        # Explicitly reset reached to False and notify state publisher immediately
         self._reached[msg.drone_id] = False
+        if msg.waypoints:
+            self._publish_state(msg.drone_id, msg.waypoints[-1], reached=False)
+
         self.get_logger().info(
             f'Received path for drone {msg.drone_id} ({len(msg.waypoints)} waypoints)'
         )
@@ -78,9 +83,6 @@ class DroneControllerNode(Node):
         now_sec = ros_time_to_sec(self.get_clock().now())
 
         for drone_id, path in self._paths.items():
-            if self._reached.get(drone_id):
-                continue
-
             waypoints = path.waypoints
             times = path.waypoint_times
             if not waypoints or not times or len(waypoints) != len(times):
@@ -94,19 +96,24 @@ class DroneControllerNode(Node):
 
             if elapsed <= rel_times[0]:
                 target = waypoints[0]
+                is_reached = False
             elif elapsed >= rel_times[-1]:
                 target = waypoints[-1]
-                if not self._reached[drone_id]:
-                    self._reached[drone_id] = True
-                    self._publish_state(drone_id, target, reached=True)
+                is_reached = True  # Fully arrived at final waypoint
             else:
                 target = waypoints[-1]
+                is_reached = False
                 for i in range(len(rel_times) - 1):
                     if rel_times[i] <= elapsed <= rel_times[i + 1]:
                         span = rel_times[i + 1] - rel_times[i]
                         alpha = 0.0 if span <= 0 else (elapsed - rel_times[i]) / span
                         target = lerp_point(waypoints[i], waypoints[i + 1], alpha)
                         break
+
+            # Track and publish state changes dynamically instead of skipping
+            if self._reached.get(drone_id) != is_reached:
+                self._reached[drone_id] = is_reached
+                self._publish_state(drone_id, target, reached=is_reached)
 
             self._publish_setpoint(drone_id, target)
 

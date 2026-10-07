@@ -29,7 +29,7 @@ def generate_launch_description():
     )
 
     ros_nodes = TimerAction(
-        period=12.0,
+        period=15.0,
         actions=[
             Node(
                 package='drone_control',

@@ -26,7 +26,7 @@ from kneed import KneeLocator
 # Core algorithm (no ROS2 dependency)
 # ---------------------------------------------------------------------
 
-def cap_raw_points(points, colors=None, max_pts=40):
+def cap_raw_points(points, colors=None, max_pts=30):
     """
     Caps raw points to a maximum number of points using uniform
     downsampling.
@@ -106,7 +106,7 @@ def find_n_min(points, floor=3):
 
     # Geometry-only cap.
     # This returns only points because colors are not supplied.
-    capped = cap_raw_points(points, max_pts=40)
+    capped = cap_raw_points(points, max_pts=30)
 
     if len(capped) <= floor:
         return len(capped)
@@ -134,7 +134,7 @@ def find_n_min(points, floor=3):
         curve='convex',
         direction='increasing',
         interp_method='polynomial',
-        S=1.0
+        S=0.5
     )
 
     if kl.knee is None:
@@ -150,88 +150,88 @@ def find_n_min(points, floor=3):
 
 def sample_to_n(points, colors, target_n):
     """
-    Reduces the drawn stroke to exactly target_n points using
-    Visvalingam-Whyatt's native point-count stopping condition.
-
-    Each sampled point keeps its original colour.
-
-    Parameters
-    ----------
-    points : list of (x, y)
-        Original points.
-
-    colors : list
-        Color corresponding to each point.
-
-    target_n : int
-        Requested number of output points.
-
-    Returns
-    -------
-    sampled_points, sampled_colors
+    Reduces or interpolates the drawn stroke to exactly target_n points.
+    Uses Visvalingam-Whyatt to preserve sharp corners when possible,
+    and falls back to uniform arc-length interpolation if exact target_n 
+    cannot be met by VW alone.
     """
-
     if len(points) == 0:
         return [], []
 
-    # Make sure colors has one entry per point.
     if len(colors) == 0:
         colors = [None] * len(points)
-
     elif len(colors) == 1 and len(points) > 1:
-        # One stroke color applies to the entire shape.
         colors = list(colors) * len(points)
-
     elif len(colors) != len(points):
-        raise ValueError(
-            f"Point/color length mismatch: "
-            f"{len(points)} points but {len(colors)} colors"
-        )
+        raise ValueError(f"Point/color length mismatch: {len(points)} points vs {len(colors)} colors")
 
-    # Clamp target_n
     target_n = max(1, int(target_n))
+    pts_arr = np.array(points)
 
-    # No reduction needed
     if target_n >= len(points):
         return list(points), list(colors)
 
-    # VW simplification
+    # 1. Try Visvalingam-Whyatt simplification first to keep sharp corners
     simplifier = vw.Simplifier(points)
+    try:
+        simplified = simplifier.simplify(number=target_n)
+    except Exception:
+        simplified = []
 
-    simplified = simplifier.simplify(number=target_n)
-
-    points_arr = np.asarray(points)
-
+    vw_points = []
+    vw_colors = []
     used_indices = set()
 
+    for sp in simplified:
+        sp = np.asarray(sp)
+        dists = np.hypot(pts_arr[:, 0] - sp[0], pts_arr[:, 1] - sp[1])
+        for idx in used_indices:
+            dists[idx] = np.inf
+        idx = int(np.argmin(dists))
+        used_indices.add(idx)
+        vw_points.append(tuple(points[idx]))
+        vw_colors.append(colors[idx])
+
+    # 2. If VW gave us enough points, use them. Otherwise, blend with arc-length interpolation
+    if len(vw_points) >= target_n:
+        # Sort back to original order along the path
+        # (or take first target_n points)
+        return vw_points[:target_n], vw_colors[:target_n]
+
+    # Fallback/Supplement with cumulative arc-length interpolation to guarantee target_n
+    diffs = np.diff(pts_arr, axis=0)
+    segment_lengths = np.hypot(diffs[:, 0], diffs[:, 1])
+    cumulative_lengths = np.insert(np.cumsum(segment_lengths), 0, 0.0)
+    total_length = cumulative_lengths[-1]
+
+    if total_length == 0.0:
+        return [points[0]] * target_n, [colors[0]] * target_n
+
+    target_distances = np.linspace(0, total_length, target_n)
     sampled_points = []
     sampled_colors = []
 
-    for sp in simplified:
+    for dist in target_distances:
+        idx = np.searchsorted(cumulative_lengths, dist) - 1
+        idx = max(0, min(idx, len(pts_arr) - 2))
 
-        sp = np.asarray(sp)
+        seg_start_dist = cumulative_lengths[idx]
+        seg_end_dist = cumulative_lengths[idx + 1]
+        seg_len = seg_end_dist - seg_start_dist
 
-        # Distance from this simplified point to every original point
-        dists = np.hypot(
-            points_arr[:, 0] - sp[0],
-            points_arr[:, 1] - sp[1]
-        )
+        t = 0.0 if seg_len == 0.0 else (dist - seg_start_dist) / seg_len
 
-        # Do not reuse the same original point
-        for idx in used_indices:
-            dists[idx] = np.inf
-
-        idx = int(np.argmin(dists))
-
-        used_indices.add(idx)
-
-        sampled_points.append(tuple(points[idx]))
+        p0 = pts_arr[idx]
+        p1 = pts_arr[idx + 1]
+        interp_x = p0[0] + t * (p1[0] - p0[0])
+        interp_y = p0[1] + t * (p1[1] - p0[1])
+        sampled_points.append((interp_x, interp_y))
         sampled_colors.append(colors[idx])
 
     return sampled_points, sampled_colors
 
 
-def remove_close_points(points, colors, min_distance=0.3):
+def remove_close_points(points, colors, min_distance=0.35):
     """
     Removes consecutive points that are closer than min_distance.
 
@@ -373,7 +373,7 @@ def _build_node():
 
     class ShapeSamplingNode(Node):
 
-        MAX_RAW_POINTS = 40
+        MAX_RAW_POINTS = 30
 
         def __init__(self):
 

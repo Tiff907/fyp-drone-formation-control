@@ -1,138 +1,360 @@
 """
 mapf_node.py
 
-Publishing pipeline for /formation/drone_path, without CBS planning yet.
-
-On receiving a FormationGoal, builds a straight-line 2-waypoint DronePath
-per assigned drone (current known position -> assigned target point) and
-publishes them all under one shared formation_start_time, using a single
-long-lived publisher.
-
-TODO(cbs): replace _plan_paths() with a real conflict-based search over
-all assigned drones before publishing. Right now paths are independent
-straight lines and can intersect/collide -- that's expected at this
-stage, this node only exists to get the publishing pipeline right first.
-
-Assumptions (adjust if the actual message definitions differ):
-- Each drone's current position is tracked from DroneState.position on
-  /drone/controller_state (published by drone_controller_node). If no
-  state has been seen yet for a drone_id, it falls back to a resting
-  position of (0, 0, 1.5) -- swap this for real localization/odometry
-  once available.
-
-Why one persistent publisher instead of per-call CLI/publisher setup:
-each new rclpy publisher has to go through DDS discovery with matching
-subscribers before messages are guaranteed to be delivered. Creating it
-once at node startup and reusing it for every drone_path publish avoids
-paying that discovery cost per-message, which is what caused drones to
-activate at staggered times when paths were published via a loop of
-separate `ros2 topic pub --once` processes.
+Self-contained ROS2 node encapsulating Conflict-Based Search (CBS).
+Consumes a FormationGoal and publishes DronePath per drone, or PlanStatus on failure/timeout.
 """
+
+import heapq
+import itertools
+import time
+import numpy as np
 
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point
 from builtin_interfaces.msg import Time as TimeMsg
 
-from formation_msgs.msg import DronePath, DroneState, FormationGoal
+from formation_msgs.msg import FormationGoal, DroneState, DronePath, PlanStatus
 
 
-# Fixed timing for the placeholder straight-line paths. Once CBS is added,
-# per-drone duration will likely vary based on path length / conflicts.
-START_DELAY_SEC = 2.0     # buffer so all subscribers are guaranteed to have
-                            # received their DronePath before formation_start_time
-SEGMENT_DURATION_SEC = 4.0
+# ---------------------------------------------------------------------
+# CBS Core Parameters and Geometry Helpers
+# ---------------------------------------------------------------------
 
-DEFAULT_REST_POSITION = (0.0, 0.0, 1.5)
+CELL_SIZE = 0.10          # metres, 10cm grid resolution
+SAFETY_RADIUS = 0.300001  # metres (avoiding edge situations by adding 0.000001m)
+DT = 0.5                  # seconds per grid timestep
 
-
-def make_point(x: float, y: float, z: float) -> Point:
-    p = Point()
-    p.x, p.y, p.z = x, y, z
-    return p
-
-
-def ros_time_to_sec(t: TimeMsg) -> float:
-    return t.sec + t.nanosec * 1e-9
+_NEIGHBOR_OFFSETS = [
+    (dx, dy, dz)
+    for dx in (-1, 0, 1)
+    for dy in (-1, 0, 1)
+    for dz in (-1, 0, 1)
+]
 
 
-def sec_to_ros_time(sec: float) -> TimeMsg:
-    t = TimeMsg()
-    t.sec = int(sec)
-    t.nanosec = int((sec - t.sec) * 1e9)
-    return t
+def world_to_cell(p, origin=(0.0, 0.0, 0.0)):
+    return (
+        round((p[0] - origin[0]) / CELL_SIZE),
+        round((p[1] - origin[1]) / CELL_SIZE),
+        round((p[2] - origin[2]) / CELL_SIZE),
+    )
+
+
+def cell_to_world(c, origin=(0.0, 0.0, 0.0)):
+    return (
+        origin[0] + c[0] * CELL_SIZE,
+        origin[1] + c[1] * CELL_SIZE,
+        origin[2] + c[2] * CELL_SIZE,
+    )
+
+
+def cell_distance_m(c1, c2):
+    return np.sqrt(sum(((a - b) * CELL_SIZE) ** 2 for a, b in zip(c1, c2)))
+
+
+def exclusion_cells(center_cell, radius=SAFETY_RADIUS):
+    r_cells = int(np.ceil(radius / CELL_SIZE))
+    cells = set()
+    for dx in range(-r_cells, r_cells + 1):
+        for dy in range(-r_cells, r_cells + 1):
+            for dz in range(-r_cells, r_cells + 1):
+                cand = (center_cell[0] + dx, center_cell[1] + dy, center_cell[2] + dz)
+                if cell_distance_m(center_cell, cand) <= radius:
+                    cells.add(cand)
+    return cells
+
+
+# ---------------------------------------------------------------------
+# Low Level: Space-Time A*
+# ---------------------------------------------------------------------
+
+def low_level_astar(start_cell, goal_cell, constraints, max_t):
+    def heuristic(c):
+        return cell_distance_m(c, goal_cell) / CELL_SIZE
+
+    start = (start_cell, 0)
+    open_heap = [(heuristic(start_cell), 0, start)]
+    came_from = {}
+    g_score = {start: 0}
+    counter = itertools.count()
+
+    while open_heap:
+        _, _, (cell, t) = heapq.heappop(open_heap)
+
+        if cell == goal_cell:
+            return _reconstruct_path(came_from, (cell, t))
+
+        if t >= max_t:
+            continue
+
+        for dx, dy, dz in _NEIGHBOR_OFFSETS:
+            next_cell = (cell[0] + dx, cell[1] + dy, cell[2] + dz)
+            next_t = t + 1
+
+            if next_cell in constraints.get(next_t, ()):
+                continue
+            if (cell, next_cell, next_t) in constraints.get('swap', ()):
+                continue
+
+            tentative_g = g_score[(cell, t)] + 1
+            key = (next_cell, next_t)
+            if tentative_g < g_score.get(key, float('inf')):
+                g_score[key] = tentative_g
+                came_from[key] = (cell, t)
+                f = tentative_g + heuristic(next_cell)
+                heapq.heappush(open_heap, (f, next(counter), key))
+
+    return None
+
+
+def _reconstruct_path(came_from, end):
+    path = [end]
+    while path[-1] in came_from:
+        path.append(came_from[path[-1]])
+    path.reverse()
+    return path
+
+
+# ---------------------------------------------------------------------
+# High Level: Constraint Tree & Conflict Resolution
+# ---------------------------------------------------------------------
+
+class CTNode:
+    _id_counter = itertools.count()
+
+    def __init__(self, constraints, paths):
+        self.constraints = constraints
+        self.paths = paths
+        self.id = next(CTNode._id_counter)
+
+    def cost(self):
+        return max(path[-1][1] for path in self.paths.values())
+
+    def __lt__(self, other):
+        return self.cost() < other.cost()
+
+
+def find_conflict(paths, max_t):
+    agents = list(paths.keys())
+
+    def pos_at(agent, t):
+        path = paths[agent]
+        if t < len(path):
+            return path[t][0]
+        return path[-1][0]
+
+    for t in range(max_t + 1):
+        for i in range(len(agents)):
+            for j in range(i + 1, len(agents)):
+                a, b = agents[i], agents[j]
+                ca, cb = pos_at(a, t), pos_at(b, t)
+                if cell_distance_m(ca, cb) < SAFETY_RADIUS:
+                    return ('vertex', a, b, ca, t)
+
+    for t in range(max_t):
+        for i in range(len(agents)):
+            for j in range(i + 1, len(agents)):
+                a, b = agents[i], agents[j]
+                ca_t, ca_t1 = pos_at(a, t), pos_at(a, t + 1)
+                cb_t, cb_t1 = pos_at(b, t), pos_at(b, t + 1)
+                if ca_t == cb_t1 and cb_t == ca_t1:
+                    return ('swap', a, b, t + 1)
+
+    return None
+
+
+def cbs_plan(starts, goals, max_t=200, timeout=5.0):
+    start_time = time.time()
+    agent_ids = list(starts.keys())
+    start_cells = {a: world_to_cell(starts[a]) for a in agent_ids}
+    goal_cells = {a: world_to_cell(goals[a]) for a in agent_ids}
+
+    root_constraints = {a: {'swap': set()} for a in agent_ids}
+    root_paths = {}
+    for a in agent_ids:
+        if time.time() - start_time > timeout:
+            return None
+        path = low_level_astar(start_cells[a], goal_cells[a], root_constraints[a], max_t)
+        if path is None:
+            return None
+        root_paths[a] = path
+
+    root = CTNode(root_constraints, root_paths)
+    open_heap = [root]
+
+    while open_heap:
+        if time.time() - start_time > timeout:
+            return None  # Exceeded time limit
+
+        node = heapq.heappop(open_heap)
+        conflict = find_conflict(node.paths, max_t)
+
+        if conflict is None:
+            return _paths_to_world(node.paths)
+
+        kind = conflict[0]
+
+        if kind == 'vertex':
+            _, a, b, center_cell, t = conflict
+            excl = exclusion_cells(center_cell)
+            for blocked_agent in (a, b):
+                new_constraints = _deep_copy_constraints(node.constraints)
+                new_constraints[blocked_agent].setdefault(t, set())
+                new_constraints[blocked_agent][t] |= excl
+
+                new_path = low_level_astar(
+                    start_cells[blocked_agent], goal_cells[blocked_agent],
+                    new_constraints[blocked_agent], max_t,
+                )
+                if new_path is None:
+                    continue
+
+                new_paths = dict(node.paths)
+                new_paths[blocked_agent] = new_path
+                heapq.heappush(open_heap, CTNode(new_constraints, new_paths))
+
+        elif kind == 'swap':
+            _, a, b, t = conflict
+            for blocked_agent, other in ((a, b), (b, a)):
+                new_constraints = _deep_copy_constraints(node.constraints)
+                ca_prev = node.paths[blocked_agent][t - 1][0]
+                ca_cur = node.paths[blocked_agent][t][0]
+                new_constraints[blocked_agent]['swap'].add((ca_prev, ca_cur, t))
+
+                new_path = low_level_astar(
+                    start_cells[blocked_agent], goal_cells[blocked_agent],
+                    new_constraints[blocked_agent], max_t,
+                )
+                if new_path is None:
+                    continue
+
+                new_paths = dict(node.paths)
+                new_paths[blocked_agent] = new_path
+                heapq.heappush(open_heap, CTNode(new_constraints, new_paths))
+
+    return None
+
+
+def _deep_copy_constraints(constraints):
+    return {
+        agent: {
+            k: (set(v) if k != 'swap' else set(v))
+            for k, v in agent_constraints.items()
+        }
+        for agent, agent_constraints in constraints.items()
+    }
+
+
+def _paths_to_world(paths):
+    result = {}
+    for agent, path in paths.items():
+        result[agent] = [
+            (*cell_to_world(cell), t * DT) for cell, t in path
+        ]
+    return result
+
+
+# ---------------------------------------------------------------------
+# ROS 2 Time Helpers and Node Class
+# ---------------------------------------------------------------------
+
+def ros_time_to_msg(rclpy_time) -> TimeMsg:
+    sec, nanosec = divmod(rclpy_time.nanoseconds, 1_000_000_000)
+    msg = TimeMsg()
+    msg.sec = int(sec)
+    msg.nanosec = int(nanosec)
+    return msg
+
+
+def offset_time_msg(base: TimeMsg, offset_sec: float) -> TimeMsg:
+    total_nanosec = base.sec * 1_000_000_000 + base.nanosec + int(offset_sec * 1e9)
+    sec, nanosec = divmod(total_nanosec, 1_000_000_000)
+    msg = TimeMsg()
+    msg.sec = int(sec)
+    msg.nanosec = int(nanosec)
+    return msg
 
 
 class MapfNode(Node):
 
+    MAX_T = 200  # grid timesteps
+
     def __init__(self):
         super().__init__('mapf_node')
+        self._drone_positions = {}
+        
+        self.create_subscription(DroneState, '/drone/state', self._on_drone_state, 10)
+        self.create_subscription(FormationGoal, '/formation/goal', self._on_formation_goal, 10)
+        
+        self._path_pub = self.create_publisher(DronePath, '/formation/drone_path', 50)
+        self._status_pub = self.create_publisher(PlanStatus, '/formation/plan_status', 10)
 
-        self._last_known_position = {}  # drone_id -> Point
+        self.get_logger().info('mapf_node (Strict CBS with 5s timeout) started')
 
-        # Publisher created once, reused for every formation -- see module
-        # docstring for why this matters for simultaneous drone startup.
-        self._path_pub = self.create_publisher(DronePath, '/formation/drone_path', 10)
+    def _on_drone_state(self, msg: DroneState):
+        if msg.available:
+            self._drone_positions[msg.drone_id] = (msg.position.x, msg.position.y, msg.position.z)
+        else:
+            self._drone_positions.pop(msg.drone_id, None)
 
-        self.create_subscription(DroneState, '/drone/controller_state', self._on_state, 10)
-        self.create_subscription(FormationGoal, '/formation/goal', self._on_goal, 10)
-
-        self.get_logger().info('mapf_node started (publishing pipeline only, no CBS yet)')
-
-    def _on_state(self, msg: DroneState):
-        self._last_known_position[msg.drone_id] = msg.position
-
-    def _on_goal(self, msg: FormationGoal):
+    def _on_formation_goal(self, msg: FormationGoal):
         drone_ids = list(msg.assigned_drone_ids)
         targets = list(msg.target_points)
 
-        if len(drone_ids) != len(targets):
-            self.get_logger().error(
-                f'FormationGoal {msg.formation_id} has {len(drone_ids)} drone_ids but '
-                f'{len(targets)} target_points -- ignoring goal'
-            )
+        if not drone_ids or not targets:
+            self.get_logger().error('Received empty assignment goal -- ignoring')
             return
 
-        self.get_logger().info(
-            f'Planning formation {msg.formation_id} for {len(drone_ids)} drones'
-        )
-        paths = self._plan_paths(drone_ids, targets)
-        self._publish_paths(paths, formation_id=msg.formation_id)
+        starts = {}
+        goals = {}
 
-    def _plan_paths(self, drone_ids, targets):
-        """Builds one straight-line 2-waypoint path per drone.
-
-        TODO(cbs): this is where conflict-based search goes. It should
-        take the same (drone_id, start, target) tuples this function
-        builds and return waypoint sequences that are mutually
-        collision-free, instead of the direct start->target lines below.
-        """
-        paths = []
         for drone_id, target in zip(drone_ids, targets):
-            start = self._last_known_position.get(
-                drone_id,
-                make_point(*DEFAULT_REST_POSITION),
-            )
-            paths.append((drone_id, [start, target]))
-        return paths
+            if drone_id not in self._drone_positions:
+                self.get_logger().error(f'Missing current position for assigned drone {drone_id}')
+                self._publish_failure(f'Missing position for drone {drone_id}')
+                return
+            starts[drone_id] = self._drone_positions[drone_id]
+            goals[drone_id] = (target.x, target.y, target.z)
 
-    def _publish_paths(self, paths, formation_id: int):
-        now_sec = ros_time_to_sec(self.get_clock().now().to_msg())
-        formation_start = sec_to_ros_time(now_sec + START_DELAY_SEC)
-        formation_end = sec_to_ros_time(now_sec + START_DELAY_SEC + SEGMENT_DURATION_SEC)
+        self.get_logger().info(f'Planning CBS for {len(starts)} assigned drones (formation_id={msg.formation_id})')
 
-        for drone_id, waypoints in paths:
-            msg = DronePath()
-            msg.drone_id = drone_id
-            msg.waypoints = waypoints
-            msg.waypoint_times = [formation_start, formation_end]
-            msg.formation_start_time = formation_start
-            self._path_pub.publish(msg)
-            self.get_logger().info(
-                f'[formation {formation_id}] Published path for drone {drone_id}: '
-                f'({waypoints[0].x:.2f}, {waypoints[0].y:.2f}, {waypoints[0].z:.2f}) -> '
-                f'({waypoints[1].x:.2f}, {waypoints[1].y:.2f}, {waypoints[1].z:.2f})'
-            )
+        # Run strict CBS with a 5.0s timeout limit
+        result = cbs_plan(starts, goals, max_t=self.MAX_T, timeout=5.0)
+
+        if not result:
+            self.get_logger().error('CBS planning failed or exceeded 5.0s timeout limit.')
+            self._publish_failure('CBS planning failed or timed out (5s exceeded).')
+            return
+
+        # Publish planned collision-free paths
+        formation_start = self.get_clock().now()
+        start_time_msg = ros_time_to_msg(formation_start)
+
+        for drone_id, waypoints in result.items():
+            path_msg = DronePath()
+            path_msg.drone_id = drone_id
+            path_msg.waypoints = [Point(x=x, y=y, z=z) for x, y, z, t in waypoints]
+            path_msg.waypoint_times = [offset_time_msg(start_time_msg, t) for x, y, z, t in waypoints]
+            path_msg.formation_start_time = start_time_msg
+            self._path_pub.publish(path_msg)
+
+        self._publish_success(f'Successfully published paths for {len(result)} drones')
+
+    def _publish_success(self, message: str):
+        status = PlanStatus()
+        status.success = True
+        status.status_message = message
+        status.usable_drone_count = len(self._drone_positions)
+        self._status_pub.publish(status)
+
+    def _publish_failure(self, message: str):
+        status = PlanStatus()
+        status.success = False
+        status.status_message = message
+        status.usable_drone_count = len(self._drone_positions)
+        self._status_pub.publish(status)
 
 
 def main(args=None):

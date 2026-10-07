@@ -45,11 +45,11 @@ The system is validated first in Gazebo simulation, with physical deployment on 
 - [x] `drone_control`: `drone_controller_node`, `pose_publisher_node`, `sim_bridge_node` implemented and validated (multi-drone pose + LED colour control confirmed working in simulation)
 - [x] `formation_planner`: `shape_sampling_node` — Visvalingam-Whyatt reduction with Kneedle-based N_min detection, colour carried through every stage; tested standalone against varied shapes
 - [x] `formation_planner`: `drone_validator_node` — hard N_min rejection, safety-radius/boundary retry loop; tested standalone and integration-tested with `shape_sampling_node` end-to-end
-- [ ] `formation_planner`: `assignment_node`
-- [ ] `formation_planner`: `mapf_node` — currently a stub (straight-line paths only); real CBS implementation pending
-- [ ] `formation_ui`: touchscreen canvas front-end
+- [x] `formation_planner`: `assignment_node`
+- [x] `formation_planner`: `mapf_node`
+- [x] `formation_ui`: touchscreen canvas front-end
 - [ ] `llm_refinement`: LLM-based shape refinement
-- [ ] `task_manager`: FSM orchestrator
+- [ ] `task_manager`: FSM orchestrator — core state transitions and error handling done, LLM refinement integration pending
 - [ ] Physical hardware deployment (Fylo Edu+)
 
 ## License
