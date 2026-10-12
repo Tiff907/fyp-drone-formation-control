@@ -134,12 +134,20 @@
     transform: scale(0.94);
   }
 
+  /* The real colour input sits invisibly on top of the rainbow circle, so a
+     tap lands on it directly. (Safari on iPad is unreliable when a script
+     "clicks" a hidden 1px input.) */
   #manualColorPicker {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
     opacity: 0;
-    pointer-events: none;
+    cursor: pointer;
+    z-index: 1;
   }
 
   /* ---------- Drawing canvas ---------- */
@@ -486,7 +494,7 @@
 
   <div class="section-decoration"></div>
   
-  <div id="errorBanner" style="display:none; background:#ff8d91; color:#9d211d; border:3px solid #9d211d; border-radius:16px; padding:14px 20px; margin-bottom:16px; font-weight:700; display:flex; justify-content:space-between; align-items:center; gap:16px;">
+  <div id="errorBanner" style="display:none; background:#ff8d91; color:#9d211d; border:3px solid #9d211d; border-radius:16px; padding:14px 20px; margin-bottom:16px; font-weight:700; justify-content:space-between; align-items:center; gap:16px;">
     <span id="errorMessage"></span>
     <button id="errorAckBtn" style="background:#9d211d; color:white; border:0; border-radius:20px; padding:8px 20px; font-weight:900; cursor:pointer;">OK</button>
   </div>
@@ -608,9 +616,10 @@ const palette = document.getElementById('palette');
 
 /*
  * The first palette item is a rainbow/manual-colour option.
- * Clicking it opens the device's native colour picker.
+ * Tapping it opens the device's native colour picker (the colour input
+ * is layered invisibly over the circle).
  */
-const rainbowBtn = document.createElement('button');
+const rainbowBtn = document.createElement('label');
 rainbowBtn.className = 'color-btn rainbow-btn selected';
 rainbowBtn.title = 'Choose a custom pen colour';
 rainbowBtn.setAttribute('aria-label', 'Choose a custom pen colour');
@@ -620,10 +629,6 @@ const manualColorPicker = document.createElement('input');
 manualColorPicker.type = 'color';
 manualColorPicker.id = 'manualColorPicker';
 manualColorPicker.value = currentColor;
-
-rainbowBtn.addEventListener('click', () => {
-  manualColorPicker.click();
-});
 
 manualColorPicker.addEventListener('input', (e) => {
   currentColor = e.target.value.toUpperCase();
@@ -639,8 +644,8 @@ manualColorPicker.addEventListener('input', (e) => {
   setTool('pen');
 });
 
+rainbowBtn.appendChild(manualColorPicker);
 palette.appendChild(rainbowBtn);
-palette.appendChild(manualColorPicker);
 
 /* Preset colours */
 COLORS.forEach((color, index) => {

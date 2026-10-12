@@ -26,6 +26,143 @@ from kneed import KneeLocator
 # Core algorithm (no ROS2 dependency)
 # ---------------------------------------------------------------------
 
+# ---------------------------------------------------------------------
+# Spacing repair (swap a too-close point for another raw point)
+#
+# Visvalingam-Whyatt keeps the N most important points. The set kept at
+# N-1 is the set at N minus its least important point, so two important
+# points that are closer than the safety radius (e.g. the overlapping
+# ends of a hand-drawn closed shape, or two sides of a narrow part)
+# stay too close at every N, and a loop that only lowers N ends up
+# rejecting. Here, violations are repaired one at a time, worst first:
+#   1. SWAP: replace one point of the pair with another raw point from
+#      the stretch of the stroke it owns (between its two kept
+#      neighbours), choosing the valid one closest to the original.
+#   2. DROP: if no swap works, drop the less important point of the
+#      pair (never below n_min).
+#   3. Otherwise stop; the validator remains the independent judge.
+# A swap only moves a point to a spot that is valid against all other
+# kept points, so it cannot create a new violation and the loop ends.
+# ---------------------------------------------------------------------
+
+SAFETY_RADIUS = 0.30   # metres; keep equal to the validator and CBS values
+MARGIN = 0.02          # repair to slightly more than the radius, so the
+                       # validator's >= test is never borderline
+BOUNDARY_X = (-2.5, 2.5)
+BOUNDARY_Y = (0.0, 3.0)
+
+
+def _in_bounds_mask(P, bx=BOUNDARY_X, by=BOUNDARY_Y):
+    return (P[:, 0] >= bx[0]) & (P[:, 0] <= bx[1]) & \
+           (P[:, 1] >= by[0]) & (P[:, 1] <= by[1])
+
+
+def _tri_area(a, b, c):
+    return 0.5 * abs(a[0] * (b[1] - c[1]) + b[0] * (c[1] - a[1]) + c[0] * (a[1] - b[1]))
+
+
+def _importance(P, kept, k):
+    """VW-style importance of kept[k]: area of the triangle it forms with
+    its kept neighbours. End points are treated as most important."""
+    if k == 0 or k == len(kept) - 1:
+        return np.inf
+    return _tri_area(P[kept[k - 1]], P[kept[k]], P[kept[k + 1]])
+
+
+def _first_violation(P, kept, min_dist, bx, by):
+    """Return ('bound', k) or ('pair', i, j) for the worst violation,
+    or None if the selection is clean. Boundary problems come first."""
+    K = P[kept]
+    oob = np.where(~_in_bounds_mask(K, bx, by))[0]
+    if len(oob) > 0:
+        return ('bound', int(oob[0]))
+    if len(K) < 2:
+        return None
+    diff = K[:, None, :] - K[None, :, :]
+    D = np.hypot(diff[..., 0], diff[..., 1])
+    np.fill_diagonal(D, np.inf)
+    i, j = np.unravel_index(np.argmin(D), D.shape)
+    if D[i, j] < min_dist:
+        return ('pair', int(min(i, j)), int(max(i, j)))
+    return None
+
+
+def _best_replacement(P, kept, k, min_dist, bx, by):
+    """Find another raw point for kept[k], taken from the stretch of the
+    stroke between its kept neighbours. It must be inside the boundary
+    and at least min_dist from every other kept point. Of the valid
+    candidates, return the one closest to the point it replaces (so the
+    outline barely changes), or None if there is no valid candidate."""
+    lo = kept[k - 1] + 1 if k > 0 else 0
+    hi = kept[k + 1] - 1 if k < len(kept) - 1 else len(P) - 1
+    if hi < lo:
+        return None
+    cand_idx = np.arange(lo, hi + 1)
+    cand_idx = cand_idx[cand_idx != kept[k]]
+    if len(cand_idx) == 0:
+        return None
+    C = P[cand_idx]
+    others = P[[idx for n, idx in enumerate(kept) if n != k]]
+    ok = _in_bounds_mask(C, bx, by)
+    if len(others) > 0:
+        diff = C[:, None, :] - others[None, :, :]
+        dmin = np.hypot(diff[..., 0], diff[..., 1]).min(axis=1)
+        ok &= dmin >= min_dist
+    if not ok.any():
+        return None
+    cand_idx, C = cand_idx[ok], C[ok]
+    d_to_orig = np.hypot(C[:, 0] - P[kept[k]][0], C[:, 1] - P[kept[k]][1])
+    return int(cand_idx[np.argmin(d_to_orig)])
+
+
+def repair_indices(points, kept, n_min,
+                   min_dist=SAFETY_RADIUS + MARGIN,
+                   bx=BOUNDARY_X, by=BOUNDARY_Y, max_iter=500):
+    """
+    Repair a selection of raw-point indices so that all kept points are
+    inside the boundary and at least min_dist apart.
+
+    points : (n_raw, 2) raw point pool, in path order
+    kept   : indices into points chosen by VW
+    n_min  : never drop below this many points
+    Returns (kept_indices, info) with info = {'swaps', 'drops', 'clean'}.
+    """
+    P = np.asarray(points, dtype=float)
+    kept = sorted(set(int(i) for i in kept))
+    swaps = drops = 0
+    clean = False
+
+    for _ in range(max_iter):
+        v = _first_violation(P, kept, min_dist, bx, by)
+        if v is None:
+            clean = True
+            break
+
+        if v[0] == 'bound':
+            order = [v[1]]
+        else:
+            order = sorted([v[1], v[2]], key=lambda k: _importance(P, kept, k))
+
+        moved = False
+        for k in order:                       # try the less important one first
+            new = _best_replacement(P, kept, k, min_dist, bx, by)
+            if new is not None:
+                kept[k] = new
+                swaps += 1
+                moved = True
+                break
+        if moved:
+            continue
+
+        if len(kept) - 1 >= n_min:            # no swap possible: drop one
+            del kept[order[0]]
+            drops += 1
+            continue
+        break                                 # give up; validator will decide
+
+    return kept, {'swaps': swaps, 'drops': drops, 'clean': clean}
+
+
 def cap_raw_points(points, colors=None, max_pts=30):
     """
     Caps raw points to a maximum number of points using uniform
@@ -231,6 +368,67 @@ def sample_to_n(points, colors, target_n):
     return sampled_points, sampled_colors
 
 
+def vw_indices(points, target_n):
+    """Indices (into points, in path order) of the target_n points that
+    Visvalingam-Whyatt keeps. Returns [] if VW fails."""
+    pts_arr = np.asarray(points, dtype=float)
+    try:
+        simplified = vw.Simplifier(points).simplify(number=target_n)
+    except Exception:
+        return []
+
+    used = set()
+    idxs = []
+    for sp in simplified:
+        sp = np.asarray(sp)
+        dists = np.hypot(pts_arr[:, 0] - sp[0], pts_arr[:, 1] - sp[1])
+        for u in used:
+            dists[u] = np.inf
+        i = int(np.argmin(dists))
+        used.add(i)
+        idxs.append(i)
+    return sorted(idxs)
+
+
+def sample_to_n_spaced(points, colors, target_n, n_min=1, return_info=False):
+    """
+    Like sample_to_n, but if two of the chosen points are closer than the
+    safety radius (or outside the boundary), tries a different raw point
+    for one of them before giving up (see the spacing repair section above). The result
+    can have fewer than target_n points only if a swap was impossible,
+    and never fewer than n_min.
+    """
+    info = {'swaps': 0, 'drops': 0, 'clean': True}
+
+    def done(pts, cols):
+        return (pts, cols, info) if return_info else (pts, cols)
+
+    if len(points) == 0:
+        return done([], [])
+
+    if len(colors) == 0:
+        colors = [None] * len(points)
+    elif len(colors) == 1 and len(points) > 1:
+        colors = list(colors) * len(points)
+    elif len(colors) != len(points):
+        raise ValueError(f"Point/color length mismatch: {len(points)} points vs {len(colors)} colors")
+
+    target_n = max(1, int(target_n))
+
+    if target_n >= len(points):
+        idxs = list(range(len(points)))
+    else:
+        idxs = vw_indices(points, target_n)
+        if len(idxs) < target_n:
+            # VW could not give exactly target_n raw points: use the
+            # original arc-length fallback (no raw points to swap to).
+            pts, cols = sample_to_n(points, colors, target_n)
+            return done(pts, cols)
+
+    idxs, info = repair_indices(points, idxs, n_min=max(1, int(n_min or 1)))
+    return done([tuple(points[i]) for i in idxs], [colors[i] for i in idxs])
+
+
 def remove_close_points(points, colors, min_distance=0.35):
     """
     Removes consecutive points that are closer than min_distance.
@@ -373,7 +571,10 @@ def _build_node():
 
     class ShapeSamplingNode(Node):
 
-        MAX_RAW_POINTS = 30
+        # Candidate pool for sampling. find_n_min() still caps to 30
+        # internally, so N_min is computed as before; the larger pool
+        # only gives the spacing repair more raw points to choose from.
+        MAX_RAW_POINTS = 120
 
         def __init__(self):
 
@@ -538,19 +739,30 @@ def _build_node():
                 # VW sampling
                 # -------------------------------------------------
 
-                sampled, sampled_colors = sample_to_n(
+                sampled, sampled_colors, repair = sample_to_n_spaced(
                     self._current_points,
                     self._current_colors,
-                    target_n
+                    target_n,
+                    n_min=self._n_min,
+                    return_info=True
                 )
 
+                if repair['swaps'] or repair['drops']:
+                    self.get_logger().info(
+                        f"Spacing repair: {repair['swaps']} swaps, "
+                        f"{repair['drops']} drops"
+                    )
+
                 # -------------------------------------------------
-                # Remove points that are too close
+                # Remove consecutive points that are too close. After
+                # the repair this does nothing, except in the
+                # arc-length fallback, which has no raw points to swap.
                 # -------------------------------------------------
 
                 sampled, sampled_colors = remove_close_points(
                     sampled,
-                    sampled_colors
+                    sampled_colors,
+                    min_distance=SAFETY_RADIUS
                 )
 
             except (ValueError, RuntimeError) as exc:
@@ -818,4 +1030,3 @@ if __name__ == '__main__':
     plt.tight_layout()
 
     plt.show()
-

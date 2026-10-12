@@ -6,6 +6,12 @@ server (not rosbridge). Runs an asyncio WebSocket server on a
 background thread alongside the normal rclpy executor, since the two
 event loops don't share a thread.
 
+Also serves the canvas page (web/index.html) over HTTP from the same
+node, so starting the node is all that is needed: open
+http://localhost:8080 on this machine, or http://<this machine's IP>:8080
+from another device on the same network. The page connects its
+WebSocket back to the same host on port 8765.
+
 Browser <-> node wire protocol (plain JSON, defined here -- not
 generated ROS message JSON):
 
@@ -24,8 +30,12 @@ generated ROS message JSON):
 """
 
 import asyncio
+import functools
 import json
+import os
+import socket
 import threading
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 import rclpy
 from rclpy.node import Node
@@ -38,14 +48,46 @@ from formation_msgs.msg import (
     DrawnShape, UserCommand, SystemState, RefinementCandidate, RefinementCmd,
 )
 
-WS_HOST = '0.0.0.0'
-WS_PORT = 8765
+WS_HOST = '0.0.0.0'      # all interfaces, so other devices on the network can connect
+WS_PORT = 8765           # the page connects to this port; keep in sync with index.html
+HTTP_PORT = 8080         # default for the 'http_port' parameter
+PACKAGE_NAME = 'formation_ui'   # package whose share/web folder holds index.html
+
+
+class _PageHandler(SimpleHTTPRequestHandler):
+    """Serves the files in web_dir (index.html at '/'). No caching, so an
+    edited page shows up on refresh; no per-request log lines."""
+
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store')
+        super().end_headers()
+
+    def log_message(self, format, *args):
+        pass
+
+
+def _lan_ip() -> str:
+    """This machine's address on the local network (no packet is sent)."""
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('10.255.255.255', 1))
+        return s.getsockname()[0]
+    except OSError:
+        return '127.0.0.1'
+    finally:
+        s.close()
 
 
 class CanvasServerNode(Node):
 
     def __init__(self):
         super().__init__('canvas_server_node')
+
+        # web_dir: folder containing index.html. Empty = look in the package's
+        # share/web folder, then in <package>/web next to this source file.
+        self.declare_parameter('web_dir', '')
+        self.declare_parameter('http_port', HTTP_PORT)
+        self._http_server = None
 
         self._connected_clients = set()
         self._loop = None  # set once the asyncio loop starts, used for thread-safe sends
@@ -60,7 +102,67 @@ class CanvasServerNode(Node):
         self._ws_thread = threading.Thread(target=self._run_ws_server, daemon=True)
         self._ws_thread.start()
 
+        self._start_web_server()
+
         self.get_logger().info(f'canvas_server_node started, WebSocket on :{WS_PORT}')
+
+    # ------------------------------------------------------------
+    # Web page server (plain HTTP, runs on its own thread)
+    # ------------------------------------------------------------
+
+    def _resolve_web_dir(self):
+        candidates = []
+
+        configured = self.get_parameter('web_dir').get_parameter_value().string_value
+        if configured:
+            candidates.append(configured)
+
+        try:
+            from ament_index_python.packages import get_package_share_directory
+            candidates.append(os.path.join(get_package_share_directory(PACKAGE_NAME), 'web'))
+        except Exception:
+            pass
+
+        here = os.path.dirname(os.path.realpath(__file__))
+        candidates.append(os.path.join(here, '..', 'web'))
+
+        for path in candidates:
+            path = os.path.abspath(path)
+            if os.path.isfile(os.path.join(path, 'index.html')):
+                return path
+        return None
+
+    def _start_web_server(self):
+        web_dir = self._resolve_web_dir()
+        if web_dir is None:
+            self.get_logger().error(
+                'index.html not found, so the web page is NOT being served '
+                '(the WebSocket server still works). Put it in '
+                f'{PACKAGE_NAME}/web/index.html and install that folder in '
+                'setup.py, or set the web_dir parameter.')
+            return
+
+        port = int(self.get_parameter('http_port').value)
+        handler = functools.partial(_PageHandler, directory=web_dir)
+        try:
+            self._http_server = ThreadingHTTPServer((WS_HOST, port), handler)
+        except OSError as exc:
+            self.get_logger().error(
+                f'Could not start the web page server on port {port}: {exc}. '
+                'Another program may be using it; change the http_port parameter.')
+            return
+
+        threading.Thread(target=self._http_server.serve_forever, daemon=True).start()
+        self.get_logger().info(
+            f'Canvas page: http://localhost:{port} on this machine, '
+            f'http://{_lan_ip()}:{port} from other devices on the same network '
+            f'(serving {web_dir})')
+
+    def destroy_node(self):
+        if self._http_server is not None:
+            self._http_server.shutdown()
+            self._http_server.server_close()
+        super().destroy_node()
 
     # ------------------------------------------------------------
     # WebSocket server (runs on its own thread/event loop)

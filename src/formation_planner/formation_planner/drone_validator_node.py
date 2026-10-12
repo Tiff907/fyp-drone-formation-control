@@ -125,6 +125,12 @@ class DroneValidatorNode(Node):
 
         passed, reason = points_pass_safety_check(points)
 
+        if passed and msg.target_n_used < self._n_min:
+            # The sampler can return fewer points than requested. Never
+            # accept a point set below N_min.
+            self._reject(f'Sampler returned {msg.target_n_used} points, below N_min ({self._n_min})')
+            return
+
         if passed:
             self.get_logger().info(f'Safety check passed at N={msg.target_n_used}')
             self._retrying = False
@@ -134,7 +140,9 @@ class DroneValidatorNode(Node):
 
         self.get_logger().warn(f'Safety check failed at N={msg.target_n_used}: {reason}')
 
-        self._target_n -= 1
+        # Step down from what the sampler actually returned, so a request
+        # that came back short does not waste an iteration.
+        self._target_n = min(self._target_n, msg.target_n_used) - 1
         if self._target_n < self._n_min:
             self._reject(f'Exhausted retry loop below N_min ({self._n_min}) without passing safety check')
             return
