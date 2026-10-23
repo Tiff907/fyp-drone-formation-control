@@ -8,3 +8,5 @@
 string generated_code
 string plan_description
 geometry_msgs/Point[] current_points
+geometry_msgs/Point[] proposed_points
+std_msgs/ColorRGBA[] proposed_colors

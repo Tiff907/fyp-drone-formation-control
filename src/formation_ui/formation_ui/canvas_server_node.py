@@ -20,6 +20,8 @@ generated ROS message JSON):
     {"type": "drawn_shape", "raw_points": [{"x":..,"y":..}, ...],
                              "stroke_colors": [{"r":..,"g":..,"b":..,"a":..}, ...]}
     {"type": "refinement_command", "instruction_text": "..."}
+        -> published as std_msgs/String on /ui/refinement_text (the
+           RefinementCmd itself is built by task_manager on LLM_SUBMIT)
 
   Node -> browser:
     {"type": "system_state", "state": "HOVERING"|"PLANNING"|...}
@@ -35,17 +37,18 @@ import json
 import os
 import socket
 import threading
+import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point
-from std_msgs.msg import ColorRGBA
+from std_msgs.msg import ColorRGBA, String
 
 import websockets
 
 from formation_msgs.msg import (
-    DrawnShape, UserCommand, SystemState, RefinementCandidate, RefinementCmd,
+    DrawnShape, UserCommand, SystemState, RefinementCandidate,
 )
 
 WS_HOST = '0.0.0.0'      # all interfaces, so other devices on the network can connect
@@ -94,7 +97,9 @@ class CanvasServerNode(Node):
 
         self._shape_pub = self.create_publisher(DrawnShape, '/formation/drawn_shape', 10)
         self._command_pub = self.create_publisher(UserCommand, '/ui/user_command', 10)
-        self._refinement_pub = self.create_publisher(RefinementCmd, '/refinement/command', 10)
+        # The instruction text goes to task_manager, which builds the RefinementCmd
+        # (it knows the current formation) when LLM_SUBMIT arrives.
+        self._refinement_text_pub = self.create_publisher(String, '/ui/refinement_text', 10)
 
         self.create_subscription(SystemState, '/system/state', self._on_system_state, 10)
         self.create_subscription(RefinementCandidate, '/refinement/candidate', self._on_refinement_candidate, 10)
@@ -231,12 +236,13 @@ class CanvasServerNode(Node):
         self._shape_pub.publish(msg)
 
     def _publish_refinement_command(self, instruction_text: str):
-        msg = RefinementCmd()
-        msg.instruction_text = instruction_text
-        # current_points intentionally left empty here -- llm_interface_node
-        # is expected to use the last submitted/accepted point set it
-        # already has, not rely on the browser resending it.
-        self._refinement_pub.publish(msg)
+        msg = String()
+        msg.data = instruction_text
+        self._refinement_text_pub.publish(msg)
+        # The browser sends LLM_SUBMIT right after this. The text goes out on
+        # a different topic from the command, so give it a moment to arrive
+        # first.
+        time.sleep(0.05)
 
     # ------------------------------------------------------------
     # ROS2 -> browser

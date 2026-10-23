@@ -11,11 +11,11 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools', 'anthropic'],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='tiffany',
     maintainer_email='tc20040709@gmail.com',
-    description='Natural-language formation refinement: generates and executes Claude-produced code to transform a point set',
+    description='Natural-language formation refinement: generates and executes AI-produced code to transform a point set',
     license='TODO: License declaration',
     extras_require={
         'test': [

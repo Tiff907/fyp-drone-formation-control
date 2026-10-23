@@ -2,14 +2,14 @@
 coords_mapping_node.py
 
 Maps validated 2D canvas points into 3D real-world coordinates.
-Canvas (x, y) -> real-world (x, z) directly. Canvas x additionally
+Canvas (x, y) -> real-world (x, z) directly. Canvas y additionally
 maps to a real-world y-offset (depth) via a fixed linear relationship
-y = x/B, keeping drones with similar x-coordinates spread in depth
+y = z/B, keeping drones with similar x-coordinates spread in depth
 rather than stacked vertically (avoids downwash risk) and guaranteeing
 every point stays within the physical boundary.
 
 B is a constant computed once from the ratio of the canvas's full
-x-range to the physical flight boundary's available y-range, since
+y-range to the physical flight boundary's available y-range, since
 both are fixed and known in advance.
 """
 

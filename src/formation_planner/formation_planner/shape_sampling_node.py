@@ -215,6 +215,62 @@ def cap_raw_points(points, colors=None, max_pts=30):
     return capped_points, capped_colors
 
 
+N_MIN_TOL = 0.04   # outline may deviate by this fraction of the shape's diagonal
+
+
+def _dist_to_segment(p, a, b):
+    ab = b - a
+    L = float(ab @ ab)
+    t = 0.0 if L == 0 else max(0.0, min(1.0, float((p - a) @ ab) / L))
+    return float(np.hypot(*(p - (a + t * ab))))
+
+
+def _rdp(P, i, j, tol, keep):
+    """Ramer-Douglas-Peucker: add to keep the vertices between i and j that
+    are needed to stay within tol of the original outline."""
+    if j <= i + 1:
+        return
+    d = [_dist_to_segment(P[k], P[i], P[j]) for k in range(i + 1, j)]
+    m = int(np.argmax(d))
+    if d[m] > tol:
+        k = i + 1 + m
+        keep.add(k)
+        _rdp(P, i, k, tol, keep)
+        _rdp(P, k, j, tol, keep)
+
+
+def shape_n_min(points, floor=3, tol_frac=N_MIN_TOL):
+    """
+    N_min judged from the shape itself: the number of vertices needed to
+    redraw the outline within tol_frac of its diagonal. A square needs 4,
+    a triangle 3, a circle about 8, a star 10; collinear points cost
+    nothing, so how many raw points the outline happens to have does not
+    matter. A closed outline (last point near the first) is split at the
+    point farthest from the start, so it is treated as a loop.
+    """
+    P = np.asarray(points, dtype=float)
+    n = len(P)
+    if n <= floor:
+        return n
+    diag = float(np.hypot(*(P.max(axis=0) - P.min(axis=0))))
+    if diag == 0:
+        return floor
+    gaps = np.sort(np.hypot(*(P[1:] - P[:-1]).T))
+    closed = float(np.hypot(*(P[0] - P[-1]))) <= 1.5 * gaps[len(gaps) // 2]
+    tol = tol_frac * diag
+    keep = set()
+    if closed:
+        f = int(np.argmax(np.hypot(*(P - P[0]).T)))
+        keep |= {0, f}
+        _rdp(P, 0, f, tol, keep)
+        _rdp(np.vstack([P, P[:1]]), f, n, tol, keep)
+        keep.discard(n)
+    else:
+        keep |= {0, n - 1}
+        _rdp(P, 0, n - 1, tol, keep)
+    return max(floor, min(n, len(keep)))
+
+
 def find_n_min(points, floor=3):
     """
     Determines the minimum number of points that keeps the shape
@@ -255,13 +311,10 @@ def find_n_min(points, floor=3):
     n = len(capped)
     n_removable = len(thresholds)
 
-    # Not enough information for Kneedle
-    if n_removable < 3:
-        return max(floor, n)
-
-    # Avoid degenerate threshold data
-    if thresholds.max() == thresholds.min():
-        return max(floor, n)
+    # Not enough information for Kneedle, or degenerate threshold data:
+    # judge the shape directly instead of using a fixed number.
+    if n_removable < 3 or thresholds.max() == thresholds.min():
+        return shape_n_min(capped, floor)
 
     ranks = np.arange(n_removable)
 
@@ -275,8 +328,9 @@ def find_n_min(points, floor=3):
     )
 
     if kl.knee is None:
-        # Fallback
-        return max(floor, int(n * 0.3))
+        # No knee in the VW curve (common once points are evenly spaced or
+        # collinear): judge the shape directly instead of using n * 0.3.
+        return shape_n_min(capped, floor)
 
     n_removed_at_elbow = int(kl.knee) + 1
 

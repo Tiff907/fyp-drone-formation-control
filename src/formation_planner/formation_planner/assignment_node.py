@@ -12,10 +12,13 @@ whichever drones are left over, which can produce a locally good
 formation match that forces a globally worse total cost once parking
 distances are also considered.
 
-Parking slots sit in a reserved depth strip (see PARK_Y / coords_mapping_node's
-restricted BOUNDARY_Y_RANGE) at a single fixed depth, arranged in a
-brick-offset grid across X and Z so no two parked drones ever share
-the same X at different Z (avoiding vertical stacking / downwash risk).
+Parking slots sit in the reserved depth strip (see PARK_Y_LAYERS / coords_mapping_node's
+restricted BOUNDARY_Y_RANGE), in rows at increasing height (Z). Consecutive
+rows differ in BOTH depth (Y) and X: Y cycles through three layers and the
+middle layer is shifted by half a slot in X, so a parked drone is never
+directly above another within downwash range (rows up to two apart, 0.8 m).
+Nearest horizontal distance between such drones is 0.28 m, against 0 m
+when all rows share one depth and are only offset in X.
 """
 
 import numpy as np
@@ -25,30 +28,32 @@ from geometry_msgs.msg import Point
 from std_msgs.msg import ColorRGBA
 from scipy.optimize import linear_sum_assignment
 
-from formation_msgs.msg import SampledPoints, DroneState, FormationGoal
+from formation_msgs.msg import SampledPoints, DroneState, FormationGoal, PlanStatus
 
-PARK_Y = 1.75             # fixed depth, centre of the reserved (1.5, 2.0) strip
+# Depth layers inside the reserved (1.5, 2.0) strip; row r uses layer r % 3.
+PARK_Y_LAYERS = (1.5, 1.9)
 PARK_X_RANGE = (-2.5, 2.5)
 PARK_Z_RANGE = (0.5, 2.5)
-PARK_SPACING = 0.4        # > SAFETY_RADIUS (0.30m) for margin
+PARK_SPACING = 0.4
 
 PARK_COLOR = ColorRGBA(r=0.3, g=0.3, b=0.3, a=1.0)
 
 
 def compute_parking_positions(count: int):
-    """Arranges `count` parking positions at fixed depth PARK_Y, using
-    a brick-offset grid across X (within each row) and Z (across
-    rows), so no two positions share the same X at different Z."""
+    """Arranges `count` parking positions in rows at increasing Z. Row r sits at
+    depth PARK_Y_LAYERS[r % 3], and rows with r % 3 == 1 are shifted by half a
+    slot in X, so rows that are close in height differ in both X and Y."""
     positions = []
     row = 0
     z = PARK_Z_RANGE[0]
 
     while len(positions) < count and z <= PARK_Z_RANGE[1]:
-        offset = (PARK_SPACING / 2) if (row % 2 == 1) else 0.0
+        offset = (PARK_SPACING / 2) if (row % 3 == 1) else 0.0
+        y = PARK_Y_LAYERS[row % len(PARK_Y_LAYERS)]
         x = PARK_X_RANGE[0] + PARK_SPACING + offset
 
         while x <= PARK_X_RANGE[1] - PARK_SPACING and len(positions) < count:
-            positions.append((x, PARK_Y - PARK_SPACING, z))
+            positions.append((x, y, z))
             x += PARK_SPACING
 
         row += 1
@@ -69,6 +74,7 @@ class AssignmentNode(Node):
         self.create_subscription(SampledPoints, '/formation/mapped_points', self._on_mapped_points, 10)
 
         self._goal_pub = self.create_publisher(FormationGoal, '/formation/goal', 10)
+        self._status_pub = self.create_publisher(PlanStatus, '/formation/plan_status', 10)
 
         self.get_logger().info('assignment_node started')
 
@@ -88,6 +94,11 @@ class AssignmentNode(Node):
                 f'Assignment infeasible: {m} available drones < {n} target points -- '
                 f'this should have been caught by drone_validator_node'
             )
+            status_msg = PlanStatus()
+            status_msg.success = False
+            status_msg.status_message = f'{m} drones available, {n} needed'
+            status_msg.usable_drone_count = m
+            self._status_pub.publish(status_msg)
             return
 
         # Build the combined target list: N formation points + (M - N)

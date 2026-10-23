@@ -6,3 +6,4 @@
 
 string instruction_text
 geometry_msgs/Point[] current_points
+std_msgs/ColorRGBA[] current_colors

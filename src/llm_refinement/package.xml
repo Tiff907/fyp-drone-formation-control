@@ -11,8 +11,6 @@
   <depend>formation_msgs</depend>
   <depend>geometry_msgs</depend>
 
-  <!-- Claude Sonnet API client (anthropic SDK) - PyPI-only,
-       install manually: pip install anthropic -->
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

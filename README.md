@@ -48,8 +48,8 @@ The system is validated first in Gazebo simulation, with physical deployment on 
 - [x] `formation_planner`: `assignment_node`
 - [x] `formation_planner`: `mapf_node`
 - [x] `formation_ui`: touchscreen canvas front-end
-- [ ] `llm_refinement`: LLM-based shape refinement
-- [ ] `task_manager`: FSM orchestrator — core state transitions and error handling done, LLM refinement integration pending
+- [x] `llm_refinement`: LLM-based shape refinement
+- [x] `task_manager`: FSM orchestrator
 - [ ] Physical hardware deployment (Fylo Edu+)
 
 ## License

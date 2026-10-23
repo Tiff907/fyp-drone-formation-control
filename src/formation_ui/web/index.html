@@ -597,6 +597,8 @@ let strokeColors = [];
 let allStrokes = [];
 
 let candidatePoints = [];
+let candidateColors = [];        // colour of each suggested point (may be empty)
+let suggestionRejected = false;   // true: candidatePoints is a rejected suggestion, kept on screen as the base for the next comment
 
 const COLORS = [
   '#ff3030', // red
@@ -762,6 +764,12 @@ function redrawCanvas() {
 
 /* ---------- Candidate shape ---------- */
 
+function candidateCssColor(c) {
+  if (!c) return null;
+  const to255 = v => Math.round(Math.max(0, Math.min(1, v)) * 255);
+  return `rgb(${to255(c.r)}, ${to255(c.g)}, ${to255(c.b)})`;
+}
+
 function redrawCandidate() {
   candidateCtx.clearRect(
     0, 0,
@@ -769,45 +777,56 @@ function redrawCandidate() {
     candidateOverlay.height
   );
 
-  if (!candidatePoints.length) return;
+  const n = candidatePoints.length;
+  if (!n) return;
+
+  const px = candidatePoints.map(p => worldToPixel(p.x, p.y));
+
+  /* Closed outline if the last point lands about one gap away from the first
+     (same rule the backend uses when it resamples the outline). */
+  const gaps = [];
+  for (let i = 1; i < n; i++) {
+    gaps.push(Math.hypot(px[i][0] - px[i - 1][0], px[i][1] - px[i - 1][1]));
+  }
+  gaps.sort((a, b) => a - b);
+  const medianGap = gaps.length ? gaps[Math.floor(gaps.length / 2)] : 0;
+  const closed = n > 2 &&
+    Math.hypot(px[0][0] - px[n - 1][0], px[0][1] - px[n - 1][1]) <= 1.5 * medianGap;
 
   candidateCtx.save();
-
-  candidateCtx.lineWidth = 4;
-  candidateCtx.lineCap = 'round';
+  candidateCtx.lineWidth = 5;
+  candidateCtx.lineCap = 'round';      /* round caps + tiny dash = dotted line */
   candidateCtx.lineJoin = 'round';
-  candidateCtx.setLineDash([12, 8]);
-  candidateCtx.strokeStyle = '#ffd83f';
+  candidateCtx.setLineDash([0.1, 11]);
 
-  candidateCtx.beginPath();
-
-  candidatePoints.forEach((point, i) => {
-    const [px, py] = worldToPixel(point.x, point.y);
-
-    if (i === 0) {
-      candidateCtx.moveTo(px, py);
-    } else {
-      candidateCtx.lineTo(px, py);
-    }
-  });
-
-  /*
-   * Close the candidate shape when there are enough points.
-   * This gives the refinement preview the same visual language
-   * as the reference design.
-   */
-  if (candidatePoints.length > 2) {
-    candidateCtx.closePath();
+  const segments = closed ? n : n - 1;
+  for (let i = 0; i < segments; i++) {
+    const a = px[i];
+    const b = px[(i + 1) % n];
+    const own = candidateCssColor(candidateColors[i]);
+    candidateCtx.strokeStyle = suggestionRejected ? '#9a9a9a' : (own || '#e08a00');
+    candidateCtx.beginPath();
+    candidateCtx.moveTo(a[0], a[1]);
+    candidateCtx.lineTo(b[0], b[1]);
+    candidateCtx.stroke();
   }
-
-  candidateCtx.stroke();
   candidateCtx.restore();
+}
+
+function clearCandidate() {
+  candidatePoints = [];
+  candidateColors = [];
+  suggestionRejected = false;
+  candidateOverlay.style.display = 'none';
+  redrawCandidate();
 }
 
 function showRefinementCandidate(msg) {
   candidatePoints = Array.isArray(msg.candidate_points)
     ? msg.candidate_points
     : [];
+  candidateColors = Array.isArray(msg.candidate_colors) ? msg.candidate_colors : [];
+  suggestionRejected = false;
 
   candidateOverlay.style.display = 'block';
 
@@ -913,8 +932,7 @@ document.getElementById('clearBtn').onclick = () => {
   allStrokes = [];
   strokePoints = [];
   strokeColors = [];
-  candidatePoints = [];
-  candidateOverlay.style.display = 'none';
+  clearCandidate();
   redrawCanvas();
 };
 
@@ -1021,6 +1039,7 @@ document.getElementById('endBtn').onclick = () => {
 };
 
 document.getElementById('submitBtn').onclick = () => {
+  clearCandidate();            // a new drawing replaces any old suggestion
   sendDrawnShape();
   sendCommand('SUBMIT');
 };
@@ -1046,27 +1065,91 @@ document.getElementById('llmSubmitBtn').onclick = () => {
   sendCommand('LLM_SUBMIT');
 };
 
-document.getElementById('acceptBtn').onclick = () => {
-  sendCommand('ACCEPT');
+/* Accepting makes the suggestion THE drawing, but only once planning has
+   succeeded: everything drawn before is then removed and the accepted outline
+   is shown as one solid stroke in its suggested colours (this is also what a
+   later SUBMIT would send). Until then the old drawing and the dotted
+   suggestion stay on screen; if planning fails they are left as they were. */
+let acceptedPending = null;   // stroke waiting for planning to succeed
+function isClosedOutline(pts) {
+  const n = pts.length;
+  if (n < 3) return false;
+  const gaps = [];
+  for (let i = 1; i < n; i++) {
+    gaps.push(Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+  }
+  gaps.sort((a, b) => a - b);
+  return Math.hypot(pts[0].x - pts[n - 1].x, pts[0].y - pts[n - 1].y) <=
+         1.5 * gaps[Math.floor(gaps.length / 2)];
+}
 
-  candidatePoints = [];
-  candidateOverlay.style.display = 'none';
+function rgbaToHex(c) {
+  const h = v => Math.round(Math.max(0, Math.min(1, v)) * 255).toString(16).padStart(2, '0');
+  return `#${h(c.r)}${h(c.g)}${h(c.b)}`;
+}
+
+function buildAcceptedStroke() {
+  if (!candidatePoints.length) return null;
+
+  // colours: the suggestion's own, else the old drawing's carried along the outline
+  const old = [];
+  for (const stroke of allStrokes) {
+    for (let i = 0; i < stroke.points.length; i++) {
+      old.push(stroke.colors[i] || currentColor);
+    }
+  }
+  const m = candidatePoints.length;
+  const colours = candidatePoints.map((_, i) => {
+    if (candidateColors.length === m) return rgbaToHex(candidateColors[i]);
+    if (old.length) return old[Math.round(i * (old.length - 1) / Math.max(1, m - 1))];
+    return currentColor;
+  });
+
+  const points = candidatePoints.map(p => [p.x, p.y]);
+  if (isClosedOutline(candidatePoints)) {          // draw the closing side too
+    points.push([candidatePoints[0].x, candidatePoints[0].y]);
+    colours.push(colours[0]);
+  }
+
+  return { points, colors: colours };
+}
+
+function adoptAcceptedStroke() {
+  if (!acceptedPending) return;
+  allStrokes = [acceptedPending];
+  acceptedPending = null;
+  strokePoints = [];
+  strokeColors = [];
+  clearCandidate();
+  redrawCanvas();
+}
+
+document.getElementById('acceptBtn').onclick = () => {
+  acceptedPending = buildAcceptedStroke();
+  sendCommand('ACCEPT');
 };
 
 document.getElementById('rejectBtn').onclick = () => {
   sendCommand('REJECT');
 
-  candidatePoints = [];
-  candidateOverlay.style.display = 'none';
+  /*
+   * Keep the rejected suggestion on screen (grey) so the user can see what
+   * the next comment will be applied to (task_manager parameter
+   * reject_base: 'suggested', the default, or 'original').
+   */
+  suggestionRejected = candidatePoints.length > 0;
+  redrawCandidate();
+
+  const text = document.getElementById('refinementText');
+  text.value = '';
+  text.focus();
 };
 
 document.getElementById('redrawBtn').onclick = () => {
   allStrokes = [];
   strokePoints = [];
   strokeColors = [];
-  candidatePoints = [];
-
-  candidateOverlay.style.display = 'none';
+  clearCandidate();
   redrawCanvas();
 
   sendCommand('REDRAW_INSTEAD');
@@ -1095,19 +1178,40 @@ function handleSystemState(state) {
     errorBanner.style.display = 'none';
   }
 
+  // An accepted suggestion replaces the drawing once the plan succeeds
+  // (state EXECUTING); in any state other than PLANNING it is dropped.
+  let keepSuggestion = false;
+  if (acceptedPending) {
+    if (state === 'PLANNING') {
+      keepSuggestion = true;
+    } else if (state === 'EXECUTING' || state === 'HOLDING') {
+      adoptAcceptedStroke();
+    } else {
+      acceptedPending = null;
+    }
+  }
+
   submitBtn.disabled = !(state === 'HOVERING' || state === 'HOLDING');
 
   refinementRow.style.display =
     (state === 'HOLDING' || state === 'REFINING') ? 'block' : 'none';
+
+  document.getElementById('llmSubmitBtn').disabled = (state === 'REFINING');
 
   if (state !== 'REFINING') {
     document.getElementById('acceptBtn').style.display = 'none';
     document.getElementById('rejectBtn').style.display = 'none';
     document.getElementById('redrawBtn').style.display = 'none';
 
-    candidatePoints = [];
-    candidateOverlay.style.display = 'none';
-    redrawCandidate();
+    // A rejected suggestion stays visible while the system holds (HOLDING);
+    // in any other state it is cleared.
+    if (keepSuggestion) {
+      redrawCandidate();
+    } else if (!(suggestionRejected && state === 'HOLDING')) {
+      clearCandidate();
+    } else {
+      redrawCandidate();
+    }
   }
 }
 
